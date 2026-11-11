@@ -1,0 +1,41 @@
+ RUN  v5.1.0 <repo>/frontend
+ ✓ __tests__/chartData.test.ts > chart data > rebases the benchmark to the stock's first close 2ms
+ ✓ __tests__/chartData.test.ts > chart data > handles empty input 0ms
+ ✓ __tests__/chartData.test.ts > chart data > computes period return 0ms
+ ✓ __tests__/params.test.ts > screener URL state > parses defaults from an empty query 2ms
+ ✓ __tests__/params.test.ts > screener URL state > round-trips non-default values and drops defaults 1ms
+ ✓ __tests__/params.test.ts > screener URL state > ignores invalid values 0ms
+ ✓ __tests__/params.test.ts > screener URL state > toggles sort direction and resets the page 0ms
+ ✓ __tests__/params.test.ts > screener URL state > builds the API query string 0ms
+ ✓ __tests__/format.test.ts > formatters > formats market caps compactly 2ms
+ ✓ __tests__/format.test.ts > formatters > formats prices 12ms
+ ✓ __tests__/format.test.ts > formatters > formats signed changes in percent and dollars 0ms
+ ✓ __tests__/format.test.ts > formatters > classifies tone 0ms
+ ✓ __tests__/screener-components.test.tsx > Sparkline > draws a path scaled to the box 1ms
+ ✓ __tests__/screener-components.test.tsx > Sparkline > labels trend direction 22ms
+ ✓ __tests__/screener-components.test.tsx > SectorPicker > selects a sector, then shows and selects its industries 20ms
+ ✓ __tests__/screener-components.test.tsx > FilterBar > emits index, cap band and unit changes 10ms
+ ✓ __tests__/screener-components.test.tsx > FilterBar > debounces search 6ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > renders rows with formatted values and index badges 31ms
+ ✓ __tests__/screener-page.test.tsx > Screener page > loads sectors, movers and stocks for the URL state and updates the URL on interaction 111ms
+ ✓ __tests__/screener-page.test.tsx > Screener page > surfaces API errors 23ms
+ ✓ __tests__/screener-page.test.tsx > api client > throws ApiError with the server detail 1ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > shows dollar changes in abs mode 11ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > updates change cells when the mode prop changes on the same table 13ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > requests server sorting from header clicks 10ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > shows an empty state 5ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > renders the header with the live quote and the chart with SPY 88ms
+ ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > colors subsidiary countries, lists counts and revenue by region 95ms
+ ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > explains when revenue by geography is not reported 3ms
+ ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > shows a loading message instead of 'Not reported' during the first fetch 7ms
+ ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > scales fill intensity 0ms
+ ✓ __tests__/phase3.test.tsx > PatentsPanel > shows totals, lists and edits assignee names 35ms
+ ✓ __tests__/phase3.test.tsx > PatentsPanel > surfaces the API-unavailable message with the bulk import hint 9ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > shows the CEO scorecard and saves an override 60ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > lists news with sentiment and filters by tone 28ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > explains how to enable news when no key is configured 21ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > shows a friendly message for unknown tickers 4ms
+ Test Files  7 passed (7)
+      Tests  36 passed (36)
+   Start at  09:06:57
+   Duration  1.48s (environment 54%, setup 20%, import 16%, tests 9%, transform 2%)

@@ -1,0 +1,1617 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xbrl
+  xmlns="http://www.xbrl.org/2003/instance"
+  xmlns:AAPL="http://apple.com/20260224"
+  xmlns:dei="http://xbrl.sec.gov/dei/2025"
+  xmlns:ecd="http://xbrl.sec.gov/ecd/2025"
+  xmlns:iso4217="http://www.xbrl.org/2003/iso4217"
+  xmlns:link="http://www.xbrl.org/2003/linkbase"
+  xmlns:us-gaap="http://fasb.org/us-gaap/2025"
+  xmlns:xbrldi="http://xbrl.org/2006/xbrldi"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
+    <link:schemaRef xlink:href="aapl-20260224.xsd" xlink:type="simple"/>
+    <context id="From2024-09-29to2025-09-27">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2023-10-012024-09-28">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+        </entity>
+        <period>
+            <startDate>2023-10-01</startDate>
+            <endDate>2024-09-28</endDate>
+        </period>
+    </context>
+    <context id="From2022-09-252023-09-30">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+        </entity>
+        <period>
+            <startDate>2022-09-25</startDate>
+            <endDate>2023-09-30</endDate>
+        </period>
+    </context>
+    <context id="From2021-09-262022-09-24">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+        </entity>
+        <period>
+            <startDate>2021-09-26</startDate>
+            <endDate>2022-09-24</endDate>
+        </period>
+    </context>
+    <context id="From2020-09-262021-09-25">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+        </entity>
+        <period>
+            <startDate>2020-09-26</startDate>
+            <endDate>2021-09-25</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_PeoMember_custom_CookMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:CookMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2023-10-012024-09-28_ecd_PeoMember_custom_CookMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:CookMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-10-01</startDate>
+            <endDate>2024-09-28</endDate>
+        </period>
+    </context>
+    <context id="From2022-09-252023-09-30_ecd_PeoMember_custom_CookMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:CookMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-09-25</startDate>
+            <endDate>2023-09-30</endDate>
+        </period>
+    </context>
+    <context id="From2021-09-262022-09-24_ecd_PeoMember_custom_CookMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:CookMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-09-26</startDate>
+            <endDate>2022-09-24</endDate>
+        </period>
+    </context>
+    <context id="From2020-09-262021-09-25_ecd_PeoMember_custom_CookMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:CookMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-09-26</startDate>
+            <endDate>2021-09-25</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_PeoMember_custom_GrantDateFairValueofStockAwardsfromSCTMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:GrantDateFairValueofStockAwardsfromSCTMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_GrantDateFairValueofStockAwardsfromSCTMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:GrantDateFairValueofStockAwardsfromSCTMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_PeoMember_custom_FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_PeoMember_custom_ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_PeoMember_custom_FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_PeoMember_custom_ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_PeoMember_custom_FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:PeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:AdjToCompAxis">AAPL:FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2023-10-012024-09-28_custom_LucaMaestriMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:LucaMaestriMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-10-01</startDate>
+            <endDate>2024-09-28</endDate>
+        </period>
+    </context>
+    <context id="From2022-09-252023-09-30_custom_LucaMaestriMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:LucaMaestriMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-09-25</startDate>
+            <endDate>2023-09-30</endDate>
+        </period>
+    </context>
+    <context id="From2021-09-262022-09-24_custom_LucaMaestriMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:LucaMaestriMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-09-26</startDate>
+            <endDate>2022-09-24</endDate>
+        </period>
+    </context>
+    <context id="From2020-09-262021-09-25_custom_LucaMaestriMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:LucaMaestriMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-09-26</startDate>
+            <endDate>2021-09-25</endDate>
+        </period>
+    </context>
+    <context id="From2023-10-012024-09-28_custom_KateAdamsMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:KateAdamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-10-01</startDate>
+            <endDate>2024-09-28</endDate>
+        </period>
+    </context>
+    <context id="From2022-09-252023-09-30_custom_KateAdamsMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:KateAdamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-09-25</startDate>
+            <endDate>2023-09-30</endDate>
+        </period>
+    </context>
+    <context id="From2021-09-262022-09-24_custom_KateAdamsMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:KateAdamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-09-26</startDate>
+            <endDate>2022-09-24</endDate>
+        </period>
+    </context>
+    <context id="From2020-09-262021-09-25_custom_KateAdamsMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:KateAdamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-09-26</startDate>
+            <endDate>2021-09-25</endDate>
+        </period>
+    </context>
+    <context id="From2023-10-012024-09-28_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:DeirdreOBrienMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-10-01</startDate>
+            <endDate>2024-09-28</endDate>
+        </period>
+    </context>
+    <context id="From2022-09-252023-09-30_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:DeirdreOBrienMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-09-25</startDate>
+            <endDate>2023-09-30</endDate>
+        </period>
+    </context>
+    <context id="From2021-09-262022-09-24_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:DeirdreOBrienMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-09-26</startDate>
+            <endDate>2022-09-24</endDate>
+        </period>
+    </context>
+    <context id="From2020-09-262021-09-25_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:DeirdreOBrienMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-09-26</startDate>
+            <endDate>2021-09-25</endDate>
+        </period>
+    </context>
+    <context id="From2023-10-012024-09-28_ecd_NonPeoNeoMember_custom_JeffWilliamsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:JeffWilliamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2023-10-01</startDate>
+            <endDate>2024-09-28</endDate>
+        </period>
+    </context>
+    <context id="From2022-09-252023-09-30_ecd_NonPeoNeoMember_custom_JeffWilliamsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:JeffWilliamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2022-09-25</startDate>
+            <endDate>2023-09-30</endDate>
+        </period>
+    </context>
+    <context id="From2021-09-262022-09-24_ecd_NonPeoNeoMember_custom_JeffWilliamsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:JeffWilliamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2021-09-26</startDate>
+            <endDate>2022-09-24</endDate>
+        </period>
+    </context>
+    <context id="From2020-09-262021-09-25_ecd_NonPeoNeoMember_custom_JeffWilliamsMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:JeffWilliamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2020-09-26</startDate>
+            <endDate>2021-09-25</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_custom_KevanParekhMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:KevanParekhMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_custom_KateAdamsMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:KateAdamsMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_custom_SabihKhanMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:SabihKhanMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_custom_LucaMaestriMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:LucaMaestriMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:explicitMember dimension="ecd:ExecutiveCategoryAxis">ecd:NonPeoNeoMember</xbrldi:explicitMember>
+                <xbrldi:explicitMember dimension="ecd:IndividualAxis">AAPL:DeirdreOBrienMember</xbrldi:explicitMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_1">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ecd:MeasureAxis">
+                    <ecd:MeasureAxis.domain>1</ecd:MeasureAxis.domain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_2">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ecd:MeasureAxis">
+                    <ecd:MeasureAxis.domain>2</ecd:MeasureAxis.domain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <context id="From2024-09-292025-09-27_3">
+        <entity>
+            <identifier scheme="http://www.sec.gov/CIK">0000320193</identifier>
+            <segment>
+                <xbrldi:typedMember dimension="ecd:MeasureAxis">
+                    <ecd:MeasureAxis.domain>3</ecd:MeasureAxis.domain>
+                </xbrldi:typedMember>
+            </segment>
+        </entity>
+        <period>
+            <startDate>2024-09-29</startDate>
+            <endDate>2025-09-27</endDate>
+        </period>
+    </context>
+    <unit id="USD">
+        <measure>iso4217:USD</measure>
+    </unit>
+    <dei:AmendmentFlag contextRef="From2024-09-29to2025-09-27" id="Fact000003">false</dei:AmendmentFlag>
+    <dei:EntityCentralIndexKey contextRef="From2024-09-29to2025-09-27" id="Fact000004">0000320193</dei:EntityCentralIndexKey>
+    <dei:DocumentType contextRef="From2024-09-29to2025-09-27" id="xdx2ixbrl0010">DEF 14A</dei:DocumentType>
+    <dei:EntityRegistrantName contextRef="From2024-09-29to2025-09-27" id="Fact000011">Apple Inc.</dei:EntityRegistrantName>
+    <ecd:InsiderTrdPoliciesProcAdoptedFlag contextRef="From2024-09-29to2025-09-27" id="Fact000014">true</ecd:InsiderTrdPoliciesProcAdoptedFlag>
+    <ecd:AwardTmgMnpiDiscTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000017">
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0; text-align: justify"&gt;
+&lt;span id="xdx_90F_eecd--AwardTmgMethodTextBlock_c20240929__20250927_zqhGGDAd2tUd"&gt;Equity awards are discretionary and are generally granted to our
+named executive officers on the
+&lt;span id="xdx_90E_eecd--AwardTmgPredtrmndFlag_dbT_c20240929__20250927_zIuKQXwF4Ggg"&gt;
+first day of the applicable fiscal year&lt;/span&gt;. In certain circumstances, including the hiring or promotion
+of an officer, the People and Compensation Committee may approve grants to be effective at other times. Apple does not currently
+grant stock options to its employees. Eligible employees, including our named executive officers, may voluntarily enroll in the
+ESPP and receive an option to purchase shares at a discount using payroll deductions accumulated during the prior six-month period.
+Purchase dates under the ESPP are generally the last trading days in July and January.&lt;/span&gt;
+&lt;span id="xdx_900_eecd--AwardTmgHowMnpiCnsdrdTextBlock_c20240929__20250927_zp5VKcxcjed7"&gt;
+&lt;span id="xdx_907_eecd--AwardTmgMnpiCnsdrdFlag_dbF_c20240929__20250927_z1KpaRChMY62"&gt;The People and Compensation Committee did
+not take material non-public information into account when determining the timing and terms of equity awards in 2025&lt;/span&gt;, and
+&lt;span id="xdx_901_eecd--MnpiDiscTimedForCompValFlag_dbF_c20240929__20250927_zoHxENHEVtra"&gt;Apple
+does not time the disclosure of material non-public information for the purpose of affecting the value of executive compensation.&lt;/span&gt;
+&lt;/span&gt;&lt;/p&gt;</ecd:AwardTmgMnpiDiscTextBlock>
+    <ecd:AwardTmgMethodTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000018">Equity awards are discretionary and are generally granted to our
+named executive officers on the
+&lt;span id="xdx_90E_eecd--AwardTmgPredtrmndFlag_dbT_c20240929__20250927_zIuKQXwF4Ggg"&gt;
+first day of the applicable fiscal year&lt;/span&gt;. In certain circumstances, including the hiring or promotion
+of an officer, the People and Compensation Committee may approve grants to be effective at other times. Apple does not currently
+grant stock options to its employees. Eligible employees, including our named executive officers, may voluntarily enroll in the
+ESPP and receive an option to purchase shares at a discount using payroll deductions accumulated during the prior six-month period.
+Purchase dates under the ESPP are generally the last trading days in July and January.</ecd:AwardTmgMethodTextBlock>
+    <ecd:AwardTmgPredtrmndFlag contextRef="From2024-09-29to2025-09-27" id="Fact000019">true</ecd:AwardTmgPredtrmndFlag>
+    <ecd:AwardTmgHowMnpiCnsdrdTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000020">
+&lt;span id="xdx_907_eecd--AwardTmgMnpiCnsdrdFlag_dbF_c20240929__20250927_z1KpaRChMY62"&gt;The People and Compensation Committee did
+not take material non-public information into account when determining the timing and terms of equity awards in 2025&lt;/span&gt;, and
+&lt;span id="xdx_901_eecd--MnpiDiscTimedForCompValFlag_dbF_c20240929__20250927_zoHxENHEVtra"&gt;Apple
+does not time the disclosure of material non-public information for the purpose of affecting the value of executive compensation.&lt;/span&gt;
+</ecd:AwardTmgHowMnpiCnsdrdTextBlock>
+    <ecd:AwardTmgMnpiCnsdrdFlag contextRef="From2024-09-29to2025-09-27" id="Fact000021">false</ecd:AwardTmgMnpiCnsdrdFlag>
+    <ecd:MnpiDiscTimedForCompValFlag contextRef="From2024-09-29to2025-09-27" id="Fact000022">false</ecd:MnpiDiscTimedForCompValFlag>
+    <ecd:PvpTableTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000024">&lt;div id="xdx_80F_eecd--PvpTableTextBlock_zBbAm4fxN6Ug"&gt;&lt;/div&gt;
+&lt;p style="font: 12pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: left"&gt;&lt;b&gt;Pay versus Performance&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;The information below is provided pursuant
+to the SEC pay versus performance disclosure requirements set forth in Item 402(v) of SEC Regulation S-K (the &#x201c;Pay Versus
+Performance Rule&#x201d;), which requires companies to disclose certain information about the relationship between performance
+and the compensation of named executive officers.&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" id="xdx_300_zrz5p9zi6h5e" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto" summary="xdx: Disclosure - Pay vs Performance Disclosure"&gt;
+&lt;tr style="font: 10pt/14pt Arial, Helvetica, Sans-Serif; vertical-align: bottom"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_48E_eecd--PeoTotalCompAmt_z2Euq3c23U0g" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_48C_eecd--PeoActuallyPaidCompAmt_zCm4tfWnOpmh" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_48A_eecd--NonPeoNeoAvgTotalCompAmt_zlTWgniph8i6" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_481_eecd--NonPeoNeoAvgCompActuallyPaidAmt_z6nI8liNNjLi" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_482_eecd--TotalShareholderRtnAmt_pp2d_zHgh0Fbu5wX7" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_487_eecd--PeerGroupTotalShareholderRtnAmt_pp2d_zc4WjluQ3uzi" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_480_eus-gaap--NetIncomeLoss_pdn6_z1PgALfHGr9j" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;
+    &lt;td id="xdx_487_eecd--CoSelectedMeasureAmt_pdn6_uUSD_zVBipHe6SxV" style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&#160;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td colspan="3" style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Value of Initial Fixed $100&lt;/b&gt;&lt;br/&gt; &lt;b&gt;Investment Based On:&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom"&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 8%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Fiscal&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Year(a)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 12%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Summary&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Compensation&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Table Total for&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Mr. Cook($)(b)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 12%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Compensation&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Actually Paid to&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Mr. Cook($)(c)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 12%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Average Summary&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Compensation&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Table Total for&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Other NEOs($)(d)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 12%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Average&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Compensation&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Actually Paid to&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Other NEOs($)(e)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 10%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Total&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Shareholder&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Return($)(f)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 10%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Peer Group&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Total&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Shareholder&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Return($)(g)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; white-space: nowrap; margin-left: auto; text-align: center; width: 8%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Net&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Income&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($M)(h)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; width: 1%; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; padding: 2pt 3pt; white-space: nowrap; margin-left: auto; text-align: center; width: 8%; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;b&gt;Net&#160;Sales&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($M)(i)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_41C_20240929__20250927_z65DV4Wcw4H2" style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom"&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;2025&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;74,294,811&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;108,423,733&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;23,812,358&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;34,125,743&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;233.88&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;279.51&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;112,010&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;416,161&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_419_20231001__20240928_zSrYoITTmLik" style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; background-color: rgb(235,235,236)"&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;2024&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;74,609,802&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;168,980,568&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;27,178,896&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;58,633,525&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;207.59&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;206.32&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;93,736&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;391,035&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_418_20220925__20230930_zNm04wa9eMU5" style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; background-color: White"&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;2023&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;63,209,845&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;106,643,588&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;26,943,956&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;41,980,664&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;155.24&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;132.03&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;96,955&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;383,285&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_414_20210926__20220924_zSum4FyhAI5c" style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; background-color: rgb(235,235,236)"&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;2022&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;99,420,097&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;128,833,021&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;27,150,293&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;41,564,946&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;135.59&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;92.83&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;99,803&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;394,328&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr id="xdx_418_20200926__20210925_zg5PFr4iwHsb" style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: bottom; background-color: White"&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;2021&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;98,734,394&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;311,845,801&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;26,987,631&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;75,307,922&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;131.69&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;136.94&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;94,680&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;365,817&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;div id="xdx_981_eecd--NamedExecutiveOfficersFnTextBlock_c20240929__20250927_gBFNEOFTB-KJUB_zxRpGyuluBD"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-right: 8pt; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(1)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 99%; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The dollar
+    amounts in column (b) represent the compensation reported for &lt;span id="xdx_904_eecd--PeoName_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zZX5PYT0lUj5"&gt;&lt;span id="xdx_904_eecd--PeoName_c20231001__20240928__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zuxrWXXmPPX8"&gt;&lt;span id="xdx_904_eecd--PeoName_c20220925__20230930__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zsNX4oZe0mre"&gt;&lt;span id="xdx_904_eecd--PeoName_c20210926__20220924__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zzH8bf4o9Vbb"&gt;&lt;span id="xdx_904_eecd--PeoName_c20200926__20210925__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zRXX26rNySEk"&gt;Mr. Cook&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; for each corresponding year in the &#x201c;Total&#x201d;
+    column of the Summary Compensation Table for the relevant years.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;div id="xdx_986_eecd--AdjToPeoCompFnTextBlock_c20240929__20250927_zp52cokaydzf"&gt;&lt;div id="xdx_98B_eecd--AdjToNonPeoNeoCompFnTextBlock_c20240929__20250927_zq5g6htk032a"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-right: 8pt; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(2)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The dollar amounts
+    in columns (c) and (e) represent the amount of &#x201c;Compensation Actually Paid&#x201d; (otherwise known as CAP), as computed
+    in accordance with SEC rules. Compensation Actually Paid does not represent cash or equity value realized or paid to our named
+    executive officers (&#x201c;NEOs&#x201d;) but rather is a value calculated under applicable SEC rules. The following table details
+    how Compensation Actually Paid is determined:&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+&lt;table cellpadding="0" cellspacing="0" style="margin-left: auto; width: 100%; border-collapse: collapse; font-size: 7.5pt; margin-right: auto"&gt;
+&lt;tr&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td colspan="3" style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;2025&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td style="white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 87%; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 5%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Mr.
+    Cook&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 5%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Average
+    for&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Other NEO&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Summary
+    Compensation Table (&#x201c;SCT&#x201d;) Total&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--PeoTotalCompAmt_c20240929__20250927_ztC7MHRMmAI"&gt;74,294,811&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_901_eecd--NonPeoNeoAvgTotalCompAmt_c20240929__20250927_z0qYV7fo0RQk"&gt;23,812,358&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Grant
+    Date Fair Value of Stock Awards from SCT&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="white-space: nowrap; border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_909_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--GrantDateFairValueofStockAwardsfromSCTMember_z2ATpsAq0Uwa"&gt;(57,535,293)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="white-space: nowrap; border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--GrantDateFairValueofStockAwardsfromSCTMember_zI5tqS0bCWE8"&gt;(19,493,093)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value of Equity Awards Granted in the Year and Unvested as of Year End&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_906_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember_zA4aEExvHF37"&gt;68,598,728&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember_zKaoqGjFOGb7"&gt;22,569,203&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Change
+    in Fair Value from Prior Year End of Outstanding and Unvested Awards Granted in Prior Years&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_90A_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember_zOrLJYvc5cW3"&gt;24,715,497&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember_zlFw6fSoeMXk"&gt;7,529,766&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value of Stock Awards Granted in Fiscal Year that Vested in Fiscal Year&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_906_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember_zd50rhQ6TZUl"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember_zzTVoUU69Gzi"&gt;166,813&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Change
+    in Fair Value from Prior Year End of Vested&lt;sup&gt;(a) &lt;/sup&gt;Awards Granted in Prior Years&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember_zVg0km2nMsNi"&gt;(1,650,010)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_901_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember_zjeBQzuLGK5b"&gt;(459,305)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value at Vesting Date of Vested Awards Granted in Current Year&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_903_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember_z7Qz15qhA2zc"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_90D_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember_zKR90gbvUgvh"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Compensation
+    Actually Paid&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;&lt;span id="xdx_90B_eecd--PeoActuallyPaidCompAmt_c20240929__20250927_zy7cVfhKeGMa"&gt;108,423,733&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;&lt;span id="xdx_900_eecd--NonPeoNeoAvgCompActuallyPaidAmt_c20240929__20250927_zIN1gh5GZcoj"&gt;34,125,743&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="margin-left: auto; width: 1%; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-top: 4pt; padding-right: 8pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(a)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 98%; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The fair values of the RSUs included in the compensation actually paid to our CEO and the average compensation actually paid
+to our other NEOs are calculated at the required measurement dates, consistent with the approach used to value the awards
+at the grant date as described above in footnote 1 to the &#x201c;Summary Compensation Table &#x2013; 2025, 2024, and 2023&#x201d;
+and footnote 1 to the &#x201c;Grants of Plan-Based Awards &#x2013; 2025&#x201d; table, respectively. Any changes to the time-based
+RSU and performance-based RSU grant date fair values (for 2025 grants) and from prior year-end values (for 2021-2024 grants)
+are based on an updated stock price valuation on the measurement dates and for the performance-based RSUs, include updated
+input variables for the Monte-Carlo model to estimate the probability of satisfying the performance objectives established
+for the applicable award.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div id="xdx_C0C_gBFNEOFTB-KJUB_zjrngzjNoQwj"&gt;&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-right: 8pt; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(3)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 99%; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The
+    dollar amounts in column (d) represent the average amounts of compensation reported for the other NEOs for each corresponding
+    year in the &#x201c;Total&#x201d; column of the Summary Compensation Table for the relevant fiscal year. From 2021 to 2024,
+    the other NEOs were &lt;span id="xdx_905_eecd--PeoName_c20231001__20240928__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zHfLNeSOmvy8"&gt;&lt;span id="xdx_905_eecd--PeoName_c20220925__20230930__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zK7QMvbzIfWj"&gt;&lt;span id="xdx_905_eecd--PeoName_c20210926__20220924__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zeYpGbwtBGOa"&gt;&lt;span id="xdx_905_eecd--PeoName_c20200926__20210925__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zufg58JZsoal"&gt;Luca Maestri&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, &lt;span id="xdx_90C_eecd--PeoName_c20231001__20240928__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z59GC63qRIv"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20220925__20230930__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zk0y051JoNr"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20210926__20220924__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zjUuir9Jiqw1"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20200926__20210925__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_znO8ch5u5fa4"&gt;Kate Adams&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, &lt;span id="xdx_902_eecd--PeoName_c20231001__20240928__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z1WtDm4eXOe6"&gt;&lt;span id="xdx_902_eecd--PeoName_c20220925__20230930__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zyIC0vqQTeT9"&gt;&lt;span id="xdx_902_eecd--PeoName_c20210926__20220924__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zgaQGxwYXQ1j"&gt;&lt;span id="xdx_902_eecd--PeoName_c20200926__20210925__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z6y4IFrGrDT1"&gt;Deirdre O&#x2019;Brien&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, and &lt;span id="xdx_90C_eecd--PeoName_c20231001__20240928__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_zmYrq0y1Joai"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20220925__20230930__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_zpaBKLXu0Vpe"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20210926__20220924__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_zw4sc580lki2"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20200926__20210925__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_z8RjDwDtAGO5"&gt;Jeff Williams&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;. For 2025, the other NEOs were &lt;span id="xdx_909_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--KevanParekhMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z0hVZWS0jkL6"&gt;Kevan
+    Parekh&lt;/span&gt;, &lt;span id="xdx_90F_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zWgnQM6kppti"&gt;Kate Adams&lt;/span&gt;, &lt;span id="xdx_909_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--SabihKhanMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zrIrHgUqw7Rd"&gt;Sabih Khan&lt;/span&gt;, &lt;span id="xdx_906_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zDTVwprolRJb"&gt;Luca Maestri&lt;/span&gt;, and &lt;span id="xdx_90B_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zF9NRru9IpP9"&gt;Deirdre O&#x2019;Brien&lt;/span&gt;.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/div&gt;&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 7.5pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 4pt; padding-right: 8pt; margin-right: auto; width: 1%"&gt;&lt;span style="font-size: 7.5pt"&gt;(4)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;Apple&#x2019;s
+    TSR in column (f) was determined based on the value of an initial fixed investment of $100, as of September 26, 2020, including
+    the reinvestment of any dividends.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;div id="xdx_985_eecd--PeerGroupIssuersFnTextBlock_c20240929__20250927_z7guaPdACQv9"&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 7.5pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 4pt; padding-right: 8pt; margin-right: auto; width: 1%"&gt;&lt;span style="font-size: 7.5pt"&gt;(5)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The
+    peer group used to calculate Peer Group TSR in column (g) is our 2025 primary peer group as disclosed in the Compensation
+    Discussion and Analysis section of this Proxy Statement. TSR is based on the value of an initial fixed investment of $100
+    as of September 26, 2020 and is weighted for the market capitalization of each peer company in each applicable year. If the
+    primary peer group from the 2025 Proxy Statement were used, the Peer Group TSR would be $139.22, $97.30, $131.99, $198.69,
+    and $266.58 for 2021, 2022, 2023, 2024, and 2025 respectively.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 7.5pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 4pt; padding-right: 8pt; margin-right: auto; width: 1%"&gt;&lt;span style="font-size: 7.5pt"&gt;(6)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;In
+    addition to Relative TSR and Operating Income, &lt;span id="xdx_903_eecd--CoSelectedMeasureName_c20240929__20250927_zonKevE2xos8"&gt;Net Sales&lt;/span&gt; in column (i) represents the most important financial performance
+    measure used to link Compensation Actually Paid to Company performance (the &#x201c;Company Selected Measure&#x201d; as defined
+    in the Pay Versus Performance rules).&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</ecd:PvpTableTextBlock>
+    <ecd:PeoTotalCompAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000025"
+      unitRef="USD">74294811</ecd:PeoTotalCompAmt>
+    <ecd:PeoActuallyPaidCompAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000026"
+      unitRef="USD">108423733</ecd:PeoActuallyPaidCompAmt>
+    <ecd:NonPeoNeoAvgTotalCompAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000027"
+      unitRef="USD">23812358</ecd:NonPeoNeoAvgTotalCompAmt>
+    <ecd:NonPeoNeoAvgCompActuallyPaidAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000028"
+      unitRef="USD">34125743</ecd:NonPeoNeoAvgCompActuallyPaidAmt>
+    <ecd:TotalShareholderRtnAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="2"
+      id="Fact000029"
+      unitRef="USD">233.88</ecd:TotalShareholderRtnAmt>
+    <ecd:PeerGroupTotalShareholderRtnAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="2"
+      id="Fact000030"
+      unitRef="USD">279.51</ecd:PeerGroupTotalShareholderRtnAmt>
+    <us-gaap:NetIncomeLoss
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000031"
+      unitRef="USD">112010000000</us-gaap:NetIncomeLoss>
+    <ecd:CoSelectedMeasureAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="INF"
+      id="Fact000032"
+      unitRef="USD">416161000000</ecd:CoSelectedMeasureAmt>
+    <ecd:PeoTotalCompAmt
+      contextRef="From2023-10-012024-09-28"
+      decimals="0"
+      id="Fact000033"
+      unitRef="USD">74609802</ecd:PeoTotalCompAmt>
+    <ecd:PeoActuallyPaidCompAmt
+      contextRef="From2023-10-012024-09-28"
+      decimals="0"
+      id="Fact000034"
+      unitRef="USD">168980568</ecd:PeoActuallyPaidCompAmt>
+    <ecd:NonPeoNeoAvgTotalCompAmt
+      contextRef="From2023-10-012024-09-28"
+      decimals="0"
+      id="Fact000035"
+      unitRef="USD">27178896</ecd:NonPeoNeoAvgTotalCompAmt>
+    <ecd:NonPeoNeoAvgCompActuallyPaidAmt
+      contextRef="From2023-10-012024-09-28"
+      decimals="0"
+      id="Fact000036"
+      unitRef="USD">58633525</ecd:NonPeoNeoAvgCompActuallyPaidAmt>
+    <ecd:TotalShareholderRtnAmt
+      contextRef="From2023-10-012024-09-28"
+      decimals="2"
+      id="Fact000037"
+      unitRef="USD">207.59</ecd:TotalShareholderRtnAmt>
+    <ecd:PeerGroupTotalShareholderRtnAmt
+      contextRef="From2023-10-012024-09-28"
+      decimals="2"
+      id="Fact000038"
+      unitRef="USD">206.32</ecd:PeerGroupTotalShareholderRtnAmt>
+    <us-gaap:NetIncomeLoss
+      contextRef="From2023-10-012024-09-28"
+      decimals="0"
+      id="Fact000039"
+      unitRef="USD">93736000000</us-gaap:NetIncomeLoss>
+    <ecd:CoSelectedMeasureAmt
+      contextRef="From2023-10-012024-09-28"
+      decimals="INF"
+      id="Fact000040"
+      unitRef="USD">391035000000</ecd:CoSelectedMeasureAmt>
+    <ecd:PeoTotalCompAmt
+      contextRef="From2022-09-252023-09-30"
+      decimals="0"
+      id="Fact000041"
+      unitRef="USD">63209845</ecd:PeoTotalCompAmt>
+    <ecd:PeoActuallyPaidCompAmt
+      contextRef="From2022-09-252023-09-30"
+      decimals="0"
+      id="Fact000042"
+      unitRef="USD">106643588</ecd:PeoActuallyPaidCompAmt>
+    <ecd:NonPeoNeoAvgTotalCompAmt
+      contextRef="From2022-09-252023-09-30"
+      decimals="0"
+      id="Fact000043"
+      unitRef="USD">26943956</ecd:NonPeoNeoAvgTotalCompAmt>
+    <ecd:NonPeoNeoAvgCompActuallyPaidAmt
+      contextRef="From2022-09-252023-09-30"
+      decimals="0"
+      id="Fact000044"
+      unitRef="USD">41980664</ecd:NonPeoNeoAvgCompActuallyPaidAmt>
+    <ecd:TotalShareholderRtnAmt
+      contextRef="From2022-09-252023-09-30"
+      decimals="2"
+      id="Fact000045"
+      unitRef="USD">155.24</ecd:TotalShareholderRtnAmt>
+    <ecd:PeerGroupTotalShareholderRtnAmt
+      contextRef="From2022-09-252023-09-30"
+      decimals="2"
+      id="Fact000046"
+      unitRef="USD">132.03</ecd:PeerGroupTotalShareholderRtnAmt>
+    <us-gaap:NetIncomeLoss
+      contextRef="From2022-09-252023-09-30"
+      decimals="0"
+      id="Fact000047"
+      unitRef="USD">96955000000</us-gaap:NetIncomeLoss>
+    <ecd:CoSelectedMeasureAmt
+      contextRef="From2022-09-252023-09-30"
+      decimals="INF"
+      id="Fact000048"
+      unitRef="USD">383285000000</ecd:CoSelectedMeasureAmt>
+    <ecd:PeoTotalCompAmt
+      contextRef="From2021-09-262022-09-24"
+      decimals="0"
+      id="Fact000049"
+      unitRef="USD">99420097</ecd:PeoTotalCompAmt>
+    <ecd:PeoActuallyPaidCompAmt
+      contextRef="From2021-09-262022-09-24"
+      decimals="0"
+      id="Fact000050"
+      unitRef="USD">128833021</ecd:PeoActuallyPaidCompAmt>
+    <ecd:NonPeoNeoAvgTotalCompAmt
+      contextRef="From2021-09-262022-09-24"
+      decimals="0"
+      id="Fact000051"
+      unitRef="USD">27150293</ecd:NonPeoNeoAvgTotalCompAmt>
+    <ecd:NonPeoNeoAvgCompActuallyPaidAmt
+      contextRef="From2021-09-262022-09-24"
+      decimals="0"
+      id="Fact000052"
+      unitRef="USD">41564946</ecd:NonPeoNeoAvgCompActuallyPaidAmt>
+    <ecd:TotalShareholderRtnAmt
+      contextRef="From2021-09-262022-09-24"
+      decimals="2"
+      id="Fact000053"
+      unitRef="USD">135.59</ecd:TotalShareholderRtnAmt>
+    <ecd:PeerGroupTotalShareholderRtnAmt
+      contextRef="From2021-09-262022-09-24"
+      decimals="2"
+      id="Fact000054"
+      unitRef="USD">92.83</ecd:PeerGroupTotalShareholderRtnAmt>
+    <us-gaap:NetIncomeLoss
+      contextRef="From2021-09-262022-09-24"
+      decimals="0"
+      id="Fact000055"
+      unitRef="USD">99803000000</us-gaap:NetIncomeLoss>
+    <ecd:CoSelectedMeasureAmt
+      contextRef="From2021-09-262022-09-24"
+      decimals="INF"
+      id="Fact000056"
+      unitRef="USD">394328000000</ecd:CoSelectedMeasureAmt>
+    <ecd:PeoTotalCompAmt
+      contextRef="From2020-09-262021-09-25"
+      decimals="0"
+      id="Fact000057"
+      unitRef="USD">98734394</ecd:PeoTotalCompAmt>
+    <ecd:PeoActuallyPaidCompAmt
+      contextRef="From2020-09-262021-09-25"
+      decimals="0"
+      id="Fact000058"
+      unitRef="USD">311845801</ecd:PeoActuallyPaidCompAmt>
+    <ecd:NonPeoNeoAvgTotalCompAmt
+      contextRef="From2020-09-262021-09-25"
+      decimals="0"
+      id="Fact000059"
+      unitRef="USD">26987631</ecd:NonPeoNeoAvgTotalCompAmt>
+    <ecd:NonPeoNeoAvgCompActuallyPaidAmt
+      contextRef="From2020-09-262021-09-25"
+      decimals="0"
+      id="Fact000060"
+      unitRef="USD">75307922</ecd:NonPeoNeoAvgCompActuallyPaidAmt>
+    <ecd:TotalShareholderRtnAmt
+      contextRef="From2020-09-262021-09-25"
+      decimals="2"
+      id="Fact000061"
+      unitRef="USD">131.69</ecd:TotalShareholderRtnAmt>
+    <ecd:PeerGroupTotalShareholderRtnAmt
+      contextRef="From2020-09-262021-09-25"
+      decimals="2"
+      id="Fact000062"
+      unitRef="USD">136.94</ecd:PeerGroupTotalShareholderRtnAmt>
+    <us-gaap:NetIncomeLoss
+      contextRef="From2020-09-262021-09-25"
+      decimals="0"
+      id="Fact000063"
+      unitRef="USD">94680000000</us-gaap:NetIncomeLoss>
+    <ecd:CoSelectedMeasureAmt
+      contextRef="From2020-09-262021-09-25"
+      decimals="INF"
+      id="Fact000064"
+      unitRef="USD">365817000000</ecd:CoSelectedMeasureAmt>
+    <ecd:NamedExecutiveOfficersFnTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000066">
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-right: 8pt; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(1)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 99%; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The dollar
+    amounts in column (b) represent the compensation reported for &lt;span id="xdx_904_eecd--PeoName_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zZX5PYT0lUj5"&gt;&lt;span id="xdx_904_eecd--PeoName_c20231001__20240928__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zuxrWXXmPPX8"&gt;&lt;span id="xdx_904_eecd--PeoName_c20220925__20230930__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zsNX4oZe0mre"&gt;&lt;span id="xdx_904_eecd--PeoName_c20210926__20220924__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zzH8bf4o9Vbb"&gt;&lt;span id="xdx_904_eecd--PeoName_c20200926__20210925__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--IndividualAxis__custom--CookMember_zRXX26rNySEk"&gt;Mr. Cook&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; for each corresponding year in the &#x201c;Total&#x201d;
+    column of the Summary Compensation Table for the relevant years.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-right: 8pt; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(3)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 99%; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The
+    dollar amounts in column (d) represent the average amounts of compensation reported for the other NEOs for each corresponding
+    year in the &#x201c;Total&#x201d; column of the Summary Compensation Table for the relevant fiscal year. From 2021 to 2024,
+    the other NEOs were &lt;span id="xdx_905_eecd--PeoName_c20231001__20240928__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zHfLNeSOmvy8"&gt;&lt;span id="xdx_905_eecd--PeoName_c20220925__20230930__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zK7QMvbzIfWj"&gt;&lt;span id="xdx_905_eecd--PeoName_c20210926__20220924__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zeYpGbwtBGOa"&gt;&lt;span id="xdx_905_eecd--PeoName_c20200926__20210925__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zufg58JZsoal"&gt;Luca Maestri&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, &lt;span id="xdx_90C_eecd--PeoName_c20231001__20240928__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z59GC63qRIv"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20220925__20230930__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zk0y051JoNr"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20210926__20220924__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zjUuir9Jiqw1"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20200926__20210925__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_znO8ch5u5fa4"&gt;Kate Adams&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, &lt;span id="xdx_902_eecd--PeoName_c20231001__20240928__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z1WtDm4eXOe6"&gt;&lt;span id="xdx_902_eecd--PeoName_c20220925__20230930__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zyIC0vqQTeT9"&gt;&lt;span id="xdx_902_eecd--PeoName_c20210926__20220924__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zgaQGxwYXQ1j"&gt;&lt;span id="xdx_902_eecd--PeoName_c20200926__20210925__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z6y4IFrGrDT1"&gt;Deirdre O&#x2019;Brien&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;, and &lt;span id="xdx_90C_eecd--PeoName_c20231001__20240928__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_zmYrq0y1Joai"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20220925__20230930__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_zpaBKLXu0Vpe"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20210926__20220924__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_zw4sc580lki2"&gt;&lt;span id="xdx_90C_eecd--PeoName_c20200926__20210925__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--IndividualAxis__custom--JeffWilliamsMember_z8RjDwDtAGO5"&gt;Jeff Williams&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;. For 2025, the other NEOs were &lt;span id="xdx_909_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--KevanParekhMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_z0hVZWS0jkL6"&gt;Kevan
+    Parekh&lt;/span&gt;, &lt;span id="xdx_90F_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--KateAdamsMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zWgnQM6kppti"&gt;Kate Adams&lt;/span&gt;, &lt;span id="xdx_909_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--SabihKhanMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zrIrHgUqw7Rd"&gt;Sabih Khan&lt;/span&gt;, &lt;span id="xdx_906_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--LucaMaestriMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zDTVwprolRJb"&gt;Luca Maestri&lt;/span&gt;, and &lt;span id="xdx_90B_eecd--PeoName_c20240929__20250927__ecd--IndividualAxis__custom--DeirdreOBrienMember__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember_zF9NRru9IpP9"&gt;Deirdre O&#x2019;Brien&lt;/span&gt;.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+</ecd:NamedExecutiveOfficersFnTextBlock>
+    <ecd:PeoName
+      contextRef="From2024-09-292025-09-27_ecd_PeoMember_custom_CookMember"
+      id="Fact000067">Mr. Cook</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2023-10-012024-09-28_ecd_PeoMember_custom_CookMember"
+      id="Fact000068">Mr. Cook</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2022-09-252023-09-30_ecd_PeoMember_custom_CookMember"
+      id="Fact000069">Mr. Cook</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2021-09-262022-09-24_ecd_PeoMember_custom_CookMember"
+      id="Fact000070">Mr. Cook</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2020-09-262021-09-25_ecd_PeoMember_custom_CookMember"
+      id="Fact000071">Mr. Cook</ecd:PeoName>
+    <ecd:AdjToPeoCompFnTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000072">
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-right: 8pt; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(2)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The dollar amounts
+    in columns (c) and (e) represent the amount of &#x201c;Compensation Actually Paid&#x201d; (otherwise known as CAP), as computed
+    in accordance with SEC rules. Compensation Actually Paid does not represent cash or equity value realized or paid to our named
+    executive officers (&#x201c;NEOs&#x201d;) but rather is a value calculated under applicable SEC rules. The following table details
+    how Compensation Actually Paid is determined:&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+&lt;table cellpadding="0" cellspacing="0" style="margin-left: auto; width: 100%; border-collapse: collapse; font-size: 7.5pt; margin-right: auto"&gt;
+&lt;tr&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td colspan="3" style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;2025&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td style="white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 87%; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 5%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Mr.
+    Cook&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 5%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Average
+    for&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Other NEO&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Summary
+    Compensation Table (&#x201c;SCT&#x201d;) Total&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--PeoTotalCompAmt_c20240929__20250927_ztC7MHRMmAI"&gt;74,294,811&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_901_eecd--NonPeoNeoAvgTotalCompAmt_c20240929__20250927_z0qYV7fo0RQk"&gt;23,812,358&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Grant
+    Date Fair Value of Stock Awards from SCT&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="white-space: nowrap; border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_909_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--GrantDateFairValueofStockAwardsfromSCTMember_z2ATpsAq0Uwa"&gt;(57,535,293)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="white-space: nowrap; border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--GrantDateFairValueofStockAwardsfromSCTMember_zI5tqS0bCWE8"&gt;(19,493,093)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value of Equity Awards Granted in the Year and Unvested as of Year End&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_906_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember_zA4aEExvHF37"&gt;68,598,728&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember_zKaoqGjFOGb7"&gt;22,569,203&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Change
+    in Fair Value from Prior Year End of Outstanding and Unvested Awards Granted in Prior Years&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_90A_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember_zOrLJYvc5cW3"&gt;24,715,497&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember_zlFw6fSoeMXk"&gt;7,529,766&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value of Stock Awards Granted in Fiscal Year that Vested in Fiscal Year&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_906_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember_zd50rhQ6TZUl"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember_zzTVoUU69Gzi"&gt;166,813&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Change
+    in Fair Value from Prior Year End of Vested&lt;sup&gt;(a) &lt;/sup&gt;Awards Granted in Prior Years&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember_zVg0km2nMsNi"&gt;(1,650,010)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_901_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember_zjeBQzuLGK5b"&gt;(459,305)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value at Vesting Date of Vested Awards Granted in Current Year&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_903_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember_z7Qz15qhA2zc"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_90D_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember_zKR90gbvUgvh"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Compensation
+    Actually Paid&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;&lt;span id="xdx_90B_eecd--PeoActuallyPaidCompAmt_c20240929__20250927_zy7cVfhKeGMa"&gt;108,423,733&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;&lt;span id="xdx_900_eecd--NonPeoNeoAvgCompActuallyPaidAmt_c20240929__20250927_zIN1gh5GZcoj"&gt;34,125,743&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="margin-left: auto; width: 1%; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-top: 4pt; padding-right: 8pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(a)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 98%; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The fair values of the RSUs included in the compensation actually paid to our CEO and the average compensation actually paid
+to our other NEOs are calculated at the required measurement dates, consistent with the approach used to value the awards
+at the grant date as described above in footnote 1 to the &#x201c;Summary Compensation Table &#x2013; 2025, 2024, and 2023&#x201d;
+and footnote 1 to the &#x201c;Grants of Plan-Based Awards &#x2013; 2025&#x201d; table, respectively. Any changes to the time-based
+RSU and performance-based RSU grant date fair values (for 2025 grants) and from prior year-end values (for 2021-2024 grants)
+are based on an updated stock price valuation on the measurement dates and for the performance-based RSUs, include updated
+input variables for the Monte-Carlo model to estimate the probability of satisfying the performance objectives established
+for the applicable award.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</ecd:AdjToPeoCompFnTextBlock>
+    <ecd:AdjToNonPeoNeoCompFnTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000073">
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-right: 8pt; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(2)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The dollar amounts
+    in columns (c) and (e) represent the amount of &#x201c;Compensation Actually Paid&#x201d; (otherwise known as CAP), as computed
+    in accordance with SEC rules. Compensation Actually Paid does not represent cash or equity value realized or paid to our named
+    executive officers (&#x201c;NEOs&#x201d;) but rather is a value calculated under applicable SEC rules. The following table details
+    how Compensation Actually Paid is determined:&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+&lt;table cellpadding="0" cellspacing="0" style="margin-left: auto; width: 100%; border-collapse: collapse; font-size: 7.5pt; margin-right: auto"&gt;
+&lt;tr&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td colspan="3" style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;2025&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td style="white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 87%; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 5%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Mr.
+    Cook&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: top; width: 1%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; white-space: nowrap; margin-left: auto; vertical-align: bottom; width: 5%; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Average
+    for&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;Other NEO&lt;/b&gt;&lt;br/&gt;
+    &lt;b&gt;($)&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Summary
+    Compensation Table (&#x201c;SCT&#x201d;) Total&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--PeoTotalCompAmt_c20240929__20250927_ztC7MHRMmAI"&gt;74,294,811&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_901_eecd--NonPeoNeoAvgTotalCompAmt_c20240929__20250927_z0qYV7fo0RQk"&gt;23,812,358&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Grant
+    Date Fair Value of Stock Awards from SCT&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="white-space: nowrap; border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_909_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--GrantDateFairValueofStockAwardsfromSCTMember_z2ATpsAq0Uwa"&gt;(57,535,293)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="white-space: nowrap; border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--GrantDateFairValueofStockAwardsfromSCTMember_zI5tqS0bCWE8"&gt;(19,493,093)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value of Equity Awards Granted in the Year and Unvested as of Year End&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_906_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember_zA4aEExvHF37"&gt;68,598,728&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember_zKaoqGjFOGb7"&gt;22,569,203&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Change
+    in Fair Value from Prior Year End of Outstanding and Unvested Awards Granted in Prior Years&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_90A_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember_zOrLJYvc5cW3"&gt;24,715,497&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember_zlFw6fSoeMXk"&gt;7,529,766&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value of Stock Awards Granted in Fiscal Year that Vested in Fiscal Year&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_906_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember_zd50rhQ6TZUl"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_907_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember_zzTVoUU69Gzi"&gt;166,813&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Change
+    in Fair Value from Prior Year End of Vested&lt;sup&gt;(a) &lt;/sup&gt;Awards Granted in Prior Years&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_902_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember_zVg0km2nMsNi"&gt;(1,650,010)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_901_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember_zjeBQzuLGK5b"&gt;(459,305)&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: White"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;Fair
+    Value at Vesting Date of Vested Awards Granted in Current Year&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_903_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--PeoMember__ecd--AdjToCompAxis__custom--FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember_z7Qz15qhA2zc"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;span id="xdx_90D_eecd--AdjToCompAmt_c20240929__20250927__ecd--ExecutiveCategoryAxis__ecd--NonPeoNeoMember__ecd--AdjToCompAxis__custom--FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember_zKR90gbvUgvh"&gt;0&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="background-color: rgb(235,235,236)"&gt;
+    &lt;td style="margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; padding-right: 8pt; background-color: White; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;Compensation
+    Actually Paid&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: center; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;&lt;span id="xdx_90B_eecd--PeoActuallyPaidCompAmt_c20240929__20250927_zy7cVfhKeGMa"&gt;108,423,733&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: top; text-align: right; padding-top: 2pt; padding-bottom: 2pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; margin-left: auto; vertical-align: bottom; text-align: right; padding-top: 2pt; padding-bottom: 2pt; padding-right: 3pt; margin-right: auto"&gt;&lt;span style="font: 7.5pt Arial, Helvetica, Sans-Serif"&gt;&lt;b&gt;&lt;span id="xdx_900_eecd--NonPeoNeoAvgCompActuallyPaidAmt_c20240929__20250927_zIN1gh5GZcoj"&gt;34,125,743&lt;/span&gt;&lt;/b&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="margin-left: auto; width: 1%; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 1%; padding-top: 4pt; padding-right: 8pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;(a)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 10pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 98%; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The fair values of the RSUs included in the compensation actually paid to our CEO and the average compensation actually paid
+to our other NEOs are calculated at the required measurement dates, consistent with the approach used to value the awards
+at the grant date as described above in footnote 1 to the &#x201c;Summary Compensation Table &#x2013; 2025, 2024, and 2023&#x201d;
+and footnote 1 to the &#x201c;Grants of Plan-Based Awards &#x2013; 2025&#x201d; table, respectively. Any changes to the time-based
+RSU and performance-based RSU grant date fair values (for 2025 grants) and from prior year-end values (for 2021-2024 grants)
+are based on an updated stock price valuation on the measurement dates and for the performance-based RSUs, include updated
+input variables for the Monte-Carlo model to estimate the probability of satisfying the performance objectives established
+for the applicable award.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</ecd:AdjToNonPeoNeoCompFnTextBlock>
+    <ecd:PeoTotalCompAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000074"
+      unitRef="USD">74294811</ecd:PeoTotalCompAmt>
+    <ecd:NonPeoNeoAvgTotalCompAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000075"
+      unitRef="USD">23812358</ecd:NonPeoNeoAvgTotalCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_PeoMember_custom_GrantDateFairValueofStockAwardsfromSCTMember"
+      decimals="0"
+      id="Fact000076"
+      unitRef="USD">-57535293</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_GrantDateFairValueofStockAwardsfromSCTMember"
+      decimals="0"
+      id="Fact000077"
+      unitRef="USD">-19493093</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_PeoMember_custom_FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember"
+      decimals="0"
+      id="Fact000078"
+      unitRef="USD">68598728</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_FairValueofEquityAwardsGrantedintheYearandUnvestedasofYearEndMember"
+      decimals="0"
+      id="Fact000079"
+      unitRef="USD">22569203</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_PeoMember_custom_ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember"
+      decimals="0"
+      id="Fact000080"
+      unitRef="USD">24715497</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_ChangeinFairValuefromPriorYearEndofOutstandingandUnvestedAwardsGrantedinPriorYearsMember"
+      decimals="0"
+      id="Fact000081"
+      unitRef="USD">7529766</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_PeoMember_custom_FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember"
+      decimals="0"
+      id="Fact000082"
+      unitRef="USD">0</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_FairValueofStockAwardsGrantedinFiscalYearthatVestedinFiscalYearMember"
+      decimals="0"
+      id="Fact000083"
+      unitRef="USD">166813</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_PeoMember_custom_ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember"
+      decimals="0"
+      id="Fact000084"
+      unitRef="USD">-1650010</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_ChangeinFairValuefromPriorYearEndofVestedAwardsGrantedinPriorYearsMember"
+      decimals="0"
+      id="Fact000085"
+      unitRef="USD">-459305</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_PeoMember_custom_FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember"
+      decimals="0"
+      id="Fact000086"
+      unitRef="USD">0</ecd:AdjToCompAmt>
+    <ecd:AdjToCompAmt
+      contextRef="From2024-09-292025-09-27_ecd_NonPeoNeoMember_custom_FairValueatVestingDateofVestedAwardsGrantedinCurrentYearMember"
+      decimals="0"
+      id="Fact000087"
+      unitRef="USD">0</ecd:AdjToCompAmt>
+    <ecd:PeoActuallyPaidCompAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000088"
+      unitRef="USD">108423733</ecd:PeoActuallyPaidCompAmt>
+    <ecd:NonPeoNeoAvgCompActuallyPaidAmt
+      contextRef="From2024-09-29to2025-09-27"
+      decimals="0"
+      id="Fact000089"
+      unitRef="USD">34125743</ecd:NonPeoNeoAvgCompActuallyPaidAmt>
+    <ecd:PeoName
+      contextRef="From2023-10-012024-09-28_custom_LucaMaestriMember_ecd_NonPeoNeoMember"
+      id="Fact000090">Luca Maestri</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2022-09-252023-09-30_custom_LucaMaestriMember_ecd_NonPeoNeoMember"
+      id="Fact000091">Luca Maestri</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2021-09-262022-09-24_custom_LucaMaestriMember_ecd_NonPeoNeoMember"
+      id="Fact000092">Luca Maestri</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2020-09-262021-09-25_custom_LucaMaestriMember_ecd_NonPeoNeoMember"
+      id="Fact000093">Luca Maestri</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2023-10-012024-09-28_custom_KateAdamsMember_ecd_NonPeoNeoMember"
+      id="Fact000094">Kate Adams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2022-09-252023-09-30_custom_KateAdamsMember_ecd_NonPeoNeoMember"
+      id="Fact000095">Kate Adams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2021-09-262022-09-24_custom_KateAdamsMember_ecd_NonPeoNeoMember"
+      id="Fact000096">Kate Adams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2020-09-262021-09-25_custom_KateAdamsMember_ecd_NonPeoNeoMember"
+      id="Fact000097">Kate Adams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2023-10-012024-09-28_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember"
+      id="Fact000098">Deirdre O&#x2019;Brien</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2022-09-252023-09-30_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember"
+      id="Fact000099">Deirdre O&#x2019;Brien</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2021-09-262022-09-24_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember"
+      id="Fact000100">Deirdre O&#x2019;Brien</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2020-09-262021-09-25_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember"
+      id="Fact000101">Deirdre O&#x2019;Brien</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2023-10-012024-09-28_ecd_NonPeoNeoMember_custom_JeffWilliamsMember"
+      id="Fact000102">Jeff Williams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2022-09-252023-09-30_ecd_NonPeoNeoMember_custom_JeffWilliamsMember"
+      id="Fact000103">Jeff Williams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2021-09-262022-09-24_ecd_NonPeoNeoMember_custom_JeffWilliamsMember"
+      id="Fact000104">Jeff Williams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2020-09-262021-09-25_ecd_NonPeoNeoMember_custom_JeffWilliamsMember"
+      id="Fact000105">Jeff Williams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2024-09-292025-09-27_custom_KevanParekhMember_ecd_NonPeoNeoMember"
+      id="Fact000106">Kevan     Parekh</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2024-09-292025-09-27_custom_KateAdamsMember_ecd_NonPeoNeoMember"
+      id="Fact000107">Kate Adams</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2024-09-292025-09-27_custom_SabihKhanMember_ecd_NonPeoNeoMember"
+      id="Fact000108">Sabih Khan</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2024-09-292025-09-27_custom_LucaMaestriMember_ecd_NonPeoNeoMember"
+      id="Fact000109">Luca Maestri</ecd:PeoName>
+    <ecd:PeoName
+      contextRef="From2024-09-292025-09-27_custom_DeirdreOBrienMember_ecd_NonPeoNeoMember"
+      id="Fact000110">Deirdre O&#x2019;Brien</ecd:PeoName>
+    <ecd:PeerGroupIssuersFnTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000111">
+&lt;table cellpadding="0" cellspacing="0" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto"&gt;
+&lt;tr style="font: 7.5pt Arial, Helvetica, Sans-Serif; vertical-align: top"&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; padding-top: 4pt; padding-right: 8pt; margin-right: auto; width: 1%"&gt;&lt;span style="font-size: 7.5pt"&gt;(5)&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; text-align: justify; padding-top: 4pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;The
+    peer group used to calculate Peer Group TSR in column (g) is our 2025 primary peer group as disclosed in the Compensation
+    Discussion and Analysis section of this Proxy Statement. TSR is based on the value of an initial fixed investment of $100
+    as of September 26, 2020 and is weighted for the market capitalization of each peer company in each applicable year. If the
+    primary peer group from the 2025 Proxy Statement were used, the Peer Group TSR would be $139.22, $97.30, $131.99, $198.69,
+    and $266.58 for 2021, 2022, 2023, 2024, and 2025 respectively.&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</ecd:PeerGroupIssuersFnTextBlock>
+    <ecd:CoSelectedMeasureName contextRef="From2024-09-29to2025-09-27" id="Fact000112">Net Sales</ecd:CoSelectedMeasureName>
+    <ecd:CompActuallyPaidVsTotalShareholderRtnTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000113">
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: left"&gt;&lt;b&gt;Relationship Between Compensation Actually Paid and our Total Shareholder Return&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;Long-term equity incentives represent a vast majority of our named executive officers&#x2019; total target compensation and
+our stock price performance, measured by TSR, is the key driver of Compensation Actually Paid. We also use Relative TSR as
+the key performance measure for our performance-based RSUs. Over 2025, Apple&#x2019;s TSR on an absolute basis was 12.66%,
+while the TSR of our primary peer group was 35.48%. Apple&#x2019;s Relative TSR (the peer group for performance-based RSUs)
+was strong, resulting in above-target payout for the performance-based RSUs with applicable performance periods ending in
+2025. Further, the outstanding performance-based RSUs (granted in 2024 and 2025) continue to trend towards target or above-target
+payouts due to strong TSR relative to the members of the S&amp;amp;P 500. Compensation Actually Paid to our named executive officers
+and TSR are tightly linked.&lt;/p&gt;</ecd:CompActuallyPaidVsTotalShareholderRtnTextBlock>
+    <ecd:CompActuallyPaidVsNetIncomeTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000114">
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: left"&gt;&lt;b&gt;Relationship Between Compensation Actually Paid and Net Income&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;Net Income is generally a key indicator of company profitability and, for Apple, can contribute to changes in our stock price,
+which, in turn, drives Compensation Actually Paid. There is no direct correlation between Net Income and Compensation Actually
+Paid from 2021 to 2025 as we do not use Net Income as a financial measure in our executive compensation program. Operating
+Income and Net Sales are the two financial performance measures for our Cash Incentive Plan.&lt;/p&gt;</ecd:CompActuallyPaidVsNetIncomeTextBlock>
+    <ecd:CompActuallyPaidVsCoSelectedMeasureTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000115">
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: left"&gt;&lt;b&gt;Relationship Between Compensation Actually Paid and Net Sales&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;Net Sales is the financial measure, in addition to Operating Income, that the People and Compensation Committee has set for
+our Cash Incentive Plan. Net Sales and Operating Income are equally the most important financial metrics in determining Compensation
+Actually Paid behind Relative TSR. Similar to Operating Income, Net Sales were consistently strong from 2021 to 2025, and
+this sustained performance led to above target or maximum bonus payouts in each of 2021, 2022, 2023, 2024, and 2025, which
+increased Compensation Actually Paid to our named executive officers.&lt;/p&gt;</ecd:CompActuallyPaidVsCoSelectedMeasureTextBlock>
+    <ecd:TabularListTableTextBlock contextRef="From2024-09-29to2025-09-27" id="Fact000116">
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: left"&gt;&lt;b&gt;Other Relevant Financial Performance Measures&lt;/b&gt;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0"&gt;&#160;&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;For&#160;2025, the following list represented
+the most important financial performance measures used by Apple to link Compensation Actually Paid with our financial performance:&lt;/p&gt;
+
+&lt;p style="font: 10pt Arial, Helvetica, Sans-Serif; margin: 0pt 0; text-align: justify"&gt;&#160;&lt;/p&gt;
+
+&lt;table cellpadding="0" cellspacing="0" id="xdx_30B_zxVrKyv64x8i" style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; width: 100%; border-collapse: collapse; margin-right: auto" summary="xdx: Disclosure - Pay vs Performance Disclosure"&gt;
+&lt;tr style="font: 10pt Arial, Helvetica, Sans-Serif"&gt;
+    &lt;td style="border-top: Black 1px solid; border-bottom: rgb(128,130,133) 1px solid; font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; vertical-align: bottom; width: 25%; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;span id="xdx_90D_eecd--MeasureName_c20240929__20250927__ecd--MeasureAxis__1_zO90LmljChgj"&gt;Net
+    Sales&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; vertical-align: top; width: 75%; padding-top: 2pt; padding-bottom: 2pt; background-color: White; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="font: 7.5pt Arial, Helvetica, Sans-Serif; background-color: rgb(235,235,236)"&gt;
+    &lt;td style="border-bottom: rgb(128,130,133) 1px solid; font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;span id="xdx_90E_eecd--MeasureName_c20240929__20250927__ecd--MeasureAxis__2_zVIZO9OrNNlh"&gt;Operating Income&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; background-color: White; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr style="font: 7.5pt Arial, Helvetica, Sans-Serif; background-color: White"&gt;
+    &lt;td style="border-bottom: Black 1px solid; font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; vertical-align: bottom; padding-top: 2pt; padding-bottom: 2pt; padding-left: 3pt; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&lt;span id="xdx_902_eecd--MeasureName_c20240929__20250927__ecd--MeasureAxis__3_zBrAytgX9H88"&gt;Relative TSR&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+    &lt;td style="font: 7.5pt Arial, Helvetica, Sans-Serif; margin-left: auto; vertical-align: top; padding-top: 2pt; padding-bottom: 2pt; background-color: White; margin-right: auto"&gt;&lt;span style="font-size: 7.5pt"&gt;&#160;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;</ecd:TabularListTableTextBlock>
+    <ecd:MeasureName contextRef="From2024-09-292025-09-27_1" id="Fact000117">Net     Sales</ecd:MeasureName>
+    <ecd:MeasureName contextRef="From2024-09-292025-09-27_2" id="Fact000118">Operating Income</ecd:MeasureName>
+    <ecd:MeasureName contextRef="From2024-09-292025-09-27_3" id="Fact000119">Relative TSR</ecd:MeasureName>
+</xbrl>

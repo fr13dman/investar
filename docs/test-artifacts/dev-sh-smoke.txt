@@ -1,0 +1,15 @@
+Starting Investar
+  api ready: http://127.0.0.1:18010/api/health
+  web ready: http://127.0.0.1:13010
+Open http://localhost:13010  (logs: ./dev.sh logs)
+Stopping Investar
+  web stopped
+  api stopped
+Starting Investar
+  api ready: http://127.0.0.1:18010/api/health
+  web ready: http://127.0.0.1:13010
+Open http://localhost:13010  (logs: ./dev.sh logs)
+Stopping Investar
+  web stopped
+  api stopped
+PASS: dev.sh start/restart/stop/status
