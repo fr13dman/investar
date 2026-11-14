@@ -1,9 +1,9 @@
 """Offline provider fakes backed by recorded fixtures (real SEC/Wikidata responses for Apple)."""
 
 import json
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 
-from app.providers.base import NewsItem, Quote
+from app.providers.base import NewsItem, PriceBar, Profile, Quote, SymbolMatch
 from app.providers.sec_edgar import Filing, parse_filing_index
 from app.providers.wikidata import parse_tenures
 from tests.conftest import fixture_bytes, fixture_text
@@ -65,6 +65,66 @@ class FakeQuotes:
 class NoQuotes:
     def quote(self, ticker):
         raise RuntimeError("FINNHUB_API_KEY is not set")
+
+
+class FakeConstituents:
+    def ciks(self):
+        return {"NBIS": "0001513845", "CRWV": "0001769628"}
+
+    def fetch(self):
+        return []
+
+
+class FakeSearch:
+    def __init__(self, matches: list[SymbolMatch] | None = None):
+        self.matches = matches if matches is not None else [
+            SymbolMatch("NBIS", "Nebius Group N.V.", "NMS", "EQUITY"),
+            SymbolMatch("NLR", "VanEck Uranium and Nuclear ETF", "PCX", "ETF"),
+            SymbolMatch("NBIS.MX", "Nebius Group N.V.", "MEX", "EQUITY"),
+            SymbolMatch("^NBI", "Nasdaq Biotechnology", "NIM", "INDEX"),
+            SymbolMatch("NVDA", "NVIDIA Corporation", "NMS", "EQUITY"),
+        ]
+
+    def search(self, query, limit=10):
+        return self.matches[:limit]
+
+
+class FakeProfiles:
+    """Yahoo-like profiles keyed by ticker; unknown tickers return None."""
+
+    PROFILES = {
+        "NBIS": Profile("NBIS", sector="Communication Services", industry="Internet Content & Information",
+                        exchange="NMS", name="Nebius Group N.V.", quote_type="EQUITY", currency="USD",
+                        shares_outstanding=2.4e8),
+        "NLR": Profile("NLR", exchange="PCX", name="VanEck Uranium and Nuclear ETF", quote_type="ETF",
+                       currency="USD", market_cap=2.5e9),
+        "SHOP.TO": Profile("SHOP.TO", exchange="TOR", name="Shopify Inc.", quote_type="EQUITY", currency="CAD"),
+        "GBPUSD=X": Profile("GBPUSD=X", exchange="CCY", name="GBP/USD", quote_type="CURRENCY", currency="USD"),
+    }
+
+    def profile(self, ticker):
+        return self.PROFILES.get(ticker)
+
+
+class FakePrices:
+    def __init__(self, empty: bool = False):
+        self.empty = empty
+
+    def history(self, tickers, period="5y"):
+        if self.empty:
+            return []
+        start = date(2025, 11, 3)
+        bars = []
+        for t in tickers:
+            for i in range(260):
+                d = start + timedelta(days=i * 7 // 5)
+                if d.weekday() < 5:
+                    bars.append(PriceBar(t, d, close=50 + i * 0.1, open=50 + i * 0.1, high=51 + i * 0.1,
+                                         low=49 + i * 0.1, adj_close=50 + i * 0.1, volume=1e6))
+        return bars
+
+    def recent(self, tickers):
+        return self.history(tickers)[-5:]
 
 
 class FakeIntraday:

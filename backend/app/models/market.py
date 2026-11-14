@@ -31,6 +31,9 @@ class Company(Base):
     in_sp500: Mapped[bool] = mapped_column(Boolean, default=False)
     in_ndx100: Mapped[bool] = mapped_column(Boolean, default=False)
     is_benchmark: Mapped[bool] = mapped_column(Boolean, default=False)
+    asset_type: Mapped[str] = mapped_column(String(10), default="stock", server_default="stock")
+    # Why a non-index symbol is tracked: "curated" (niche catalog) or "user" (added from Explore).
+    extra_source: Mapped[str | None] = mapped_column(String(10), index=True)
     website: Mapped[str | None] = mapped_column(String(300))
     description: Mapped[str | None] = mapped_column(Text)
     headquarters: Mapped[str | None] = mapped_column(String(200))
@@ -113,6 +116,29 @@ class WatchlistItem(Base):
         String(12), ForeignKey("companies.ticker", ondelete="CASCADE"), primary_key=True
     )
     added_at: Mapped[dt.datetime] = mapped_column(DateTime, server_default=func.now())
+
+
+class Niche(Base):
+    """Two-level thematic grouping (e.g. AI > Neoclouds) that cuts across Yahoo sectors."""
+
+    __tablename__ = "niches"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    slug: Mapped[str] = mapped_column(String(60), unique=True)
+    name: Mapped[str] = mapped_column(String(100))
+    parent_id: Mapped[int | None] = mapped_column(Integer, ForeignKey("niches.id", ondelete="CASCADE"), index=True)
+    description: Mapped[str | None] = mapped_column(Text)
+    sort_order: Mapped[int] = mapped_column(Integer, default=0)
+
+
+class NicheMember(Base):
+    __tablename__ = "niche_members"
+
+    niche_id: Mapped[int] = mapped_column(Integer, ForeignKey("niches.id", ondelete="CASCADE"), primary_key=True)
+    ticker: Mapped[str] = mapped_column(
+        String(12), ForeignKey("companies.ticker", ondelete="CASCADE"), primary_key=True, index=True
+    )
+    source: Mapped[str] = mapped_column(String(10), default="curated")  # curated | user
 
 
 class FetchLog(Base):

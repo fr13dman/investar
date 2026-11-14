@@ -50,8 +50,10 @@ const columns = helper.columns([
       <div className="max-w-56">
         <div className="truncate">{info.getValue()}</div>
         <div className="flex gap-1 pt-0.5">
+          {info.row.original.asset_type === "etf" && <Badge variant="secondary">ETF</Badge>}
           {info.row.original.in_sp500 && <Badge variant="outline">S&amp;P 500</Badge>}
           {info.row.original.in_ndx100 && <Badge variant="outline">NDX</Badge>}
+          {info.row.original.extra_source === "user" && <Badge variant="outline">Added</Badge>}
         </div>
       </div>
     ),

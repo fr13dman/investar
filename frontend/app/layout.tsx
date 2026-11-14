@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { THEME_INIT_SCRIPT } from "@/lib/themeScript";
+
 import "./globals.css";
 import { Providers } from "./providers";
 
@@ -8,13 +12,17 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Investar - S&P 500 and Nasdaq-100 research",
-  description: "Screen S&P 500 and Nasdaq-100 stocks by sector and research companies.",
+  title: "Investar - S&P 500, Nasdaq-100 and niche-sector research",
+  description: "Screen S&P 500, Nasdaq-100 and niche-sector stocks and ETFs, and research companies.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark h-full antialiased`}>
+    // suppressHydrationWarning: the inline theme script adds `dark` and color-scheme before React hydrates.
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body className="flex min-h-full flex-col">
         <Providers>
           <header className="border-b border-border">
@@ -25,9 +33,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
                 Screener
               </Link>
+              <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
+                Explore
+              </Link>
               <Link href="/watchlists" className="text-sm text-muted-foreground hover:text-foreground">
                 Watchlists
               </Link>
+              <div className="ml-auto">
+                <ThemeToggle />
+              </div>
             </nav>
           </header>
           <main className="mx-auto w-full max-w-7xl flex-1 px-4 py-6">{children}</main>

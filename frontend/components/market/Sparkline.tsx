@@ -36,7 +36,7 @@ export function Sparkline({
         d={sparklinePath(values, width, height)}
         fill="none"
         strokeWidth={1.5}
-        className={up ? "stroke-emerald-400" : "stroke-rose-400"}
+        className={up ? "stroke-emerald-600 dark:stroke-emerald-400" : "stroke-rose-600 dark:stroke-rose-400"}
       />
     </svg>
   );

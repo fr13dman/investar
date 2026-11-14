@@ -4,7 +4,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.api.routes import admin, companies, market, watchlists
+from app.api.routes import admin, companies, market, niches, watchlists
 from app.config import get_settings
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
@@ -35,7 +35,7 @@ def create_app(use_lifespan: bool = True) -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-    for r in (market.router, watchlists.router, admin.router, companies.router):
+    for r in (market.router, watchlists.router, admin.router, niches.router, companies.router):
         app.include_router(r)
 
     @app.get("/api/health")

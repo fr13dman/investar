@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { api, type CeoScorecard } from "@/lib/api";
+import { useChartColors } from "@/lib/chartTheme";
 import { formatCompact, formatDate, formatNumber } from "@/lib/format";
 
 import { pollWhileRefreshing, RefreshNote } from "./RefreshNote";
@@ -61,6 +62,7 @@ function OverrideForm({ ticker, card }: { ticker: string; card: CeoScorecard | n
 }
 
 export function CeoScorecardPanel({ ticker }: { ticker: string }) {
+  const chart = useChartColors();
   const qc = useQueryClient();
   const { data } = useQuery({
     queryKey: ["ceo", ticker],
@@ -125,7 +127,7 @@ export function CeoScorecardPanel({ ticker }: { ticker: string }) {
                 <Metric label="EPS growth (CAGR)" value={<ChangeValue value={card.eps_cagr_pct} />} />
               </div>
               {card.window_truncated && (
-                <p className="text-xs text-amber-400">
+                <p className="text-xs text-amber-600 dark:text-amber-400">
                   {card.tenure_start
                     ? "The tenure started before the stored price history, so returns cover the available window only."
                     : "Tenure start unknown: returns cover the full stored price history. Set the start date below."}
@@ -179,13 +181,13 @@ export function CeoScorecardPanel({ ticker }: { ticker: string }) {
                   <div className="h-64">
                     <ResponsiveContainer width="100%" height="100%">
                       <BarChart data={pvp}>
-                        <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-                        <XAxis dataKey="year" stroke="#a3a3a3" fontSize={12} />
-                        <YAxis stroke="#a3a3a3" fontSize={12} tickFormatter={(v: number) => formatCompact(v, "$")} />
-                        <Tooltip formatter={(v) => formatCompact(Number(v), "$")} contentStyle={{ background: "#171717", border: "none" }} />
+                        <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                        <XAxis dataKey="year" stroke={chart.axis} fontSize={12} />
+                        <YAxis stroke={chart.axis} fontSize={12} tickFormatter={(v: number) => formatCompact(v, "$")} />
+                        <Tooltip formatter={(v) => formatCompact(Number(v), "$")} contentStyle={chart.tooltip} />
                         <Legend />
-                        <Bar dataKey="Total comp (summary table)" fill="#60a5fa" />
-                        <Bar dataKey="Compensation actually paid" fill="#34d399" />
+                        <Bar dataKey="Total comp (summary table)" fill={chart.benchmark} />
+                        <Bar dataKey="Compensation actually paid" fill={chart.secondary} />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>

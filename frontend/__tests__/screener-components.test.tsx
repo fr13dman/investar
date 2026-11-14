@@ -45,7 +45,7 @@ describe("SectorPicker", () => {
 describe("FilterBar", () => {
   it("emits index, cap band and unit changes", () => {
     const onChange = vi.fn();
-    render(<FilterBar index="all" mode="pct" watchlists={[]} onChange={onChange} />);
+    render(<FilterBar type="all" index="all" mode="pct" watchlists={[]} onChange={onChange} />);
     fireEvent.change(screen.getByLabelText("Index"), { target: { value: "ndx100" } });
     expect(onChange).toHaveBeenCalledWith({ index: "ndx100" });
     fireEvent.change(screen.getByLabelText("Market cap"), { target: { value: "mega" } });
@@ -58,7 +58,7 @@ describe("FilterBar", () => {
   it("debounces search", async () => {
     vi.useFakeTimers();
     const onChange = vi.fn();
-    render(<FilterBar index="all" mode="pct" watchlists={[]} onChange={onChange} />);
+    render(<FilterBar type="all" index="all" mode="pct" watchlists={[]} onChange={onChange} />);
     fireEvent.change(screen.getByLabelText("Search ticker or company"), { target: { value: "nv" } });
     expect(onChange).not.toHaveBeenCalled();
     vi.advanceTimersByTime(350);

@@ -54,7 +54,7 @@ function WatchlistCard({ w }: { w: Watchlist }) {
             Add
           </Button>
         </form>
-        {error && <p role="alert" className="text-sm text-rose-400">{error}</p>}
+        {error && <p role="alert" className="text-sm text-rose-600 dark:text-rose-400">{error}</p>}
         <div className="flex flex-wrap gap-2">
           {w.tickers.map((t) => (
             <span key={t} className="flex items-center gap-1 rounded-full border border-border px-3 py-1 text-sm">
@@ -106,7 +106,7 @@ export function WatchlistsManager() {
         <Input aria-label="New watchlist name" placeholder="New watchlist name" value={name} onChange={(e) => setName(e.target.value)} className="max-w-xs" />
         <Button type="submit">Create</Button>
       </form>
-      {error && <p role="alert" className="text-sm text-rose-400">{error}</p>}
+      {error && <p role="alert" className="text-sm text-rose-600 dark:text-rose-400">{error}</p>}
       <div className="grid gap-4 md:grid-cols-2">
         {(data ?? []).map((w) => (
           <WatchlistCard key={`${w.id}-${w.name}`} w={w} />

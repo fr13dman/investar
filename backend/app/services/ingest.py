@@ -14,6 +14,7 @@ from app.providers.base import PriceBar, Profile
 from app.services.db_utils import upsert
 from app.services.metrics import recompute_metrics
 from app.services.refresh import record_fetch
+from app.services.universe import in_universe
 
 log = logging.getLogger(__name__)
 
@@ -61,6 +62,7 @@ def load_universe(session: Session) -> int:
     for t, name in BENCHMARKS.items():
         comp = existing.get(t) or Company(ticker=t, name=name)
         comp.is_benchmark = True
+        comp.asset_type = "etf"
         session.add(comp)
     session.commit()
     record_fetch(session, "universe", "", "wikipedia")
@@ -68,10 +70,43 @@ def load_universe(session: Session) -> int:
 
 
 def universe_tickers(session: Session, include_benchmarks: bool = True) -> list[str]:
-    q = select(Company.ticker).where((Company.in_sp500) | (Company.in_ndx100) | (Company.is_benchmark))
+    q = select(Company.ticker).where(in_universe() | Company.is_benchmark)
     if not include_benchmarks:
         q = q.where(~Company.is_benchmark)
     return list(session.scalars(q.order_by(Company.ticker)))
+
+
+def fill_ciks(session: Session, tickers: list[str] | None = None) -> int:
+    """Best-effort SEC CIK lookup for non-index symbols so filings-based research works for them."""
+    q = select(Company).where(Company.cik.is_(None), Company.asset_type == "stock", Company.extra_source.is_not(None))
+    if tickers:
+        q = q.where(Company.ticker.in_(tickers))
+    missing = list(session.scalars(q))
+    provider = registry.constituents()
+    if not missing or not hasattr(provider, "ciks"):
+        return 0
+    try:
+        ciks = provider.ciks()
+    except Exception as exc:  # noqa: BLE001
+        log.warning("SEC ticker map unavailable: %s", exc)
+        return 0
+    n = 0
+    for comp in missing:
+        if cik := ciks.get(comp.ticker):
+            comp.cik, n = cik, n + 1
+    session.commit()
+    return n
+
+
+def fetch_new_symbols(session: Session, tickers: list[str], period: str = "5y") -> int:
+    """Profile + price history + metrics for symbols that just joined the tracked universe."""
+    if not tickers:
+        return 0
+    fill_ciks(session, tickers)
+    enrich_profiles(session, tickers, pause=0)
+    n = store_bars(session, registry.prices().history(tickers, period))
+    recompute_metrics(session, tickers)
+    return n
 
 
 def store_bars(session: Session, bars: list[PriceBar]) -> int:
@@ -120,6 +155,10 @@ def refresh_intraday(session: Session) -> int:
 
 
 def apply_profile(session: Session, comp: Company, p: Profile) -> None:
+    if p.name and (not comp.name or comp.name == comp.ticker):
+        comp.name = p.name
+    if p.quote_type in ("ETF", "MUTUALFUND"):
+        comp.asset_type = "etf"
     comp.sector = p.sector or yahoo_sector(comp.sector) or yahoo_sector(comp.gics_sector)
     comp.industry = p.industry or comp.industry or comp.gics_sub_industry
     comp.description = p.description or comp.description

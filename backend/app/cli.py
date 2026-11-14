@@ -46,9 +46,32 @@ def cmd_refresh_prices(_args):
         print(f"refreshed {refresh_intraday(s)} tickers")
 
 
+def cmd_load_niches(args):
+    from app.services.ingest import fetch_new_symbols, fill_ciks
+    from app.services.niches import load_catalog
+
+    with _session() as s:
+        result = load_catalog(s)
+        print(f"loaded {result['niches']} niches, {result['members']} memberships; "
+              f"{len(result['new_tickers'])} new symbols")
+        if getattr(args, "fetch", True):
+            fill_ciks(s)
+            if result["new_tickers"]:
+                print(f"stored {fetch_new_symbols(s, result['new_tickers'])} price bars for new symbols")
+
+
+cmd_load_niches.configure_parser = lambda p: p.add_argument(
+    "--no-fetch", dest="fetch", action="store_false", help="only update the catalog; skip profiles and prices")
+
+
 def cmd_bootstrap(args):
     upgrade_head()
     cmd_load_universe(args)
+    cmd_load_niches(argparse.Namespace(fetch=False))
+    with _session() as s:
+        from app.services.ingest import fill_ciks
+
+        fill_ciks(s)
     cmd_profiles(argparse.Namespace(tickers=None))
     cmd_backfill(argparse.Namespace(period="5y", tickers=None))
 
@@ -97,10 +120,11 @@ cmd_refresh_research.configure_parser = lambda p: p.add_argument("tickers", narg
 COMMANDS = {
     "migrate": (cmd_migrate, "apply database migrations"),
     "load-universe": (cmd_load_universe, "load S&P 500 + Nasdaq-100 constituents"),
+    "load-niches": (cmd_load_niches, "apply the curated niche catalog and fetch data for new symbols"),
     "backfill": (cmd_backfill, "backfill daily prices"),
     "profiles": (cmd_profiles, "fetch sector/industry/profile data"),
     "refresh-prices": (cmd_refresh_prices, "refresh latest prices and swing metrics"),
-    "bootstrap": (cmd_bootstrap, "migrate + universe + profiles + 5y backfill"),
+    "bootstrap": (cmd_bootstrap, "migrate + universe + niches + profiles + 5y backfill"),
     "seed-demo": (cmd_seed_demo, "load deterministic offline demo data"),
     "import-patents-bulk": (cmd_import_patents_bulk, "import PatentsView bulk TSV files (API fallback)"),
     "refresh-research": (cmd_refresh_research, "refresh CEO, global presence and patents for tickers"),

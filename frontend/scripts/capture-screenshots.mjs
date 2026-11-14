@@ -34,6 +34,27 @@ if (set === "live") {
 
   await tab("NVDA", "CEO performance", "Return vs SPY", "04-ceo-scorecard.png");
   await tab("AAPL", "Global presence", /Subsidiaries in [1-9]\d* countries/, "05-global-presence-map.png");
+} else if (set === "niches") {
+  // Seeded data with OFFLINE_PROVIDERS=true: niche browsing, Explore, and both color themes.
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.goto(`${base}/?browse=niches&niche=ai`);
+  await page.getByRole("table", { name: "Stocks" }).getByRole("link").first().waitFor();
+  await page.waitForTimeout(1200);
+  await page.screenshot({ path: `${out}/09-screener-niches-ai-dark.png` });
+
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.goto(`${base}/explore?niche=energy-transition`);
+  await page.getByRole("table", { name: "Stocks" }).getByRole("link").first().waitFor();
+  await page.getByLabel("Search the market").fill("nebius");
+  await page.getByRole("button", { name: "Add NBIS" }).click();
+  await page.waitForTimeout(1200);
+  await page.screenshot({ path: `${out}/10-explore-light.png`, fullPage: true });
+
+  await page.goto(`${base}/company/NVDA`);
+  await page.getByTestId("price-chart").locator("canvas").first().waitFor();
+  await page.waitForTimeout(1500);
+  await page.screenshot({ path: `${out}/11-company-light.png`, fullPage: true });
+  await tab("NVDA", "Patents", "Granted patents per year", "12-patents-light.png", { fullPage: false });
 } else {
   await tab("AAPL", "News", "Average sentiment", "06-news-sentiment-demo.png");
   await page.setViewportSize({ width: 1440, height: 1200 });

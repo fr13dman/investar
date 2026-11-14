@@ -37,24 +37,31 @@ function MoverList({ title, rows, window, mode }: { title: string; rows: StockRo
 export function MoversPanel({
   sector,
   industry,
+  niche,
+  nicheName,
   window,
   mode,
   onWindowChange,
 }: {
   sector?: string;
   industry?: string;
+  niche?: string;
+  nicheName?: string;
   window: SwingWindow;
   mode: ChangeMode;
   onWindowChange: (w: SwingWindow) => void;
 }) {
   const { data } = useQuery({
-    queryKey: ["movers", sector, industry, window, mode],
-    queryFn: () => api.movers({ sector, industry, window, mode, limit: 5 }),
+    queryKey: ["movers", sector, industry, niche, window, mode],
+    queryFn: () => api.movers({ sector, industry, niche, window, mode, limit: 5 }),
   });
   return (
     <Card size="sm">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Top movers {industry ? `in ${industry}` : sector ? `in ${sector}` : "across all sectors"}</CardTitle>
+        <CardTitle>
+          Top movers{" "}
+          {industry ? `in ${industry}` : sector ? `in ${sector}` : niche ? `in ${nicheName ?? niche}` : "across all sectors"}
+        </CardTitle>
         <div role="group" aria-label="Mover window" className="flex gap-1">
           {(Object.keys(WINDOW_LABEL) as SwingWindow[]).map((w) => (
             <button

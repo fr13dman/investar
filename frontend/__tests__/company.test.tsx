@@ -6,9 +6,14 @@ import type { CeoScorecard, CompanyProfile, NewsResponse } from "@/lib/api";
 
 import { mockFetch, renderWithQuery, stock } from "./helpers";
 
-const series = { setData: vi.fn() };
+const series = { setData: vi.fn(), applyOptions: vi.fn() };
 vi.mock("lightweight-charts", () => ({
-  createChart: vi.fn(() => ({ addSeries: vi.fn(() => series), timeScale: () => ({ fitContent: vi.fn() }), remove: vi.fn() })),
+  createChart: vi.fn(() => ({
+    addSeries: vi.fn(() => series),
+    applyOptions: vi.fn(),
+    timeScale: () => ({ fitContent: vi.fn() }),
+    remove: vi.fn(),
+  })),
   CandlestickSeries: "Candlestick",
   LineSeries: "Line",
   ColorType: { Solid: "solid" },
@@ -33,6 +38,7 @@ const company: CompanyProfile = {
   is_benchmark: false,
   quote: null,
   executives: [{ name: "John Ternus", title: "CEO & Director", total_pay: 1e7, is_ceo: true }],
+  niches: [],
   refresh: fresh,
 };
 

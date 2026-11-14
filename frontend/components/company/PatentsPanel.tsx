@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { api, type CpcBreakdown, type PatentAssignee, type PatentItem, type Patents } from "@/lib/api";
+import { useChartColors } from "@/lib/chartTheme";
 import { formatDate, formatNumber } from "@/lib/format";
 
 import { selectClass } from "../screener/FilterBar";
@@ -121,6 +122,7 @@ function AssigneeEditor({ ticker, assignees }: { ticker: string; assignees: Pate
 }
 
 export function PatentsPanel({ ticker }: { ticker: string }) {
+  const chart = useChartColors();
   const qc = useQueryClient();
   const { data } = useQuery({ queryKey: ["patents", ticker], queryFn: () => api.patents(ticker), refetchInterval: pollWhileRefreshing });
   const sourceLabel = data?.source === "patentsview_bulk" ? "PatentsView bulk files" : "USPTO PatentsView API";
@@ -159,11 +161,11 @@ export function PatentsPanel({ ticker }: { ticker: string }) {
           <CardContent className="h-56">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data.granted.by_year}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-                <XAxis dataKey="year" stroke="#a3a3a3" fontSize={12} />
-                <YAxis stroke="#a3a3a3" fontSize={12} />
-                <Tooltip contentStyle={{ background: "#171717", border: "none" }} />
-                <Bar dataKey="count" fill="#a78bfa" name="Granted" />
+                <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                <XAxis dataKey="year" stroke={chart.axis} fontSize={12} />
+                <YAxis stroke={chart.axis} fontSize={12} />
+                <Tooltip contentStyle={chart.tooltip} />
+                <Bar dataKey="count" fill={chart.tertiary} name="Granted" />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
