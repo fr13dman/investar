@@ -1,4 +1,6 @@
-export type IndexFilter = "all" | "sp500" | "ndx100" | "both";
+export type IndexFilter = "all" | "sp500" | "ndx100" | "both" | "other";
+export type AssetType = "stock" | "etf";
+export type AssetFilter = "all" | AssetType;
 export type CapBand = "mega" | "large" | "mid" | "small";
 export type SwingWindow = "chg_1d" | "chg_1w" | "chg_ytd";
 export type ChangeMode = "pct" | "abs";
@@ -18,6 +20,9 @@ export interface StockRow {
   name: string;
   sector: string | null;
   industry: string | null;
+  asset_type: AssetType;
+  /** Why a non-index symbol is tracked: curated niche catalog or added by the user. */
+  extra_source: "curated" | "user" | null;
   in_sp500: boolean;
   in_ndx100: boolean;
   price: number | null;
@@ -47,6 +52,44 @@ export interface SectorNode {
   sector: string;
   count: number;
   industries: { industry: string; count: number }[];
+}
+
+export interface NicheLeaf {
+  id: number;
+  slug: string;
+  name: string;
+  description: string | null;
+  count: number;
+}
+
+export interface NicheNode extends NicheLeaf {
+  children: NicheLeaf[];
+}
+
+export interface CompanyNiche {
+  id: number;
+  slug: string;
+  name: string;
+  parent_slug: string | null;
+  parent_name: string | null;
+  source: "curated" | "user";
+}
+
+export interface SearchResult {
+  symbol: string;
+  name: string | null;
+  exchange: string | null;
+  quote_type: string | null;
+  asset_type: AssetType | null;
+  us_listed: boolean;
+  tracked: boolean;
+  addable: boolean;
+}
+
+export interface TrackStatus {
+  ticker: string;
+  status: "adding" | "ready" | "error";
+  message: string | null;
 }
 
 export interface Movers {
@@ -105,6 +148,7 @@ export interface CompanyProfile extends StockRow {
   is_benchmark: boolean;
   quote: { price: number; prev_close: number | null; source: string; as_of: string } | null;
   executives: Executive[];
+  niches: CompanyNiche[];
   refresh: RefreshStatus;
 }
 
@@ -240,10 +284,15 @@ export interface Patents {
 export interface StocksQuery {
   sector?: string;
   industry?: string;
+  niche?: string;
+  asset_type?: AssetFilter;
   index?: IndexFilter;
   cap_band?: CapBand;
   q?: string;
   watchlist_id?: number;
+  chg_window?: SwingWindow;
+  chg_min?: number;
+  chg_max?: number;
   sort?: SortKey;
   order?: "asc" | "desc";
   mode?: ChangeMode;
@@ -292,8 +341,28 @@ export async function request<T>(path: string, init?: RequestInit): Promise<T> {
 export const api = {
   sectors: () => request<SectorNode[]>("/api/sectors"),
   stocks: (q: StocksQuery) => request<StocksPage>(`/api/stocks${toQueryString(q)}`),
-  movers: (q: { sector?: string; industry?: string; window?: SwingWindow; mode?: ChangeMode; limit?: number }) =>
-    request<Movers>(`/api/movers${toQueryString(q)}`),
+  movers: (q: {
+    sector?: string;
+    industry?: string;
+    niche?: string;
+    window?: SwingWindow;
+    mode?: ChangeMode;
+    limit?: number;
+  }) => request<Movers>(`/api/movers${toQueryString(q)}`),
+  niches: () => request<NicheNode[]>("/api/niches"),
+  searchMarket: (q: string) => request<SearchResult[]>(`/api/search${toQueryString({ q })}`),
+  track: (ticker: string, nicheIds: number[] = []) =>
+    request<StockRow & { status: TrackStatus["status"] }>("/api/tracked", {
+      method: "POST",
+      body: JSON.stringify({ ticker, niche_ids: nicheIds }),
+    }),
+  trackStatus: (ticker: string) => request<TrackStatus>(`/api/tracked/${encodeURIComponent(ticker)}/status`),
+  untrack: (ticker: string) => request<void>(`/api/tracked/${encodeURIComponent(ticker)}`, { method: "DELETE" }),
+  setNiches: (ticker: string, nicheIds: number[]) =>
+    request<{ niches: CompanyNiche[] }>(`/api/companies/${encodeURIComponent(ticker)}/niches`, {
+      method: "PUT",
+      body: JSON.stringify({ niche_ids: nicheIds }),
+    }),
   benchmarks: () => request<StockRow[]>("/api/benchmarks"),
   status: () => request<AppStatus>("/api/status"),
   refresh: (scope: "prices" | "backfill" | "profiles" | "universe") =>

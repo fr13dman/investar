@@ -6,7 +6,7 @@ const API_PORT = 8100;
 const WEB_PORT = 3100;
 const backendDir = path.resolve(__dirname, "../backend");
 const dbFile = path.resolve(__dirname, "e2e/.data/e2e.db");
-const backendEnv = `DATABASE_URL=sqlite:///${dbFile} ENABLE_SCHEDULER=false FINNHUB_API_KEY= PATENTSVIEW_API_KEY=`;
+const backendEnv = `DATABASE_URL=sqlite:///${dbFile} ENABLE_SCHEDULER=false FINNHUB_API_KEY= PATENTSVIEW_API_KEY= OFFLINE_PROVIDERS=true`;
 
 export default defineConfig({
   testDir: "./e2e",

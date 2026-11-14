@@ -13,9 +13,9 @@ export function RefreshNote({ status, onRefresh, source }: { status?: RefreshSta
         {source}
         {status.fetched_at ? ` · updated ${formatDateTime(status.fetched_at)}` : " · not fetched yet"}
       </span>
-      {status.refreshing && <span className="text-amber-400">refreshing…</span>}
+      {status.refreshing && <span className="text-amber-600 dark:text-amber-400">refreshing…</span>}
       {status.status === "error" && !status.refreshing && (
-        <span role="status" className="text-rose-400">
+        <span role="status" className="text-rose-600 dark:text-rose-400">
           last refresh failed: {status.message}
         </span>
       )}

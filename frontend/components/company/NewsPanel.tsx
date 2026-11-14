@@ -12,8 +12,8 @@ import { pollWhileRefreshing, RefreshNote } from "./RefreshNote";
 
 type Filter = "all" | "positive" | "neutral" | "negative";
 const TONE: Record<string, string> = {
-  positive: "border-emerald-500/40 text-emerald-400",
-  negative: "border-rose-500/40 text-rose-400",
+  positive: "border-emerald-500/40 text-emerald-600 dark:text-emerald-400",
+  negative: "border-rose-500/40 text-rose-600 dark:text-rose-400",
   neutral: "border-border text-muted-foreground",
 };
 

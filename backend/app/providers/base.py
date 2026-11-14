@@ -66,6 +66,17 @@ class Profile:
     pe_ratio: float | None = None
     exchange: str | None = None
     officers: list[Officer] = field(default_factory=list)
+    name: str | None = None
+    quote_type: str | None = None  # Yahoo quoteType: EQUITY | ETF | ...
+    currency: str | None = None
+
+
+@dataclass
+class SymbolMatch:
+    symbol: str
+    name: str | None
+    exchange: str | None
+    quote_type: str | None
 
 
 @dataclass
@@ -116,6 +127,10 @@ class PriceProvider(Protocol):
 
 class ProfileProvider(Protocol):
     def profile(self, ticker: str) -> Profile | None: ...
+
+
+class SearchProvider(Protocol):
+    def search(self, query: str, limit: int = 10) -> list[SymbolMatch]: ...
 
 
 class QuoteProvider(Protocol):

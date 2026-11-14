@@ -4,6 +4,7 @@ from sqlalchemy import and_, func, nulls_last, select
 from sqlalchemy.orm import Session
 
 from app.models import Company, MetricsSnapshot, WatchlistItem
+from app.services.universe import in_universe, niche_member_tickers
 
 CAP_BANDS = {
     "mega": (200e9, None),
@@ -28,10 +29,15 @@ PLAIN_SORTS = {
 class ScreenerQuery:
     sector: str | None = None
     industry: str | None = None
-    index: str = "all"  # all | sp500 | ndx100 | both
+    niche: str | None = None  # parent or sub-niche slug; a parent includes its sub-niches
+    asset_type: str = "all"  # all | stock | etf
+    index: str = "all"  # all | sp500 | ndx100 | both | other
     cap_band: str | None = None
     q: str | None = None
     watchlist_id: int | None = None
+    chg_window: str = "chg_1d"  # window that chg_min / chg_max apply to (always percent)
+    chg_min: float | None = None
+    chg_max: float | None = None
     sort: str = "market_cap"
     order: str = "desc"
     mode: str = "pct"  # pct | abs
@@ -48,23 +54,37 @@ def sort_column(sort: str, mode: str):
 
 
 def _filters(q: ScreenerQuery) -> list:
-    conds = [~Company.is_benchmark, (Company.in_sp500 | Company.in_ndx100)]
+    conds = [~Company.is_benchmark, in_universe()]
     if q.sector:
         conds.append(Company.sector == q.sector)
     if q.industry:
         conds.append(Company.industry == q.industry)
+    if q.niche:
+        conds.append(Company.ticker.in_(niche_member_tickers(q.niche)))
+    if q.asset_type in ("stock", "etf"):
+        conds.append(Company.asset_type == q.asset_type)
     if q.index == "sp500":
         conds.append(Company.in_sp500)
     elif q.index == "ndx100":
         conds.append(Company.in_ndx100)
     elif q.index == "both":
         conds.append(and_(Company.in_sp500, Company.in_ndx100))
+    elif q.index == "other":
+        conds.append(and_(~Company.in_sp500, ~Company.in_ndx100))
     if q.cap_band:
         lo, hi = CAP_BANDS[q.cap_band]
         if lo is not None:
             conds.append(MetricsSnapshot.market_cap >= lo)
         if hi is not None:
             conds.append(MetricsSnapshot.market_cap < hi)
+    if q.chg_min is not None or q.chg_max is not None:
+        if q.chg_window not in SWING_FIELDS:
+            raise ValueError(f"unsupported change window '{q.chg_window}'")
+        col = getattr(MetricsSnapshot, f"{q.chg_window}_pct")
+        if q.chg_min is not None:
+            conds.append(col >= q.chg_min)
+        if q.chg_max is not None:
+            conds.append(col <= q.chg_max)
     if q.q:
         like = f"%{q.q.strip()}%"
         conds.append(Company.ticker.ilike(like) | Company.name.ilike(like))
@@ -79,6 +99,8 @@ def row_dict(c: Company, m: MetricsSnapshot | None) -> dict:
         "name": c.name,
         "sector": c.sector,
         "industry": c.industry,
+        "asset_type": c.asset_type or "stock",
+        "extra_source": c.extra_source,
         "in_sp500": c.in_sp500,
         "in_ndx100": c.in_ndx100,
         "price": m.price if m else None,
@@ -115,7 +137,7 @@ def screen(session: Session, q: ScreenerQuery) -> dict:
 def sector_tree(session: Session) -> list[dict]:
     stmt = (
         select(Company.sector, Company.industry, func.count())
-        .where(~Company.is_benchmark, Company.in_sp500 | Company.in_ndx100, Company.sector.is_not(None))
+        .where(~Company.is_benchmark, in_universe(), Company.asset_type == "stock", Company.sector.is_not(None))
         .group_by(Company.sector, Company.industry)
         .order_by(Company.sector, Company.industry)
     )
@@ -129,9 +151,9 @@ def sector_tree(session: Session) -> list[dict]:
 
 
 def movers(session: Session, sector: str | None = None, window: str = "chg_1d", mode: str = "pct",
-           limit: int = 5, industry: str | None = None) -> dict:
+           limit: int = 5, industry: str | None = None, niche: str | None = None) -> dict:
     col = sort_column(window, mode)
-    conds = _filters(ScreenerQuery(sector=sector, industry=industry)) + [col.is_not(None)]
+    conds = _filters(ScreenerQuery(sector=sector, industry=industry, niche=niche)) + [col.is_not(None)]
     base = select(Company, MetricsSnapshot).join(MetricsSnapshot, MetricsSnapshot.ticker == Company.ticker).where(*conds)
     gainers = [row_dict(c, m) for c, m in session.execute(base.order_by(col.desc()).limit(limit))]
     losers = [row_dict(c, m) for c, m in session.execute(base.order_by(col.asc()).limit(limit))]

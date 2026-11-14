@@ -13,9 +13,19 @@ def reset() -> None:
     _overrides.clear()
 
 
+def _offline() -> bool:
+    from app.config import get_settings
+
+    return get_settings().offline_providers
+
+
 def constituents():
     if "constituents" in _overrides:
         return _overrides["constituents"]
+    if _offline():
+        from app.providers.demo import DemoConstituents
+
+        return DemoConstituents()
     from app.providers.constituents import WikipediaConstituents
 
     return WikipediaConstituents()
@@ -24,6 +34,10 @@ def constituents():
 def prices():
     if "prices" in _overrides:
         return _overrides["prices"]
+    if _offline():
+        from app.providers.demo import DemoPrices
+
+        return DemoPrices()
     from app.providers.prices_yfinance import YFinancePrices
 
     return YFinancePrices()
@@ -32,9 +46,25 @@ def prices():
 def profiles():
     if "profiles" in _overrides:
         return _overrides["profiles"]
+    if _offline():
+        from app.providers.demo import DemoProfiles
+
+        return DemoProfiles()
     from app.providers.prices_yfinance import YFinanceProfiles
 
     return YFinanceProfiles()
+
+
+def search():
+    if "search" in _overrides:
+        return _overrides["search"]
+    if _offline():
+        from app.providers.demo import DemoSearch
+
+        return DemoSearch()
+    from app.providers.search_yfinance import YFinanceSearch
+
+    return YFinanceSearch()
 
 
 def quotes():

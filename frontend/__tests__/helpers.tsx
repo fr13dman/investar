@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { render } from "@testing-library/react";
 import { vi } from "vitest";
 
-import type { StockRow } from "@/lib/api";
+import type { NicheNode, StockRow } from "@/lib/api";
 
 export function renderWithQuery(ui: React.ReactElement) {
   const client = new QueryClient({ defaultOptions: { queries: { retry: false } } });
@@ -15,6 +15,8 @@ export function stock(overrides: Partial<StockRow> = {}): StockRow {
     name: "Apple Inc.",
     sector: "Technology",
     industry: "Consumer Electronics",
+    asset_type: "stock",
+    extra_source: null,
     in_sp500: true,
     in_ndx100: true,
     price: 200,
@@ -50,3 +52,25 @@ export function mockFetch(routes: Record<string, unknown | ((url: string, init?:
   vi.stubGlobal("fetch", spy);
   return spy;
 }
+
+export const NICHES: NicheNode[] = [
+  {
+    id: 1,
+    slug: "ai",
+    name: "AI",
+    description: "Artificial intelligence",
+    count: 7,
+    children: [
+      { id: 2, slug: "hyperscalers", name: "Hyperscalers", description: null, count: 3 },
+      { id: 3, slug: "neoclouds", name: "Neoclouds", description: "GPU clouds", count: 1 },
+    ],
+  },
+  {
+    id: 4,
+    slug: "energy-transition",
+    name: "Energy Transition",
+    description: null,
+    count: 2,
+    children: [{ id: 5, slug: "small-modular-reactors", name: "Small Modular Reactors", description: null, count: 1 }],
+  },
+];

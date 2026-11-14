@@ -39,12 +39,13 @@ export function CompanyHeader({ company }: { company: CompanyProfile }) {
           <div className="flex flex-wrap items-center gap-2">
             <h1 className="text-3xl font-semibold tracking-tight">{company.name}</h1>
             <span className="text-xl text-muted-foreground">{company.ticker}</span>
+            {company.asset_type === "etf" && <Badge variant="secondary">ETF</Badge>}
             {company.in_sp500 && <Badge variant="outline">S&amp;P 500</Badge>}
             {company.in_ndx100 && <Badge variant="outline">Nasdaq-100</Badge>}
           </div>
           <div className="mt-1 text-sm text-muted-foreground">
             <Link href={sectorHref} className="hover:underline">
-              {company.sector ?? "Unclassified"}
+              {company.sector ?? (company.asset_type === "etf" ? "Exchange-traded fund" : "Unclassified")}
             </Link>
             {company.industry && (
               <>
@@ -71,7 +72,7 @@ export function CompanyHeader({ company }: { company: CompanyProfile }) {
         </div>
       </div>
       <div className="grid grid-cols-2 gap-4 rounded-xl border border-border p-4 text-sm sm:grid-cols-4 lg:grid-cols-7">
-        <Stat label="Market cap">{formatMarketCap(company.market_cap)}</Stat>
+        <Stat label={company.asset_type === "etf" ? "Net assets" : "Market cap"}>{formatMarketCap(company.market_cap)}</Stat>
         <Stat label="P/E">{formatNumber(company.pe_ratio, 1)}</Stat>
         <Stat label="1W">
           <ChangeValue value={company.chg_1w_pct} />

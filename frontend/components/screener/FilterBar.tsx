@@ -3,13 +3,14 @@
 import { useEffect, useState } from "react";
 
 import { Input } from "@/components/ui/input";
-import type { CapBand, ChangeMode, IndexFilter, Watchlist } from "@/lib/api";
+import type { AssetFilter, CapBand, ChangeMode, IndexFilter, Watchlist } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
 export const selectClass =
   "h-8 rounded-lg border border-input bg-transparent px-2 text-sm outline-none focus-visible:ring-3 focus-visible:ring-ring/50 dark:bg-input/30";
 
 export function FilterBar({
+  type,
   index,
   cap,
   q,
@@ -18,6 +19,7 @@ export function FilterBar({
   watchlists,
   onChange,
 }: {
+  type: AssetFilter;
   index: IndexFilter;
   cap?: CapBand;
   q?: string;
@@ -25,6 +27,7 @@ export function FilterBar({
   wl?: number;
   watchlists: Watchlist[];
   onChange: (patch: {
+    type?: AssetFilter;
     index?: IndexFilter;
     cap?: CapBand;
     q?: string;
@@ -56,6 +59,19 @@ export function FilterBar({
         className="w-56"
       />
       <label className="flex items-center gap-2 text-sm text-muted-foreground">
+        Type
+        <select
+          aria-label="Asset type"
+          className={selectClass}
+          value={type}
+          onChange={(e) => onChange({ type: e.target.value as AssetFilter })}
+        >
+          <option value="all">Stocks + ETFs</option>
+          <option value="stock">Stocks</option>
+          <option value="etf">ETFs</option>
+        </select>
+      </label>
+      <label className="flex items-center gap-2 text-sm text-muted-foreground">
         Index
         <select
           aria-label="Index"
@@ -63,10 +79,11 @@ export function FilterBar({
           value={index}
           onChange={(e) => onChange({ index: e.target.value as IndexFilter })}
         >
-          <option value="all">S&amp;P 500 + Nasdaq-100</option>
+          <option value="all">All tracked</option>
           <option value="sp500">S&amp;P 500</option>
           <option value="ndx100">Nasdaq-100</option>
           <option value="both">In both</option>
+          <option value="other">Not in an index</option>
         </select>
       </label>
       <label className="flex items-center gap-2 text-sm text-muted-foreground">

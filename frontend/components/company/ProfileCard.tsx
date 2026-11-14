@@ -57,7 +57,7 @@ export function ProfileCard({ company }: { company: CompanyProfile }) {
               {company.executives.map((e) => (
                 <li key={`${e.name}-${e.title}`} className="rounded-lg border border-border p-2">
                   <div className="font-medium">
-                    {e.name} {e.is_ceo && <span className="text-xs text-amber-400">CEO</span>}
+                    {e.name} {e.is_ceo && <span className="text-xs text-amber-600 dark:text-amber-400">CEO</span>}
                   </div>
                   <div className="text-xs text-muted-foreground">{e.title}</div>
                   {e.total_pay ? <div className="text-xs text-muted-foreground">Pay {formatCompact(e.total_pay, "$")}</div> : null}

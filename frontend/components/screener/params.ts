@@ -1,8 +1,24 @@
-import type { CapBand, ChangeMode, IndexFilter, SortKey, StocksQuery, SwingWindow } from "@/lib/api";
+import type {
+  AssetFilter,
+  CapBand,
+  ChangeMode,
+  IndexFilter,
+  SortKey,
+  StocksQuery,
+  SwingWindow,
+} from "@/lib/api";
+
+export type BrowseMode = "sectors" | "niches";
 
 export interface ScreenerState {
+  browse: BrowseMode;
   sector?: string;
   industry?: string;
+  /** Parent niche slug. */
+  niche?: string;
+  /** Sub-niche slug within `niche`. */
+  sub?: string;
+  type: AssetFilter;
   index: IndexFilter;
   cap?: CapBand;
   q?: string;
@@ -15,6 +31,8 @@ export interface ScreenerState {
 }
 
 export const DEFAULT_STATE: ScreenerState = {
+  browse: "sectors",
+  type: "all",
   index: "all",
   sort: "market_cap",
   order: "desc",
@@ -36,11 +54,12 @@ const SORTS: SortKey[] = [
   "chg_1w",
   "chg_ytd",
 ];
-const INDEXES: IndexFilter[] = ["all", "sp500", "ndx100", "both"];
-const CAPS: CapBand[] = ["mega", "large", "mid", "small"];
-const WINDOWS: SwingWindow[] = ["chg_1d", "chg_1w", "chg_ytd"];
+export const INDEXES: IndexFilter[] = ["all", "sp500", "ndx100", "both", "other"];
+export const ASSET_FILTERS: AssetFilter[] = ["all", "stock", "etf"];
+export const CAPS: CapBand[] = ["mega", "large", "mid", "small"];
+export const WINDOWS: SwingWindow[] = ["chg_1d", "chg_1w", "chg_ytd"];
 
-function pick<T extends string>(value: string | null, allowed: readonly T[], fallback: T): T {
+export function pick<T extends string>(value: string | null, allowed: readonly T[], fallback: T): T {
   return value && (allowed as readonly string[]).includes(value) ? (value as T) : fallback;
 }
 
@@ -49,8 +68,12 @@ export function parseParams(sp: URLSearchParams): ScreenerState {
   const wl = Number(sp.get("wl"));
   const cap = sp.get("cap");
   return {
+    browse: sp.get("browse") === "niches" ? "niches" : "sectors",
     sector: sp.get("sector") || undefined,
     industry: sp.get("industry") || undefined,
+    niche: sp.get("niche") || undefined,
+    sub: sp.get("sub") || undefined,
+    type: pick(sp.get("type"), ASSET_FILTERS, DEFAULT_STATE.type),
     index: pick(sp.get("index"), INDEXES, DEFAULT_STATE.index),
     cap: cap && (CAPS as string[]).includes(cap) ? (cap as CapBand) : undefined,
     q: sp.get("q") || undefined,
@@ -66,8 +89,12 @@ export function parseParams(sp: URLSearchParams): ScreenerState {
 export function serializeParams(state: ScreenerState): string {
   const sp = new URLSearchParams();
   const entries: [string, string | number | undefined][] = [
+    ["browse", state.browse !== DEFAULT_STATE.browse ? state.browse : undefined],
     ["sector", state.sector],
     ["industry", state.industry],
+    ["niche", state.niche],
+    ["sub", state.sub],
+    ["type", state.type !== DEFAULT_STATE.type ? state.type : undefined],
     ["index", state.index !== DEFAULT_STATE.index ? state.index : undefined],
     ["cap", state.cap],
     ["q", state.q],
@@ -82,10 +109,18 @@ export function serializeParams(state: ScreenerState): string {
   return sp.toString();
 }
 
+/** The niche slug to filter by: the sub-niche when one is picked, otherwise its parent. */
+export function activeNiche(state: Pick<ScreenerState, "browse" | "niche" | "sub">): string | undefined {
+  return state.browse === "niches" ? (state.sub ?? state.niche) : undefined;
+}
+
 export function toStocksQuery(state: ScreenerState, pageSize: number): StocksQuery {
+  const niches = state.browse === "niches";
   return {
-    sector: state.sector,
-    industry: state.industry,
+    sector: niches ? undefined : state.sector,
+    industry: niches ? undefined : state.industry,
+    niche: activeNiche(state),
+    asset_type: state.type !== "all" ? state.type : undefined,
     index: state.index,
     cap_band: state.cap,
     q: state.q,
@@ -99,7 +134,10 @@ export function toStocksQuery(state: ScreenerState, pageSize: number): StocksQue
 }
 
 /** Clicking the active column flips direction; a new column starts descending (ascending for text). */
-export function nextSort(state: ScreenerState, key: SortKey): Pick<ScreenerState, "sort" | "order" | "page"> {
+export function nextSort(
+  state: Pick<ScreenerState, "sort" | "order">,
+  key: SortKey,
+): Pick<ScreenerState, "sort" | "order" | "page"> {
   if (state.sort === key) return { sort: key, order: state.order === "desc" ? "asc" : "desc", page: 1 };
   const textual = key === "ticker" || key === "name" || key === "sector" || key === "industry";
   return { sort: key, order: textual ? "asc" : "desc", page: 1 };

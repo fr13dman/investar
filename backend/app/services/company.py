@@ -9,6 +9,7 @@ from app.models import CeoScorecard, Company, Executive, MetricsSnapshot, PriceD
 from app.providers import registry
 from app.services.ingest import apply_profile
 from app.services.metrics import recompute_metrics
+from app.services.niches import company_niches
 from app.services.screener import row_dict
 
 log = logging.getLogger(__name__)
@@ -41,6 +42,7 @@ def profile_payload(session: Session, comp: Company) -> dict:
             "day_low": quote.day_low, "source": quote.source, "as_of": quote.as_of.isoformat(),
         } if quote else None,
         "executives": [{"name": e.name, "title": e.title, "total_pay": e.total_pay, "is_ceo": e.is_ceo} for e in execs],
+        "niches": company_niches(session, comp.ticker),
     }
 
 

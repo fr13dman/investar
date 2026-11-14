@@ -92,3 +92,11 @@ def test_parse_profile_officers():
     assert p.sector == "Technology" and p.employees == 167000
     assert [o.name for o in p.officers] == ["Mr. John Doe"]
     assert p.officers[0].total_pay == 1e6
+
+
+def test_parse_profile_identity_and_etf_size():
+    etf = parse_profile("URA", {"longName": "Global X Uranium ETF", "quoteType": "ETF", "currency": "USD",
+                                "exchange": "PCX", "totalAssets": 4.7e9})
+    assert (etf.name, etf.quote_type, etf.currency, etf.market_cap) == ("Global X Uranium ETF", "ETF", "USD", 4.7e9)
+    stock = parse_profile("NBIS", {"shortName": "Nebius", "quoteType": "EQUITY", "marketCap": 2e10, "totalAssets": 1})
+    assert stock.name == "Nebius" and stock.market_cap == 2e10

@@ -24,6 +24,8 @@ class Settings(BaseSettings):
 
     sentiment_model: str = "auto"  # auto | finbert | vader
     enable_scheduler: bool = True
+    # Serve market search, profiles and prices from deterministic demo data (end-to-end tests, offline demos).
+    offline_providers: bool = False
     intraday_interval_minutes: int = 15
 
     news_ttl_minutes: int = 60

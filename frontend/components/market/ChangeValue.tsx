@@ -2,8 +2,8 @@ import { changeTone, formatChange } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
 const TONE = {
-  gain: "text-emerald-400",
-  loss: "text-rose-400",
+  gain: "text-emerald-600 dark:text-emerald-400",
+  loss: "text-rose-600 dark:text-rose-400",
   flat: "text-muted-foreground",
 } as const;
 

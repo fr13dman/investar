@@ -44,7 +44,7 @@ export function WatchButton({ ticker, watchlists }: { ticker: string; watchlists
         onClick={() => setOpen((o) => !o)}
         className="rounded p-1 text-muted-foreground hover:text-foreground"
       >
-        <StarIcon className={cn("size-4", watched && "fill-amber-400 text-amber-400")} />
+        <StarIcon className={cn("size-4", watched && "fill-amber-400 text-amber-600 dark:text-amber-400")} />
       </button>
       {open && (
         <div
@@ -71,7 +71,7 @@ export function WatchButton({ ticker, watchlists }: { ticker: string; watchlists
               onClick={() => toggle.mutate(w)}
             >
               {w.name}
-              {w.tickers.includes(ticker) && <span className="text-xs text-amber-400">added</span>}
+              {w.tickers.includes(ticker) && <span className="text-xs text-amber-600 dark:text-amber-400">added</span>}
             </button>
           ))}
         </div>

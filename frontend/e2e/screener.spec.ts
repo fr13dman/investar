@@ -12,11 +12,12 @@ async function columnValues(page: import("@playwright/test").Page, header: strin
 test("filter by sector and industry, then sort by swings", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Stock screener" })).toBeVisible();
-  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(12);
+  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(15);
 
   await page.getByRole("button", { name: "Sector Technology" }).click();
   await expect(page).toHaveURL(/sector=Technology/);
-  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(6);
+  // 6 index stocks plus CRWV, a curated niche stock outside the indexes.
+  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(7);
 
   await page.getByRole("button", { name: "Industry Semiconductors" }).click();
   await expect(stocksTable(page).locator("tbody tr")).toHaveCount(2);
@@ -28,7 +29,7 @@ test("filter by sector and industry, then sort by swings", async ({ page }) => {
   await expect(page).toHaveURL(/sort=chg_ytd/);
   await expect.poll(async () => {
     const v = await columnValues(page, "YTD");
-    return v.length === 6 && v.every((x, i) => i === 0 || v[i - 1] >= x);
+    return v.length === 7 && v.every((x, i) => i === 0 || v[i - 1] >= x);
   }).toBe(true);
 
   await stocksTable(page).getByRole("button", { name: "YTD" }).click();
