@@ -10,6 +10,7 @@ router = APIRouter(prefix="/api", tags=["market"])
 
 SortKey = Literal["ticker", "name", "sector", "industry", "price", "market_cap", "volume", "pe_ratio",
                   "chg_1d", "chg_1w", "chg_ytd"]
+Window = Literal["chg_1d", "chg_1w", "chg_ytd"]
 
 
 @router.get("/sectors")
@@ -21,10 +22,15 @@ def sectors(session: Session = Depends(get_session)):
 def stocks(
     sector: str | None = None,
     industry: str | None = None,
-    index: Literal["all", "sp500", "ndx100", "both"] = "all",
+    niche: str | None = None,
+    asset_type: Literal["all", "stock", "etf"] = "all",
+    index: Literal["all", "sp500", "ndx100", "both", "other"] = "all",
     cap_band: Literal["mega", "large", "mid", "small"] | None = None,
     q: str | None = None,
     watchlist_id: int | None = None,
+    chg_window: Window = "chg_1d",
+    chg_min: float | None = None,
+    chg_max: float | None = None,
     sort: SortKey = "market_cap",
     order: Literal["asc", "desc"] = "desc",
     mode: Literal["pct", "abs"] = "pct",
@@ -32,8 +38,9 @@ def stocks(
     page_size: int = Query(50, ge=1, le=600),
     session: Session = Depends(get_session),
 ):
-    query = screener.ScreenerQuery(sector=sector, industry=industry, index=index, cap_band=cap_band, q=q,
-                                   watchlist_id=watchlist_id, sort=sort, order=order, mode=mode, page=page,
+    query = screener.ScreenerQuery(sector=sector, industry=industry, niche=niche, asset_type=asset_type, index=index,
+                                   cap_band=cap_band, q=q, watchlist_id=watchlist_id, chg_window=chg_window,
+                                   chg_min=chg_min, chg_max=chg_max, sort=sort, order=order, mode=mode, page=page,
                                    page_size=page_size)
     try:
         return screener.screen(session, query)
@@ -45,12 +52,14 @@ def stocks(
 def movers(
     sector: str | None = None,
     industry: str | None = None,
-    window: Literal["chg_1d", "chg_1w", "chg_ytd"] = "chg_1d",
+    niche: str | None = None,
+    window: Window = "chg_1d",
     mode: Literal["pct", "abs"] = "pct",
     limit: int = Query(5, ge=1, le=25),
     session: Session = Depends(get_session),
 ):
-    return screener.movers(session, sector=sector, industry=industry, window=window, mode=mode, limit=limit)
+    return screener.movers(session, sector=sector, industry=industry, niche=niche, window=window, mode=mode,
+                           limit=limit)
 
 
 @router.get("/benchmarks")

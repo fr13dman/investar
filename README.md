@@ -1,9 +1,14 @@
 # Investar
 
-A local stock research app for **S&P 500 and Nasdaq-100** companies:
+A local stock research app for **S&P 500 and Nasdaq-100** companies plus **niche sectors** (AI, hyperscalers,
+neoclouds, nuclear energy, quantum, robotics, cybersecurity) and their stocks and ETFs:
 
-- **Screener:** filter by sector and then industry; sort by market cap or by the biggest moves since the last trading
-  day, over the trading week, and year to date (% or $); top movers per sector; SPY/QQQ benchmarks; watchlists.
+- **Screener:** browse by sector and industry, or by niche and sub-niche; filter stocks vs ETFs and index membership;
+  sort by market cap or by the biggest moves since the last trading day, over the trading week, and year to date
+  (% or $); top movers per sector or niche; SPY/QQQ benchmarks; watchlists.
+- **Explore:** filter niches by market cap and gains, and search the whole market for any US-listed stock or ETF to
+  add to the screener (optionally tagged with niches).
+- **Light, dark or system theme** from the header menu (follows the operating system by default).
 - **Company research:** live quote, candlestick chart compared with SPY, profile and leadership, CEO performance
   scorecard, news with sentiment, global presence (subsidiary map, revenue by region), and patents (granted and
   pending).
@@ -22,7 +27,7 @@ cp .env.example .env            # add FINNHUB_API_KEY (news + live quotes), SEC_
 
 cd backend
 uv sync                         # add `--extra sentiment` for FinBERT (PyTorch, about 500 MB); otherwise VADER is used
-uv run investar bootstrap       # migrate, load the stock list, profiles, 5 years of daily prices (about 10 minutes)
+uv run investar bootstrap       # migrate, load the stock list and niches, profiles, 5 years of daily prices (about 10 minutes)
 uv run uvicorn app.main:app --port 8010    # API + scheduler (15-min intraday, end-of-day, weekly research refresh)
 
 cd ../frontend
@@ -30,7 +35,8 @@ pnpm install
 pnpm dev                        # http://localhost:3010 (proxies /api to http://127.0.0.1:8010)
 ```
 
-Offline demo data instead of live sources: `uv run investar seed-demo`.
+Offline demo data instead of live sources: `uv run investar seed-demo` (set `OFFLINE_PROVIDERS=true` to also serve
+market search, profiles and prices for newly added symbols from demo data).
 
 ### One command for both services
 
@@ -46,6 +52,7 @@ Override ports with `API_PORT=... WEB_PORT=... ./dev.sh start`. Logs and PIDs ar
 | Command | Purpose |
 | --- | --- |
 | `uv run investar refresh-prices` | Refresh the latest prices and swing metrics now |
+| `uv run investar load-niches [--no-fetch]` | Apply `backend/app/niches_catalog.py` and fetch data for newly listed symbols |
 | `uv run investar refresh-research AAPL MSFT` | Refresh CEO scorecard, global presence and patents |
 | `uv run investar import-patents-bulk <dir>` | Import PatentsView bulk TSVs (fallback while the PatentsView API is migrating) |
 | `uv run investar profiles [TICKERS]` / `backfill [TICKERS]` | Re-fetch profiles / price history |
@@ -64,4 +71,6 @@ cd frontend && pnpm e2e                  # Playwright against a seeded backend o
 - [Screener and market data](docs/features/FEATURE_screener_and_market_data.md)
 - [Company research: profile, chart, CEO performance, news](docs/features/FEATURE_company_research_profile_ceo_news.md)
 - [Global presence and patents](docs/features/FEATURE_global_presence_and_patents.md)
+- [Niche sectors and the Explore page](docs/features/FEATURE_niche_sectors_and_explore.md)
+- [Light and dark theme](docs/features/FEATURE_light_dark_theme.md)
 - [Dev service runner (`dev.sh`)](docs/features/FEATURE_dev_service_runner.md)

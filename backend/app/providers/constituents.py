@@ -74,13 +74,17 @@ def parse_sec_tickers(payload: dict) -> dict[str, str]:
 
 
 class WikipediaConstituents:
+    def ciks(self) -> dict[str, str]:
+        """Ticker -> zero-padded CIK for every SEC registrant (used for non-index symbols too)."""
+        with http.client(get_settings().sec_user_agent) as c:
+            http.LIMITERS["sec"].acquire()
+            return parse_sec_tickers(c.get(SEC_TICKERS_URL).raise_for_status().json())
+
     def fetch(self) -> list[ConstituentRow]:
         with http.client() as c:
             sp = parse_sp500(c.get(SP500_URL).raise_for_status().text)
             ndx = parse_ndx100(c.get(NDX100_URL).raise_for_status().text)
-        with http.client(get_settings().sec_user_agent) as c:
-            http.LIMITERS["sec"].acquire()
-            ciks = parse_sec_tickers(c.get(SEC_TICKERS_URL).raise_for_status().json())
+        ciks = self.ciks()
         for row in sp + ndx:
             row.cik = row.cik or ciks.get(row.ticker)
         return sp + ndx

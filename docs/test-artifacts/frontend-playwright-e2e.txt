@@ -1,16 +1,54 @@
 
-Running 9 tests using 1 worker
+> frontend@0.1.0 e2e /private<repo>/frontend
+> playwright test
 
-(node:66595) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] 2026-11-14 13:59:58,977 INFO Context impl SQLiteImpl.
+[WebServer] 2026-11-14 13:59:58,977 INFO Will assume non-transactional DDL.
+[WebServer] 2026-11-14 13:59:58,981 INFO Running upgrade  -> f8923f8957ee, initial schema
+[WebServer] 2026-11-14 13:59:59,000 INFO Running upgrade f8923f8957ee -> 8537b4ea2b30, ceo tenures
+[WebServer] 2026-11-14 13:59:59,008 INFO Running upgrade 8537b4ea2b30 -> 4a8b4188bc2c, geo revenue axis and country
+[WebServer] 2026-11-14 13:59:59,009 INFO Running upgrade 4a8b4188bc2c -> 55980ed370b4, stock splits
+[WebServer] 2026-11-14 13:59:59,009 INFO Running upgrade 55980ed370b4 -> b7c1d2e3f4a5, niches and extra (non-index) universe
+[WebServer] INFO:     Started server process [42192]
+[WebServer] INFO:     Waiting for application startup.
+[WebServer] 2026-11-14 14:00:05,333 INFO alembic.runtime.plugins: setup plugin alembic.autogenerate.schemas
+[WebServer] 2026-11-14 14:00:05,333 INFO alembic.runtime.plugins: setup plugin alembic.autogenerate.tables
+[WebServer] 2026-11-14 14:00:05,334 INFO alembic.runtime.plugins: setup plugin alembic.autogenerate.types
+[WebServer] 2026-11-14 14:00:05,334 INFO alembic.runtime.plugins: setup plugin alembic.autogenerate.constraints
+[WebServer] 2026-11-14 14:00:05,334 INFO alembic.runtime.plugins: setup plugin alembic.autogenerate.defaults
+[WebServer] 2026-11-14 14:00:05,334 INFO alembic.runtime.plugins: setup plugin alembic.autogenerate.comments
+[WebServer] 2026-11-14 14:00:05,334 INFO alembic.runtime.plugins: setup plugin alembic.ext.checkconstraint_byname
+[WebServer] 2026-11-14 14:00:05,346 INFO alembic.runtime.migration: Context impl SQLiteImpl.
+[WebServer] 2026-11-14 14:00:05,346 INFO alembic.runtime.migration: Will assume non-transactional DDL.
+[WebServer] INFO:     Application startup complete.
+[WebServer] INFO:     Uvicorn running on http://127.0.0.1:8100 (Press CTRL+C to quit)
+
+Running 15 tests using 1 worker
+
+(node:42229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 (Use `node --trace-warnings ...` to show where the warning was created)
-  ✓  1 [chromium] › e2e/company.spec.ts:3:1 › open a company from the screener and explore research tabs (2.0s)
-  ✓  2 [chromium] › e2e/company.spec.ts:35:1 › sector breadcrumb links back to a filtered screener (953ms)
-  ✓  3 [chromium] › e2e/company.spec.ts:42:1 › unknown ticker shows a helpful page (453ms)
-  ✓  4 [chromium] › e2e/research-global-patents.spec.ts:3:1 › global presence: subsidiary map and revenue by region (723ms)
-  ✓  5 [chromium] › e2e/research-global-patents.spec.ts:20:1 › patents: totals, lists and assignee editing (798ms)
-  ✓  6 [chromium] › e2e/research-global-patents.spec.ts:34:1 › companies without filings show empty states (560ms)
-  ✓  7 [chromium] › e2e/screener.spec.ts:12:1 › filter by sector and industry, then sort by swings (1.1s)
-  ✓  8 [chromium] › e2e/screener.spec.ts:52:1 › index filter and search (1.4s)
-  ✓  9 [chromium] › e2e/screener.spec.ts:64:1 › watchlists: create, add from the screener, filter (944ms)
+[WebServer] 2026-11-14 14:00:13,421 INFO app.services.company: live quote unavailable for AAPL: FINNHUB_API_KEY is not set
+  ✓   1 [chromium] › e2e/company.spec.ts:3:1 › open a company from the screener and explore research tabs (3.0s)
+[WebServer] 2026-11-14 14:00:14,633 INFO app.services.company: live quote unavailable for NVDA: FINNHUB_API_KEY is not set
+  ✓   2 [chromium] › e2e/company.spec.ts:35:1 › sector breadcrumb links back to a filtered screener (1.1s)
+  ✓   3 [chromium] › e2e/company.spec.ts:42:1 › unknown ticker shows a helpful page (519ms)
+  ✓   4 [chromium] › e2e/explore.spec.ts:5:1 › screener: browse by niche and sub-niche (951ms)
+  ✓   5 [chromium] › e2e/explore.spec.ts:30:1 › explore: filter by niche and gains (1.1s)
+[WebServer] 2026-11-14 14:00:21,354 INFO app.services.company: live quote unavailable for NBIS: FINNHUB_API_KEY is not set
+  ✓   6 [chromium] › e2e/explore.spec.ts:56:1 › explore: search the market, add a symbol with niches, then stop tracking it (4.3s)
+[WebServer] 2026-11-14 14:00:22,549 INFO app.services.company: live quote unavailable for URA: FINNHUB_API_KEY is not set
+  ✓   7 [chromium] › e2e/explore.spec.ts:82:1 › ETF pages skip filings-based research (573ms)
+[WebServer] 2026-11-14 14:00:23,120 INFO app.services.company: live quote unavailable for AAPL: FINNHUB_API_KEY is not set
+  ✓   8 [chromium] › e2e/research-global-patents.spec.ts:3:1 › global presence: subsidiary map and revenue by region (775ms)
+[WebServer] 2026-11-14 14:00:23,903 INFO app.services.company: live quote unavailable for NVDA: FINNHUB_API_KEY is not set
+[WebServer] 2026-11-14 14:00:24,207 WARNING app.services.refresh: refresh patents/NVDA skipped: PATENTSVIEW_API_KEY is not set; use `investar import-patents-bulk` instead
+  ✓   9 [chromium] › e2e/research-global-patents.spec.ts:20:1 › patents: totals, lists and assignee editing (885ms)
+[WebServer] 2026-11-14 14:00:24,796 INFO app.services.company: live quote unavailable for PEP: FINNHUB_API_KEY is not set
+  ✓  10 [chromium] › e2e/research-global-patents.spec.ts:34:1 › companies without filings show empty states (616ms)
+  ✓  11 [chromium] › e2e/screener.spec.ts:12:1 › filter by sector and industry, then sort by swings (1.2s)
+  ✓  12 [chromium] › e2e/screener.spec.ts:53:1 › index filter and search (1.5s)
+  ✓  13 [chromium] › e2e/screener.spec.ts:65:1 › watchlists: create, add from the screener, filter (1.3s)
+  ✓  14 [chromium] › e2e/theme.spec.ts:5:1 › follows the operating system theme by default (591ms)
+  ✓  15 [chromium] › e2e/theme.spec.ts:17:1 › a manual choice overrides the system and survives a reload without hydration errors (1.6s)
 
-  9 passed (13.7s)
+  15 passed (34.2s)

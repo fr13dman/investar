@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 import { fillFor, GlobalPresencePanel } from "@/components/company/GlobalPresencePanel";
 import { PatentsPanel } from "@/components/company/PatentsPanel";
 import type { GlobalPresence, Patents } from "@/lib/api";
+import { CHART_COLORS } from "@/lib/chartTheme";
 
 import { mockFetch, renderWithQuery } from "./helpers";
 
@@ -66,8 +67,9 @@ describe("GlobalPresencePanel", () => {
     renderWithQuery(<GlobalPresencePanel ticker="AAPL" />);
     expect(await screen.findByText("Subsidiaries in 2 countries")).toBeInTheDocument();
     const paths = screen.getAllByTestId("geo");
-    expect(paths.find((p) => p.dataset.country === "IE")!.dataset.fill).toContain("rgba(52, 211, 153");
-    expect(paths.find((p) => !p.dataset.country)!.dataset.fill).toBe("rgba(255,255,255,0.06)");
+    // jsdom has no prefers-color-scheme, so the panel renders with the light palette.
+    expect(paths.find((p) => p.dataset.country === "IE")!.dataset.fill).toContain(`rgba(${CHART_COLORS.light.mapRgb}`);
+    expect(paths.find((p) => !p.dataset.country)!.dataset.fill).toBe(CHART_COLORS.light.mapEmpty);
     const byCountry = screen.getByRole("list", { name: "Subsidiaries by country" });
     expect(within(byCountry).getByText("(not on map)")).toBeInTheDocument();
 
@@ -101,6 +103,7 @@ describe("GlobalPresencePanel", () => {
   it("scales fill intensity", () => {
     expect(fillFor(0, 5)).toBe("rgba(255,255,255,0.06)");
     expect(fillFor(5, 5)).toBe("rgba(52, 211, 153, 1.00)");
+    expect(fillFor(5, 5, CHART_COLORS.light)).toBe("rgba(5, 150, 105, 1.00)");
   });
 });
 

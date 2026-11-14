@@ -85,10 +85,14 @@ def parse_profile(ticker: str, info: dict) -> Profile:
         state=info.get("state"),
         employees=int(employees) if employees else None,
         shares_outstanding=_num(info.get("sharesOutstanding")),
-        market_cap=_num(info.get("marketCap")),
+        # ETFs have no market cap on Yahoo; assets under management is the closest size measure.
+        market_cap=_num(info.get("marketCap")) or _num(info.get("totalAssets")),
         pe_ratio=_num(info.get("trailingPE")),
         exchange=info.get("exchange"),
         officers=officers,
+        name=info.get("longName") or info.get("shortName"),
+        quote_type=info.get("quoteType"),
+        currency=info.get("currency"),
     )
 
 

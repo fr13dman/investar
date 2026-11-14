@@ -8,6 +8,7 @@ import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxi
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { api, type GlobalPresence } from "@/lib/api";
+import { CHART_COLORS, useChartColors, type ChartColors } from "@/lib/chartTheme";
 import { formatCompact, formatDate, formatNumber } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
@@ -17,13 +18,14 @@ const MAP_URL = "/maps/countries-110m.json";
 // Countries too small for the 110m world map; listed but not drawn.
 const NOT_ON_MAP = new Set(["344", "702", "442", "438", "492", "674", "336", "446", "060", "136", "092", "831", "832", "833"]);
 
-export function fillFor(count: number, max: number): string {
-  if (!count) return "rgba(255,255,255,0.06)";
+export function fillFor(count: number, max: number, colors: ChartColors = CHART_COLORS.dark): string {
+  if (!count) return colors.mapEmpty;
   const alpha = 0.3 + 0.7 * (count / Math.max(max, 1));
-  return `rgba(52, 211, 153, ${alpha.toFixed(2)})`;
+  return `rgba(${colors.mapRgb}, ${alpha.toFixed(2)})`;
 }
 
 function SubsidiaryMap({ countries }: { countries: GlobalPresence["countries"] }) {
+  const chart = useChartColors();
   const byNumeric = useMemo(() => new Map(countries.map((c) => [c.numeric, c])), [countries]);
   const max = Math.max(0, ...countries.map((c) => c.count));
   return (
@@ -37,8 +39,8 @@ function SubsidiaryMap({ countries }: { countries: GlobalPresence["countries"] }
                 key={geo.rsmKey}
                 geography={geo}
                 data-country={c ? c.alpha2 : undefined}
-                fill={fillFor(c?.count ?? 0, max)}
-                stroke="rgba(255,255,255,0.15)"
+                fill={fillFor(c?.count ?? 0, max, chart)}
+                stroke={chart.mapStroke}
                 strokeWidth={0.4}
                 className={cn("outline-none", c && "hover:fill-amber-400")}
               >
@@ -53,6 +55,7 @@ function SubsidiaryMap({ countries }: { countries: GlobalPresence["countries"] }
 }
 
 export function GlobalPresencePanel({ ticker }: { ticker: string }) {
+  const chart = useChartColors();
   const qc = useQueryClient();
   const [filter, setFilter] = useState("");
   const [axis, setAxis] = useState<"geographic" | "segment">("geographic");
@@ -156,11 +159,11 @@ export function GlobalPresencePanel({ ticker }: { ticker: string }) {
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={latest.regions} layout="vertical" margin={{ left: 40 }}>
-                    <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.06)" />
-                    <XAxis type="number" stroke="#a3a3a3" fontSize={12} tickFormatter={(v: number) => formatCompact(v, "$")} />
-                    <YAxis type="category" dataKey="region" stroke="#a3a3a3" fontSize={12} width={120} />
-                    <Tooltip formatter={(v) => formatCompact(Number(v), "$")} contentStyle={{ background: "#171717", border: "none" }} />
-                    <Bar dataKey="revenue" fill="#60a5fa" />
+                    <CartesianGrid strokeDasharray="3 3" stroke={chart.grid} />
+                    <XAxis type="number" stroke={chart.axis} fontSize={12} tickFormatter={(v: number) => formatCompact(v, "$")} />
+                    <YAxis type="category" dataKey="region" stroke={chart.axis} fontSize={12} width={120} />
+                    <Tooltip formatter={(v) => formatCompact(Number(v), "$")} contentStyle={chart.tooltip} />
+                    <Bar dataKey="revenue" fill={chart.benchmark} />
                   </BarChart>
                 </ResponsiveContainer>
               </div>

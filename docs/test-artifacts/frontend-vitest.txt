@@ -1,4 +1,6 @@
+
  RUN  v5.1.0 <repo>/frontend
+
  ✓ __tests__/chartData.test.ts > chart data > rebases the benchmark to the stock's first close 2ms
  ✓ __tests__/chartData.test.ts > chart data > handles empty input 0ms
  ✓ __tests__/chartData.test.ts > chart data > computes period return 0ms
@@ -8,34 +10,57 @@
  ✓ __tests__/params.test.ts > screener URL state > toggles sort direction and resets the page 0ms
  ✓ __tests__/params.test.ts > screener URL state > builds the API query string 0ms
  ✓ __tests__/format.test.ts > formatters > formats market caps compactly 2ms
- ✓ __tests__/format.test.ts > formatters > formats prices 12ms
+ ✓ __tests__/format.test.ts > formatters > formats prices 24ms
  ✓ __tests__/format.test.ts > formatters > formats signed changes in percent and dollars 0ms
  ✓ __tests__/format.test.ts > formatters > classifies tone 0ms
- ✓ __tests__/screener-components.test.tsx > Sparkline > draws a path scaled to the box 1ms
- ✓ __tests__/screener-components.test.tsx > Sparkline > labels trend direction 22ms
- ✓ __tests__/screener-components.test.tsx > SectorPicker > selects a sector, then shows and selects its industries 20ms
- ✓ __tests__/screener-components.test.tsx > FilterBar > emits index, cap band and unit changes 10ms
- ✓ __tests__/screener-components.test.tsx > FilterBar > debounces search 6ms
- ✓ __tests__/screener-components.test.tsx > StocksTable > renders rows with formatted values and index badges 31ms
- ✓ __tests__/screener-page.test.tsx > Screener page > loads sectors, movers and stocks for the URL state and updates the URL on interaction 111ms
- ✓ __tests__/screener-page.test.tsx > Screener page > surfaces API errors 23ms
+ ✓ __tests__/niches.test.tsx > NichePicker > shows parents, then the selected parent's sub-niches 46ms
+ ✓ __tests__/niches.test.tsx > NichePicker > looks up names for parents and sub-niches 0ms
+ ✓ __tests__/niches.test.tsx > screener niche URL state > round-trips browse, niche, sub-niche and asset type 1ms
+ ✓ __tests__/niches.test.tsx > screener niche URL state > sends the sub-niche (or its parent) and ignores sector filters while browsing niches 0ms
+ ✓ __tests__/niches.test.tsx > Screener niches mode > switches from sectors to niches and clears sector filters 30ms
+ ✓ __tests__/screener-components.test.tsx > Sparkline > draws a path scaled to the box 2ms
+ ✓ __tests__/screener-components.test.tsx > Sparkline > labels trend direction 21ms
+ ✓ __tests__/screener-components.test.tsx > SectorPicker > selects a sector, then shows and selects its industries 21ms
+ ✓ __tests__/screener-components.test.tsx > FilterBar > emits index, cap band and unit changes 12ms
+ ✓ __tests__/screener-components.test.tsx > FilterBar > debounces search 7ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > renders rows with formatted values and index badges 33ms
+ ✓ __tests__/screener-page.test.tsx > Screener page > loads sectors, movers and stocks for the URL state and updates the URL on interaction 123ms
+ ✓ __tests__/screener-page.test.tsx > Screener page > surfaces API errors 21ms
  ✓ __tests__/screener-page.test.tsx > api client > throws ApiError with the server detail 1ms
- ✓ __tests__/screener-components.test.tsx > StocksTable > shows dollar changes in abs mode 11ms
+ ✓ __tests__/niches.test.tsx > Screener niches mode > filters stocks and movers by the selected niche 63ms
+ ✓ __tests__/niches.test.tsx > StocksTable badges > marks ETFs and symbols the user added 11ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > shows dollar changes in abs mode 12ms
  ✓ __tests__/screener-components.test.tsx > StocksTable > updates change cells when the mode prop changes on the same table 13ms
- ✓ __tests__/screener-components.test.tsx > StocksTable > requests server sorting from header clicks 10ms
- ✓ __tests__/screener-components.test.tsx > StocksTable > shows an empty state 5ms
- ✓ __tests__/company.test.tsx > CompanyResearch > renders the header with the live quote and the chart with SPY 88ms
- ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > colors subsidiary countries, lists counts and revenue by region 95ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > requests server sorting from header clicks 12ms
+ ✓ __tests__/screener-components.test.tsx > StocksTable > shows an empty state 3ms
+ ✓ __tests__/theme.test.tsx > theme preference > defaults to system and ignores garbage in storage 3ms
+ ✓ __tests__/theme.test.tsx > theme preference > resolves system to the OS setting and explicit choices to themselves 0ms
+ ✓ __tests__/theme.test.tsx > theme preference > inline script applies the stored or system theme before React runs 3ms
+ ✓ __tests__/theme.test.tsx > ThemeProvider > follows the operating system while the preference is System 17ms
+ ✓ __tests__/theme.test.tsx > ThemeProvider > an explicit choice overrides the OS and is persisted 3ms
+ ✓ __tests__/theme.test.tsx > ThemeToggle > offers System, Light and Dark and switches the theme 97ms
+ ✓ __tests__/theme.test.tsx > useChartColors > returns the palette for the resolved theme 1ms
+ ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > colors subsidiary countries, lists counts and revenue by region 93ms
  ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > explains when revenue by geography is not reported 3ms
  ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > shows a loading message instead of 'Not reported' during the first fetch 7ms
  ✓ __tests__/phase3.test.tsx > GlobalPresencePanel > scales fill intensity 0ms
  ✓ __tests__/phase3.test.tsx > PatentsPanel > shows totals, lists and edits assignee names 35ms
- ✓ __tests__/phase3.test.tsx > PatentsPanel > surfaces the API-unavailable message with the bulk import hint 9ms
- ✓ __tests__/company.test.tsx > CompanyResearch > shows the CEO scorecard and saves an override 60ms
+ ✓ __tests__/phase3.test.tsx > PatentsPanel > surfaces the API-unavailable message with the bulk import hint 8ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > renders the header with the live quote and the chart with SPY 85ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > shows the CEO scorecard and saves an override 58ms
  ✓ __tests__/company.test.tsx > CompanyResearch > lists news with sentiment and filters by tone 28ms
- ✓ __tests__/company.test.tsx > CompanyResearch > explains how to enable news when no key is configured 21ms
- ✓ __tests__/company.test.tsx > CompanyResearch > shows a friendly message for unknown tickers 4ms
- Test Files  7 passed (7)
-      Tests  36 passed (36)
-   Start at  09:06:57
-   Duration  1.48s (environment 54%, setup 20%, import 16%, tests 9%, transform 2%)
+ ✓ __tests__/company.test.tsx > CompanyResearch > explains how to enable news when no key is configured 22ms
+ ✓ __tests__/company.test.tsx > CompanyResearch > shows a friendly message for unknown tickers 5ms
+ ✓ __tests__/explore.test.tsx > explore URL state > round-trips filters and drops defaults 2ms
+ ✓ __tests__/explore.test.tsx > explore URL state > turns gain filters into change-range API parameters 0ms
+ ✓ __tests__/explore.test.tsx > Explore page > filters by niche, sub-niche and gains through the URL 509ms
+ ✓ __tests__/explore.test.tsx > Explore page > searches the market and adds a symbol with niches 376ms
+ ✓ __tests__/explore.test.tsx > Explore page > shows why a symbol could not be added 337ms
+ ✓ __tests__/explore.test.tsx > Company page for niche symbols > ETFs show only overview and news and list curated niches 23ms
+ ✓ __tests__/explore.test.tsx > Company page for niche symbols > user-added stocks can edit their own niches and stop tracking 87ms
+
+ Test Files  10 passed (10)
+      Tests  57 passed (57)
+   Start at  13:58:53
+   Duration  3.36s (environment 52%, setup 20%, import 14%, tests 12%, transform 2%)
+
