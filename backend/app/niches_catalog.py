@@ -21,7 +21,7 @@ class NicheSpec:
 CATALOG: tuple[NicheSpec, ...] = (
     NicheSpec(
         "ai", "AI", "Companies building, hosting and selling artificial intelligence.",
-        etfs=("AIQ", "CHAT"),
+        etfs=("AIQ", "CHAT", "AIS"),
         children=(
             NicheSpec("ai-chips", "AI Chips", "Accelerators, custom silicon and memory for AI training and inference.",
                       stocks=("NVDA", "AMD", "AVGO", "MRVL", "ARM", "TSM", "MU"), etfs=("SMH", "SOXX")),
@@ -46,6 +46,8 @@ CATALOG: tuple[NicheSpec, ...] = (
                       stocks=("OKLO", "SMR", "NNE", "BWXT", "GEV")),
             NicheSpec("uranium-fuel", "Uranium and Fuel", "Uranium miners, enrichment and fuel services.",
                       stocks=("CCJ", "LEU", "UEC", "UUUU", "NXE", "DNN"), etfs=("URNM",)),
+            NicheSpec("electrification", "Electrification", "Grid, power equipment and electrification supply chain.",
+                      etfs=("POW",)),
         ),
     ),
     NicheSpec(
@@ -60,7 +62,7 @@ CATALOG: tuple[NicheSpec, ...] = (
     ),
     NicheSpec(
         "robotics", "Robotics", "Industrial automation, surgical robots and autonomous machines.",
-        etfs=("BOTZ", "ROBO"),
+        etfs=("BOTZ", "ROBO", "RTOO"),
         children=(
             NicheSpec("industrial-automation", "Industrial Automation", "Factory and warehouse robotics and controls.",
                       stocks=("ROK", "TER", "SYM", "CGNX")),
@@ -80,5 +82,17 @@ CATALOG: tuple[NicheSpec, ...] = (
                       "Identity, zero-trust edge and data security.",
                       stocks=("OKTA", "NET", "S", "TENB", "RBRK")),
         ),
+    ),
+    NicheSpec(
+        "space", "Space", "Space launch, satellites and related infrastructure.",
+        etfs=("GALX",),
+    ),
+    NicheSpec(
+        "defense", "Defense", "Defense contractors and dual-use security technology.",
+        etfs=("AMMO",),
+    ),
+    NicheSpec(
+        "income", "Income ETFs", "Covered-call income and defined-outcome overlay ETFs.",
+        etfs=("OMAH", "ACKY", "DRKY", "TPRY", "SIOO", "QUSA", "VOOB", "QQQB"),
     ),
 )

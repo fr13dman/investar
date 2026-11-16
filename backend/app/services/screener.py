@@ -12,7 +12,7 @@ CAP_BANDS = {
     "mid": (2e9, 10e9),
     "small": (None, 2e9),
 }
-SWING_FIELDS = {"chg_1d", "chg_1w", "chg_ytd"}
+SWING_FIELDS = {"chg_1d", "chg_1w", "chg_1m", "chg_1y", "chg_ytd"}
 PLAIN_SORTS = {
     "ticker": Company.ticker,
     "name": Company.name,
@@ -113,6 +113,10 @@ def row_dict(c: Company, m: MetricsSnapshot | None) -> dict:
         "chg_1d_abs": m.chg_1d_abs if m else None,
         "chg_1w_pct": m.chg_1w_pct if m else None,
         "chg_1w_abs": m.chg_1w_abs if m else None,
+        "chg_1m_pct": m.chg_1m_pct if m else None,
+        "chg_1m_abs": m.chg_1m_abs if m else None,
+        "chg_1y_pct": m.chg_1y_pct if m else None,
+        "chg_1y_abs": m.chg_1y_abs if m else None,
         "chg_ytd_pct": m.chg_ytd_pct if m else None,
         "chg_ytd_abs": m.chg_ytd_abs if m else None,
         "sparkline": m.sparkline if m else None,

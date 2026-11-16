@@ -6,6 +6,8 @@ import Link from "next/link";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { api, ApiError } from "@/lib/api";
 
+import { HoldingsHeatmap } from "@/components/etf/HoldingsHeatmap";
+
 import { CeoScorecardPanel } from "./CeoScorecardPanel";
 import { CompanyHeader } from "./CompanyHeader";
 import { GlobalPresencePanel } from "./GlobalPresencePanel";
@@ -54,6 +56,7 @@ export function CompanyResearch({ ticker }: { ticker: string }) {
       <Tabs defaultValue="overview">
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
+          {isEtf && <TabsTrigger value="holdings">Holdings</TabsTrigger>}
           {!isEtf && <TabsTrigger value="ceo">CEO performance</TabsTrigger>}
           <TabsTrigger value="news">News</TabsTrigger>
           {!isEtf && <TabsTrigger value="global">Global presence</TabsTrigger>}
@@ -63,6 +66,11 @@ export function CompanyResearch({ ticker }: { ticker: string }) {
           <RefreshNote source="Yahoo Finance profile" status={data.refresh} />
           <ProfileCard company={data} />
         </TabsContent>
+        {isEtf && (
+          <TabsContent value="holdings" className="pt-4">
+            <HoldingsHeatmap ticker={data.ticker} />
+          </TabsContent>
+        )}
         {!isEtf && (
           <TabsContent value="ceo" className="pt-4">
             <CeoScorecardPanel ticker={data.ticker} />

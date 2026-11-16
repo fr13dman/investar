@@ -92,10 +92,42 @@ class MetricsSnapshot(Base):
     chg_1d_abs: Mapped[float | None] = mapped_column(Float)
     chg_1w_pct: Mapped[float | None] = mapped_column(Float, index=True)
     chg_1w_abs: Mapped[float | None] = mapped_column(Float)
+    chg_1m_pct: Mapped[float | None] = mapped_column(Float, index=True)
+    chg_1m_abs: Mapped[float | None] = mapped_column(Float)
+    chg_1y_pct: Mapped[float | None] = mapped_column(Float, index=True)
+    chg_1y_abs: Mapped[float | None] = mapped_column(Float)
     chg_ytd_pct: Mapped[float | None] = mapped_column(Float, index=True)
     chg_ytd_abs: Mapped[float | None] = mapped_column(Float)
     sparkline: Mapped[list | None] = mapped_column(JSON)
     as_of: Mapped[dt.datetime | None] = mapped_column(DateTime)
+
+
+class EtfHoldingsSnapshot(Base):
+    """Cached ETF holdings composition (issuer or TickerInside), refreshed about daily."""
+
+    __tablename__ = "etf_holdings_snapshot"
+
+    ticker: Mapped[str] = mapped_column(
+        String(12), ForeignKey("companies.ticker", ondelete="CASCADE"), primary_key=True
+    )
+    as_of: Mapped[dt.date | None] = mapped_column(Date)
+    source: Mapped[str] = mapped_column(String(40))
+    # [{ticker, name, weight_pct, kind: equity|other}]
+    holdings: Mapped[list] = mapped_column(JSON)
+    aum: Mapped[float | None] = mapped_column(Float)
+    fetched_at: Mapped[dt.datetime] = mapped_column(DateTime)
+
+
+class HoldingReturnCache(Base):
+    """Short-lived period returns for holdings not in the Investar universe."""
+
+    __tablename__ = "holding_return_cache"
+
+    ticker: Mapped[str] = mapped_column(String(24), primary_key=True)
+    chg_1w_pct: Mapped[float | None] = mapped_column(Float)
+    chg_1m_pct: Mapped[float | None] = mapped_column(Float)
+    chg_1y_pct: Mapped[float | None] = mapped_column(Float)
+    fetched_at: Mapped[dt.datetime] = mapped_column(DateTime)
 
 
 class Watchlist(Base):

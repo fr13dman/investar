@@ -9,7 +9,13 @@ import { api, type ChangeMode, type StockRow, type SwingWindow } from "@/lib/api
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-const WINDOW_LABEL: Record<SwingWindow, string> = { chg_1d: "1D", chg_1w: "1W", chg_ytd: "YTD" };
+const WINDOW_LABEL: Record<SwingWindow, string> = {
+  chg_1d: "1D",
+  chg_1w: "1W",
+  chg_1m: "1M",
+  chg_1y: "1Y",
+  chg_ytd: "YTD",
+};
 
 function MoverList({ title, rows, window, mode }: { title: string; rows: StockRow[]; window: SwingWindow; mode: ChangeMode }) {
   return (

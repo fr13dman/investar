@@ -168,7 +168,7 @@ function profile(overrides: Partial<CompanyProfile>): CompanyProfile {
 describe("Company page for niche symbols", () => {
   beforeEach(() => push.mockReset());
 
-  it("ETFs show only overview and news and list curated niches", async () => {
+  it("ETFs show overview, holdings and news and list curated niches", async () => {
     mockFetch({
       "/api/companies/URA/quote": { ticker: "URA", source: "stored", price: 30, chg_1d_pct: 1, chg_1d_abs: 0.3, as_of: null },
       "/api/companies/URA/prices": { ticker: "URA", range: "1y", interval: "1d", bars: [], benchmark: { ticker: "SPY", bars: [] } },
@@ -185,7 +185,7 @@ describe("Company page for niche symbols", () => {
     expect(await screen.findByRole("heading", { name: "Global X Uranium ETF" })).toBeInTheDocument();
     expect(screen.getByText("Exchange-traded fund")).toBeInTheDocument();
     expect(screen.getByText("Net assets")).toBeInTheDocument();
-    expect(screen.getAllByRole("tab").map((t) => t.textContent)).toEqual(["Overview", "News"]);
+    expect(screen.getAllByRole("tab").map((t) => t.textContent)).toEqual(["Overview", "Holdings", "News"]);
     const niches = screen.getByRole("list", { name: "Company niches" });
     expect(within(niches).getByRole("link")).toHaveAttribute("href", "/?browse=niches&niche=energy-transition");
     expect(screen.queryByRole("button", { name: "Stop tracking" })).not.toBeInTheDocument();

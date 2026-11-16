@@ -49,6 +49,11 @@
 }
 
 :root {
+  --heat-up: #139a4d;
+  --heat-down: #d32f2f;
+  --heat-neutral: #e8e8e8;
+  --heat-neutral-muted: #cfcfcf;
+  --heat-label: #111111;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -84,6 +89,11 @@
 }
 
 .dark {
+  --heat-up: #26c281;
+  --heat-down: #ef5350;
+  --heat-neutral: #2a2a2a;
+  --heat-neutral-muted: #3a3a3a;
+  --heat-label: #f5f5f5;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -127,4 +137,46 @@
   html {
     @apply font-sans;
   }
+}
+
+/* Finviz-inspired density skin: compact type, flatter chrome, green/red heat. */
+html[data-skin="finviz"] {
+  --font-sans: Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --radius: 0.15rem;
+  --heat-up: #008000;
+  --heat-down: #c80000;
+  --heat-neutral: #f0f0f0;
+  --heat-neutral-muted: #d8d8d8;
+  --heat-label: #000000;
+}
+
+html[data-skin="finviz"].dark {
+  --heat-up: #00b400;
+  --heat-down: #ff4040;
+  --heat-neutral: #1c1c1c;
+  --heat-neutral-muted: #2c2c2c;
+  --heat-label: #eeeeee;
+}
+
+html[data-skin="finviz"] body {
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+html[data-skin="finviz"] table {
+  font-size: 12px;
+}
+
+html[data-skin="finviz"] th,
+html[data-skin="finviz"] td {
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+
+html[data-skin="finviz"] header {
+  border-bottom-width: 1px;
+}
+
+html[data-skin="finviz"] .rounded-lg {
+  border-radius: var(--radius);
 }

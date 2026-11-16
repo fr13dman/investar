@@ -28,7 +28,19 @@ export const EXPLORE_DEFAULTS: ExploreState = {
   page: 1,
 };
 
-const SORTS: SortKey[] = ["ticker", "name", "price", "market_cap", "volume", "pe_ratio", "chg_1d", "chg_1w", "chg_ytd"];
+const SORTS: SortKey[] = [
+  "ticker",
+  "name",
+  "price",
+  "market_cap",
+  "volume",
+  "pe_ratio",
+  "chg_1d",
+  "chg_1w",
+  "chg_1m",
+  "chg_1y",
+  "chg_ytd",
+];
 
 function num(v: string | null): number | undefined {
   if (v === null || v.trim() === "") return undefined;

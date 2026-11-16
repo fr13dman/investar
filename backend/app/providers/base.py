@@ -139,3 +139,24 @@ class QuoteProvider(Protocol):
 
 class NewsProvider(Protocol):
     def company_news(self, ticker: str, start: date, end: date) -> list[NewsItem]: ...
+
+
+@dataclass
+class HoldingLine:
+    ticker: str | None
+    name: str | None
+    weight_pct: float
+    kind: str = "equity"  # equity | other
+
+
+@dataclass
+class FundHoldings:
+    ticker: str
+    as_of: date | None
+    source: str
+    holdings: list[HoldingLine]
+    aum: float | None = None
+
+
+class HoldingsProvider(Protocol):
+    def holdings(self, ticker: str) -> FundHoldings | None: ...

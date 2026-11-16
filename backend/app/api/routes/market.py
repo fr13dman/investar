@@ -9,8 +9,8 @@ from app.services import screener
 router = APIRouter(prefix="/api", tags=["market"])
 
 SortKey = Literal["ticker", "name", "sector", "industry", "price", "market_cap", "volume", "pe_ratio",
-                  "chg_1d", "chg_1w", "chg_ytd"]
-Window = Literal["chg_1d", "chg_1w", "chg_ytd"]
+                  "chg_1d", "chg_1w", "chg_1m", "chg_1y", "chg_ytd"]
+Window = Literal["chg_1d", "chg_1w", "chg_1m", "chg_1y", "chg_ytd"]
 
 
 @router.get("/sectors")

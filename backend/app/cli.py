@@ -117,10 +117,24 @@ def cmd_refresh_research(args):
 cmd_refresh_research.configure_parser = lambda p: p.add_argument("tickers", nargs="+")
 
 
+def cmd_load_etf_holdings(args):
+    from app.services.etfs import load_etf_holdings
+
+    with _session() as s:
+        n = load_etf_holdings(s, tickers=args.tickers or None, force=True)
+    print(f"stored holdings for {n} ETFs")
+
+
+cmd_load_etf_holdings.configure_parser = lambda p: p.add_argument(
+    "--ticker", dest="tickers", action="append", default=None, help="limit to ticker (repeatable)"
+)
+
+
 COMMANDS = {
     "migrate": (cmd_migrate, "apply database migrations"),
     "load-universe": (cmd_load_universe, "load S&P 500 + Nasdaq-100 constituents"),
     "load-niches": (cmd_load_niches, "apply the curated niche catalog and fetch data for new symbols"),
+    "load-etf-holdings": (cmd_load_etf_holdings, "fetch and cache ETF holdings (VistaShares / TickerInside)"),
     "backfill": (cmd_backfill, "backfill daily prices"),
     "profiles": (cmd_profiles, "fetch sector/industry/profile data"),
     "refresh-prices": (cmd_refresh_prices, "refresh latest prices and swing metrics"),
