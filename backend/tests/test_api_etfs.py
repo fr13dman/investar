@@ -72,3 +72,54 @@ def test_refresh_etf(client, niched):
     one = client.post("/api/etfs/URA/refresh")
     assert one.status_code == 200
     assert one.json()["refreshed"] == ["URA"]
+
+
+def test_heatmap_rejects_non_etf_and_bad_period(client, niched):
+    assert client.get("/api/etfs/AAPL/heatmap").status_code == 404
+    assert client.get("/api/etfs/BAD TICKER!/heatmap").status_code == 422
+    assert client.get("/api/etfs/AIS/heatmap?period=nope").status_code == 422
+    assert client.get("/api/etfs?period=nope").status_code == 422
+    assert client.get("/api/etfs/vistashares?family=nope").status_code == 400
+
+
+def test_refresh_skips_unknown_and_caps(client, niched):
+    res = client.post("/api/etfs/refresh", json={"tickers": ["AAPL", "NOTREAL", "URA"]})
+    assert res.status_code == 200
+    assert res.json()["refreshed"] == ["URA"]
+    too_many = client.post("/api/etfs/refresh", json={"tickers": [f"T{i}" for i in range(30)]})
+    assert too_many.status_code == 422
+
+
+def test_list_endpoints_do_not_hit_network(client, niched, monkeypatch):
+    from app.providers import holdings_tickerinside, holdings_vistashares, vistashares_meta
+
+    def boom(*_a, **_k):
+        raise AssertionError("GET lists must not fetch holdings")
+
+    monkeypatch.setattr(holdings_vistashares.VistaSharesHoldings, "holdings", boom)
+    monkeypatch.setattr(holdings_tickerinside.TickerInsideHoldings, "holdings", boom)
+    monkeypatch.setattr(vistashares_meta, "fetch_fund_meta", boom)
+    assert client.get("/api/etfs").status_code == 200
+    assert client.get("/api/etfs/vistashares").status_code == 200
+
+
+def test_empty_holdings_do_not_overwrite(session, niched):
+    from app.models import EtfHoldingsSnapshot
+    from app.providers.base import FundHoldings
+    from app.providers.holdings_demo import DemoHoldings
+    from app.services.etfs import fetch_and_store_holdings
+
+    class EmptyHoldings:
+        def holdings(self, ticker: str):
+            return FundHoldings(ticker=ticker, as_of=None, source="empty", holdings=[])
+
+    before = session.get(EtfHoldingsSnapshot, "AIS")
+    assert before and before.holdings
+    fetched_at = before.fetched_at
+    registry.override(holdings=EmptyHoldings())
+    out = fetch_and_store_holdings(session, "AIS", force=True)
+    assert out is before
+    session.refresh(before)
+    assert before.holdings
+    assert before.fetched_at == fetched_at
+    registry.override(holdings=DemoHoldings())

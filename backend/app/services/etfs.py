@@ -2,24 +2,30 @@
 
 from __future__ import annotations
 
+import logging
 from datetime import date, datetime, timedelta
 
 from sqlalchemy import select
+from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 
-from app.models import Company, EtfHoldingsSnapshot, HoldingReturnCache, MetricsSnapshot, Niche, NicheMember
+from app.models import Company, EtfHoldingsSnapshot, HoldingReturnCache, MetricsSnapshot, Niche
 from app.providers import registry
 from app.providers.base import FundHoldings, HoldingLine, ProviderUnavailable, to_yahoo
+from app.providers.vistashares_meta import DEMO_META
 from app.services.metrics import compute_swings, recompute_metrics
 from app.services.screener import row_dict
 from app.services.universe import niche_member_tickers
 from app.vistashares_catalog import FAMILIES, VISTASHARES_FUNDS, VISTASHARES_TICKERS, is_vistashares
+
+log = logging.getLogger(__name__)
 
 HOLDINGS_TTL = timedelta(hours=24)
 RETURN_TTL = timedelta(minutes=30)
 TOP_N = 25
 PERIODS = {"wow": "chg_1w_pct", "mom": "chg_1m_pct", "yoy": "chg_1y_pct"}
 AUM_FLOOR_FRAC = 0.02
+MAX_REFRESH = 25
 
 
 def _holding_dicts(fund: FundHoldings) -> list[dict]:
@@ -55,18 +61,24 @@ def fetch_and_store_holdings(session: Session, ticker: str, force: bool = False)
         return existing
     try:
         fund = registry.holdings(t).holdings(t)
-    except ProviderUnavailable:
+    except ProviderUnavailable as exc:
+        log.info("holdings unavailable for %s: %s", t, exc)
         return existing
-    if fund is None:
+    if fund is None or not fund.holdings:
+        # Never overwrite a good snapshot with an empty/missing payload.
         return existing
-    row = existing or EtfHoldingsSnapshot(ticker=t)
-    row.as_of = fund.as_of
-    row.source = fund.source
-    row.holdings = _holding_dicts(fund)
-    row.aum = fund.aum
-    row.fetched_at = now
-    session.merge(row)
-    session.commit()
+    try:
+        row = existing or EtfHoldingsSnapshot(ticker=t)
+        row.as_of = fund.as_of
+        row.source = fund.source
+        row.holdings = _holding_dicts(fund)
+        row.aum = fund.aum
+        row.fetched_at = now
+        session.merge(row)
+        session.commit()
+    except IntegrityError:
+        session.rollback()
+        return session.get(EtfHoldingsSnapshot, t)
     return session.get(EtfHoldingsSnapshot, t)
 
 
@@ -95,6 +107,11 @@ def _period_from_closes(closes: list[tuple[date, float]]) -> dict[str, float | N
     return {"chg_1w_pct": s.chg_1w_pct, "chg_1m_pct": s.chg_1m_pct, "chg_1y_pct": s.chg_1y_pct}
 
 
+def _metrics_usable(m: MetricsSnapshot) -> bool:
+    """Prefer metrics only when MoM/YoY columns are populated (post-migration backfill)."""
+    return m.chg_1m_pct is not None and m.chg_1y_pct is not None
+
+
 def fetch_holding_returns(
     session: Session, tickers: list[str], force: bool = False
 ) -> dict[str, dict[str, float | None]]:
@@ -105,7 +122,7 @@ def fetch_holding_returns(
 
     for t in wanted:
         m = session.get(MetricsSnapshot, t)
-        if m and not force:
+        if m and not force and _metrics_usable(m):
             out[t] = {"chg_1w_pct": m.chg_1w_pct, "chg_1m_pct": m.chg_1m_pct, "chg_1y_pct": m.chg_1y_pct}
             continue
         cached = session.get(HoldingReturnCache, t)
@@ -121,26 +138,32 @@ def fetch_holding_returns(
     if missing:
         try:
             bars = registry.prices().history(missing, period="2y")
-        except Exception:
-            bars = []
+        except Exception as exc:
+            log.warning("holding return fetch failed: %s", exc)
+            for t in missing:
+                out.setdefault(t, {"chg_1w_pct": None, "chg_1m_pct": None, "chg_1y_pct": None})
+            return out
         by_ticker: dict[str, list[tuple[date, float]]] = {}
         for b in bars:
             by_ticker.setdefault(b.ticker, []).append((b.date, b.close))
         for t in missing:
             closes = sorted(by_ticker.get(t, []), key=lambda x: x[0])
-            periods = _period_from_closes(closes) if closes else {
-                "chg_1w_pct": None, "chg_1m_pct": None, "chg_1y_pct": None,
-            }
+            if not closes:
+                out[t] = {"chg_1w_pct": None, "chg_1m_pct": None, "chg_1y_pct": None}
+                continue
+            periods = _period_from_closes(closes)
             out[t] = periods
-            session.merge(
-                HoldingReturnCache(
-                    ticker=t,
-                    chg_1w_pct=periods["chg_1w_pct"],
-                    chg_1m_pct=periods["chg_1m_pct"],
-                    chg_1y_pct=periods["chg_1y_pct"],
-                    fetched_at=now,
+            # Only cache successful period computations (avoid poisoning the map for 30m).
+            if any(v is not None for v in periods.values()):
+                session.merge(
+                    HoldingReturnCache(
+                        ticker=t,
+                        chg_1w_pct=periods["chg_1w_pct"],
+                        chg_1m_pct=periods["chg_1m_pct"],
+                        chg_1y_pct=periods["chg_1y_pct"],
+                        fetched_at=now,
+                    )
                 )
-            )
         session.commit()
     return out
 
@@ -220,10 +243,13 @@ def _map_size(aum: float | None, max_aum: float) -> float:
 
 
 def _etf_tile(
-    c: Company, m: MetricsSnapshot | None, snap: EtfHoldingsSnapshot | None, period: str, max_aum: float
+    c: Company, m: MetricsSnapshot | None, snap: EtfHoldingsSnapshot | None, period: str, max_aum: float,
+    aum_override: float | None = None,
 ) -> dict:
     field = PERIODS[period]
-    aum = (snap.aum if snap and snap.aum else None) or (m.market_cap if m else None)
+    aum = aum_override if aum_override is not None else (
+        (snap.aum if snap and snap.aum else None) or (m.market_cap if m else None)
+    )
     return {
         **row_dict(c, m),
         "aum": aum,
@@ -235,12 +261,16 @@ def _etf_tile(
     }
 
 
-def _ensure_holdings(session: Session, tickers: list[str]) -> None:
-    for t in tickers:
-        fetch_and_store_holdings(session, t)
+def _apply_flat_sizes(tiles: list[dict]) -> None:
+    if not tiles:
+        return
+    max_aum = max((x.get("aum") or 0) for x in tiles) or 1.0
+    for x in tiles:
+        x["size"] = _map_size(x.get("aum"), max_aum)
 
 
 def list_niche_etfs(session: Session, niche: str | None = None, period: str = "wow") -> dict:
+    """Read-only listing from DB snapshots (no outbound holdings fetches on the request path)."""
     if period not in PERIODS:
         raise ValueError(f"unsupported period '{period}'")
 
@@ -266,7 +296,6 @@ def list_niche_etfs(session: Session, niche: str | None = None, period: str = "w
         ).all()
         if not comps:
             continue
-        _ensure_holdings(session, [c.ticker for c in comps])
         snaps = {
             s.ticker: s
             for s in session.scalars(
@@ -277,13 +306,7 @@ def list_niche_etfs(session: Session, niche: str | None = None, period: str = "w
             m.ticker: m
             for m in session.scalars(select(MetricsSnapshot).where(MetricsSnapshot.ticker.in_([c.ticker for c in comps])))
         }
-        aums = [
-            (snaps[c.ticker].aum if c.ticker in snaps and snaps[c.ticker].aum else (metrics[c.ticker].market_cap if c.ticker in metrics else 0))
-            or 0
-            for c in comps
-        ]
-        max_aum = max(aums) if aums else 1.0
-        tiles = [_etf_tile(c, metrics.get(c.ticker), snaps.get(c.ticker), period, max_aum) for c in comps]
+        tiles = [_etf_tile(c, metrics.get(c.ticker), snaps.get(c.ticker), period, 1.0) for c in comps]
         tiles.sort(key=lambda x: x.get("aum") or 0, reverse=True)
         groups.append({"slug": node.slug, "name": node.name, "etfs": tiles})
         for t in tiles:
@@ -291,38 +314,13 @@ def list_niche_etfs(session: Session, niche: str | None = None, period: str = "w
                 seen.add(t["ticker"])
                 flat.append(t)
 
-    if flat:
-        max_aum = max((x.get("aum") or 0) for x in flat) or 1.0
-        for x in flat:
-            x["size"] = _map_size(x.get("aum"), max_aum)
+    # One global size scale so the map and every niche table agree.
+    _apply_flat_sizes(flat)
+    size_by = {t["ticker"]: t["size"] for t in flat}
+    for g in groups:
+        for t in g["etfs"]:
+            t["size"] = size_by.get(t["ticker"], t.get("size") or 1.0)
     return {"period": period, "groups": groups, "etfs": flat}
-
-
-def ensure_vistashares_companies(session: Session) -> list[str]:
-    """Create curated ETF company rows for any VistaShares ticker missing from the universe."""
-    created: list[str] = []
-    for f in VISTASHARES_FUNDS:
-        comp = session.get(Company, f.ticker)
-        if comp is None:
-            session.add(
-                Company(
-                    ticker=f.ticker,
-                    name=f.name,
-                    asset_type="etf",
-                    extra_source="curated",
-                )
-            )
-            created.append(f.ticker)
-        else:
-            if not comp.name:
-                comp.name = f.name
-            if comp.asset_type != "etf":
-                comp.asset_type = "etf"
-            if not comp.extra_source:
-                comp.extra_source = "curated"
-    if created:
-        session.commit()
-    return created
 
 
 def _resolve_aum(
@@ -338,15 +336,18 @@ def _resolve_aum(
 
 
 def list_vistashares(session: Session, family: str | None = None, period: str = "wow") -> dict:
+    """Read-only listing; AUM falls back to cached issuer meta / demo constants (no live fetch on GET)."""
     if period not in PERIODS:
         raise ValueError(f"unsupported period '{period}'")
-    from app.providers.vistashares_meta import fetch_fund_meta
+    if family and family not in {fid for fid, _ in FAMILIES}:
+        raise ValueError(f"unknown VistaShares family '{family}'")
 
-    ensure_vistashares_companies(session)
+    from app.config import get_settings
+
+    # GET path stays offline-friendly: demo meta when OFFLINE_PROVIDERS, else DB snapshots / market cap only.
+    meta = DEMO_META if get_settings().offline_providers else {}
     funds = [f for f in VISTASHARES_FUNDS if family is None or f.family == family]
     tickers = [f.ticker for f in funds]
-    _ensure_holdings(session, tickers)
-    meta = fetch_fund_meta()
     snaps = {
         s.ticker: s for s in session.scalars(select(EtfHoldingsSnapshot).where(EtfHoldingsSnapshot.ticker.in_(tickers)))
     }
@@ -354,12 +355,6 @@ def list_vistashares(session: Session, family: str | None = None, period: str = 
     metrics = {
         m.ticker: m for m in session.scalars(select(MetricsSnapshot).where(MetricsSnapshot.ticker.in_(tickers)))
     }
-    aums = [
-        _resolve_aum(snaps.get(f.ticker), metrics.get(f.ticker), meta.get(f.ticker).aum if meta.get(f.ticker) else None)
-        or 0
-        for f in funds
-    ]
-    max_aum = max(aums) if aums else 1.0
     by_family: dict[str, list] = {fid: [] for fid, _ in FAMILIES}
     for f in funds:
         c = comps.get(f.ticker)
@@ -367,10 +362,7 @@ def list_vistashares(session: Session, family: str | None = None, period: str = 
         m = metrics.get(f.ticker)
         aum = _resolve_aum(snap, m, meta.get(f.ticker).aum if meta.get(f.ticker) else None)
         if c:
-            tile = _etf_tile(c, m, snap, period, max_aum)
-            if aum and not tile.get("aum"):
-                tile["aum"] = aum
-                tile["size"] = _map_size(aum, max_aum)
+            tile = _etf_tile(c, m, snap, period, 1.0, aum_override=aum)
             tile["family"] = f.family
             tile["family_name"] = f.family_name
             tile["name"] = f.name
@@ -381,7 +373,7 @@ def list_vistashares(session: Session, family: str | None = None, period: str = 
                 "asset_type": "etf",
                 "extra_source": "curated",
                 "aum": aum,
-                "size": _map_size(aum, max_aum),
+                "size": 1.0,
                 "return_pct": None,
                 "price": None,
                 "family": f.family,
@@ -397,10 +389,11 @@ def list_vistashares(session: Session, family: str | None = None, period: str = 
         if by_family.get(fid)
     ]
     flat = [t for g in groups for t in g["etfs"]]
-    if flat:
-        max_aum = max((x.get("aum") or 0) for x in flat) or 1.0
-        for x in flat:
-            x["size"] = _map_size(x.get("aum"), max_aum)
+    _apply_flat_sizes(flat)
+    size_by = {t["ticker"]: t["size"] for t in flat}
+    for g in groups:
+        for t in g["etfs"]:
+            t["size"] = size_by.get(t["ticker"], t.get("size") or 1.0)
     return {
         "period": period,
         "families": [{"id": fid, "name": label} for fid, label in FAMILIES],
@@ -411,11 +404,11 @@ def list_vistashares(session: Session, family: str | None = None, period: str = 
 
 def refresh_etfs(session: Session, tickers: list[str]) -> dict:
     refreshed = []
-    for raw in tickers:
+    for raw in tickers[:MAX_REFRESH]:
         t = raw.strip().upper()
         if not t:
             continue
-        fetch_and_store_holdings(session, t, force=True)
+        # Single force path: heatmap refreshes holdings + period colors.
         fund_heatmap(session, t, period="wow", force=True)
         refreshed.append(t)
     return {"refreshed": refreshed}

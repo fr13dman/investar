@@ -5,20 +5,17 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useMemo } from "react";
 
+import { pick } from "@/components/screener/params";
 import { Button } from "@/components/ui/button";
 import { api, type EtfTile, type HeatmapPeriod } from "@/lib/api";
 import { cn } from "@/lib/utils";
 
+import { formatAum } from "./format";
 import { heatText } from "./heatColor";
 import { PeriodToggle } from "./PeriodToggle";
 import { EtfMapTreemap } from "./Treemap";
 
-function formatAum(n: number | null | undefined): string {
-  if (n == null) return "—";
-  if (n >= 1e9) return `$${(n / 1e9).toFixed(2)}B`;
-  if (n >= 1e6) return `$${(n / 1e6).toFixed(1)}M`;
-  return `$${n.toFixed(0)}`;
-}
+const PERIODS: HeatmapPeriod[] = ["wow", "mom", "yoy"];
 
 function EtfTable({ rows }: { rows: EtfTile[] }) {
   return (
@@ -56,7 +53,7 @@ function EtfTable({ rows }: { rows: EtfTile[] }) {
 export function EtfHub({ mode }: { mode: "niches" | "vistashares" }) {
   const router = useRouter();
   const sp = useSearchParams();
-  const period = (sp.get("period") as HeatmapPeriod) || "wow";
+  const period = pick(sp.get("period"), PERIODS, "wow");
   const niche = sp.get("niche") || undefined;
   const family = sp.get("family") || undefined;
   const qc = useQueryClient();
@@ -90,8 +87,8 @@ export function EtfHub({ mode }: { mode: "niches" | "vistashares" }) {
       (list.data?.etfs ?? []).map((e) => ({
         name: e.name,
         ticker: e.ticker,
-        // Prefer AUM for visual weight; fall back to API size / equal tiles.
-        size: e.aum && e.aum > 0 ? e.aum : e.size > 0 ? e.size : 1,
+        // Always use API `size` (includes AUM floor so small launches stay visible).
+        size: e.size > 0 ? e.size : 1,
         return_pct: e.return_pct,
         navigable: true,
       })),

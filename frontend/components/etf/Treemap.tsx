@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { ResponsiveContainer, Tooltip, Treemap as ReTreemap } from "recharts";
 
+import { formatAum } from "./format";
 import { heatColor, heatText } from "./heatColor";
 
 export interface TreemapDatum {
@@ -114,7 +115,7 @@ export function AllocationTreemap({
                     <div className="text-muted-foreground">{d.name}</div>
                   )}
                   <div>
-                    {sizeIsWeight ? `Weight ${d.size.toFixed(2)}%` : `Size ${d.size.toFixed(0)}`}
+                    {sizeIsWeight ? `Weight ${d.size.toFixed(2)}%` : `AUM ${formatAum(d.size)}`}
                   </div>
                   <div>{heatText(d.return_pct)}</div>
                 </div>

@@ -1,8 +1,10 @@
 from datetime import date
 
 from app.providers.holdings_tickerinside import parse_fund_json
-from app.providers.holdings_vistashares import parse_as_of, parse_holdings_csv, parse_weight
-from app.providers.base import HoldingLine
+import pytest
+
+from app.providers.holdings_vistashares import parse_as_of, parse_holdings_csv, parse_money, parse_weight
+from app.providers.base import HoldingLine, ProviderUnavailable
 from app.services.etfs import build_treemap_nodes
 
 
@@ -28,8 +30,36 @@ def test_parse_vistashares_csv_weights_and_kinds():
 
 def test_parse_weight_and_as_of():
     assert parse_weight("7.36%") == 7.36
+    assert parse_weight("(1.5)") == -1.5
+    assert parse_weight("-2.25%") == -2.25
     assert parse_as_of("November 13, 2026") == date(2026, 11, 13)
     assert parse_as_of("2026-11-13") == date(2026, 11, 13)
+
+
+def test_parse_money_suffixes():
+    assert parse_money("$1.12B") == pytest.approx(1.12e9)
+    assert parse_money("1.1M") == pytest.approx(1.1e6)
+    assert parse_money("500K") == pytest.approx(5e5)
+
+
+def test_reject_html_and_empty_csv():
+    with pytest.raises(ProviderUnavailable):
+        parse_holdings_csv("AIS", "<html><body>error</body></html>")
+    with pytest.raises(ProviderUnavailable):
+        parse_holdings_csv("AIS", "foo,bar\n1,2\n")
+    with pytest.raises(ProviderUnavailable):
+        parse_holdings_csv("AIS", "fund,as_of,name,ticker,weight\n")
+
+
+def test_classify_avoids_substring_false_positives():
+    fund = parse_holdings_csv(
+        "AIS",
+        'fund,as_of,name,ticker,weight\nAIS,2026-11-13,"Medically Related Co",MEDX,1.0\n'
+        'AIS,2026-11-13,"Input Devices Inc",INPT,1.0\n',
+    )
+    kinds = {h.ticker: h.kind for h in fund.holdings}
+    assert kinds["MEDX"] == "equity"
+    assert kinds["INPT"] == "equity"
 
 
 def test_parse_tickerinside_fractional_weights():

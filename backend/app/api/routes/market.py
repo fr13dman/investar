@@ -53,13 +53,16 @@ def movers(
     sector: str | None = None,
     industry: str | None = None,
     niche: str | None = None,
+    asset_type: Literal["all", "stock", "etf"] = "all",
     window: Window = "chg_1d",
     mode: Literal["pct", "abs"] = "pct",
     limit: int = Query(5, ge=1, le=25),
     session: Session = Depends(get_session),
 ):
-    return screener.movers(session, sector=sector, industry=industry, niche=niche, window=window, mode=mode,
-                           limit=limit)
+    return screener.movers(
+        session, sector=sector, industry=industry, niche=niche, window=window, mode=mode, limit=limit,
+        asset_type=asset_type,
+    )
 
 
 @router.get("/benchmarks")

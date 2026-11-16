@@ -393,6 +393,7 @@ export const api = {
     sector?: string;
     industry?: string;
     niche?: string;
+    asset_type?: AssetFilter;
     window?: SwingWindow;
     mode?: ChangeMode;
     limit?: number;

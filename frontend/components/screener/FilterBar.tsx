@@ -11,6 +11,7 @@ export const selectClass =
 
 export function FilterBar({
   type,
+  lockType = false,
   index,
   cap,
   q,
@@ -20,6 +21,7 @@ export function FilterBar({
   onChange,
 }: {
   type: AssetFilter;
+  lockType?: boolean;
   index: IndexFilter;
   cap?: CapBand;
   q?: string;
@@ -58,19 +60,21 @@ export function FilterBar({
         onChange={(e) => setSearch(e.target.value)}
         className="w-56"
       />
-      <label className="flex items-center gap-2 text-sm text-muted-foreground">
-        Type
-        <select
-          aria-label="Asset type"
-          className={selectClass}
-          value={type}
-          onChange={(e) => onChange({ type: e.target.value as AssetFilter })}
-        >
-          <option value="all">Stocks + ETFs</option>
-          <option value="stock">Stocks</option>
-          <option value="etf">ETFs</option>
-        </select>
-      </label>
+      {!lockType && (
+        <label className="flex items-center gap-2 text-sm text-muted-foreground">
+          Type
+          <select
+            aria-label="Asset type"
+            className={selectClass}
+            value={type}
+            onChange={(e) => onChange({ type: e.target.value as AssetFilter })}
+          >
+            <option value="all">Stocks + ETFs</option>
+            <option value="stock">Stocks</option>
+            <option value="etf">ETFs</option>
+          </select>
+        </label>
+      )}
       <label className="flex items-center gap-2 text-sm text-muted-foreground">
         Index
         <select

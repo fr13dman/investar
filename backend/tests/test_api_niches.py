@@ -69,6 +69,9 @@ def test_movers_by_niche_and_sectors_exclude_etfs(client, niched):
     body = client.get("/api/movers", params={"niche": "ai", "limit": 3}).json()
     ai = {"NVDA", "AMD", "ASML", "MSFT", "AMZN", "ORCL", "CRWV", "AIS"}
     assert {r["ticker"] for r in body["gainers"] + body["losers"]} <= ai
+    etf_only = client.get("/api/movers", params={"asset_type": "etf", "limit": 5}).json()
+    assert {r["ticker"] for r in etf_only["gainers"] + etf_only["losers"]}
+    assert all(r["asset_type"] == "etf" for r in etf_only["gainers"] + etf_only["losers"])
     sectors = client.get("/api/sectors").json()
     assert all(s["sector"] for s in sectors)
     assert sum(s["count"] for s in sectors) == 14  # 12 index stocks + CRWV + OKLO; ETFs have no sector

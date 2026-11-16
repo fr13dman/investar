@@ -58,4 +58,23 @@ describe("EtfHub", () => {
     fireEvent.click(screen.getByRole("button", { name: "MoM" }));
     await waitFor(() => expect(replace).toHaveBeenCalled());
   });
+
+  it("ignores invalid period query params", async () => {
+    search = "period=nope";
+    const tile = etfTile({ size: 50, aum: 1 });
+    mockFetch({
+      "/api/niches": NICHES,
+      "/api/etfs": {
+        period: "wow",
+        groups: [{ slug: "ai", name: "AI", etfs: [tile] }],
+        etfs: [tile],
+      },
+    });
+    renderWithQuery(<EtfHub mode="niches" />);
+    expect(await screen.findByRole("heading", { name: "Niche ETFs" })).toBeInTheDocument();
+    await waitFor(() => {
+      const calls = (global.fetch as ReturnType<typeof vi.fn>).mock.calls.map((c) => String(c[0]));
+      expect(calls.some((u) => u.includes("/api/etfs") && !u.includes("period=nope"))).toBe(true);
+    });
+  });
 });

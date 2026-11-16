@@ -64,5 +64,5 @@ class TickerInsideHoldings:
                 return None
             r.raise_for_status()
             return parse_fund_json(t, r.json())
-        except httpx.HTTPError as exc:
+        except (httpx.HTTPError, ValueError, TypeError) as exc:
             raise ProviderUnavailable(f"TickerInside {t}: {exc}") from exc

@@ -4,6 +4,8 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { api, type SortKey } from "@/lib/api";
 import { cn } from "@/lib/utils";
@@ -78,7 +80,7 @@ export function Screener() {
                 industry: undefined,
                 niche: undefined,
                 sub: undefined,
-                type: b === "etfs" ? "etf" : state.type === "etf" && b !== "etfs" ? "all" : state.type,
+                type: b === "etfs" ? "etf" : state.type === "etf" ? "all" : state.type,
                 page: 1,
               })
             }
@@ -108,10 +110,10 @@ export function Screener() {
       )}
       {state.browse === "etfs" && (
         <p className="text-xs text-muted-foreground">
-          Showing curated niche ETFs. For maps and VistaShares, open the{" "}
-          <a href="/etfs" className="underline">
+          Showing in-universe ETFs. For maps and VistaShares, open the{" "}
+          <Link href="/etfs" className="underline">
             ETFs hub
-          </a>
+          </Link>
           .
         </p>
       )}
@@ -120,12 +122,14 @@ export function Screener() {
         industry={state.browse === "sectors" ? state.industry : undefined}
         niche={activeNiche(state)}
         nicheName={nicheName(niches.data ?? [], activeNiche(state))}
+        assetType={state.browse === "etfs" ? "etf" : state.type}
         window={state.window}
         mode={state.mode}
         onWindowChange={(window) => update({ window })}
       />
       <FilterBar
         type={state.browse === "etfs" ? "etf" : state.type}
+        lockType={state.browse === "etfs"}
         index={state.index}
         cap={state.cap}
         q={state.q}

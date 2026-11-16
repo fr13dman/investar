@@ -124,13 +124,27 @@ def seed_niches(session: Session, end: date | None = None, years: int = 2) -> No
     session.commit()
     load_catalog(session, DEMO_CATALOG)
     recompute_metrics(session, [t for t, *_ in DEMO_EXTRAS], today=end)
-    from app.providers import registry
+    from app.models import EtfHoldingsSnapshot
     from app.providers.holdings_demo import DemoHoldings
-    from app.services.etfs import load_etf_holdings
 
-    # Seed never hits live issuer APIs; tests and Playwright rely on these fixtures.
-    registry.override(holdings=DemoHoldings())
-    load_etf_holdings(session, [t for t, _n, _s, _i, kind, *_ in DEMO_EXTRAS if kind == "etf"], force=True)
+    # Seed never hits live issuer APIs; write demo snapshots directly.
+    demo = DemoHoldings()
+    now = datetime.now()
+    for t, _n, _s, _i, kind, *_ in DEMO_EXTRAS:
+        if kind != "etf":
+            continue
+        fund = demo.holdings(t)
+        if not fund:
+            continue
+        session.merge(EtfHoldingsSnapshot(
+            ticker=t,
+            as_of=fund.as_of,
+            source=fund.source,
+            holdings=[{"ticker": h.ticker, "name": h.name, "weight_pct": h.weight_pct, "kind": h.kind} for h in fund.holdings],
+            aum=fund.aum,
+            fetched_at=now,
+        ))
+    session.commit()
 
 
 def seed_all(session: Session, end: date | None = None) -> None:

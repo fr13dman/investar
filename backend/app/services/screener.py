@@ -154,10 +154,20 @@ def sector_tree(session: Session) -> list[dict]:
     return list(tree.values())
 
 
-def movers(session: Session, sector: str | None = None, window: str = "chg_1d", mode: str = "pct",
-           limit: int = 5, industry: str | None = None, niche: str | None = None) -> dict:
+def movers(
+    session: Session,
+    sector: str | None = None,
+    window: str = "chg_1d",
+    mode: str = "pct",
+    limit: int = 5,
+    industry: str | None = None,
+    niche: str | None = None,
+    asset_type: str = "all",
+) -> dict:
     col = sort_column(window, mode)
-    conds = _filters(ScreenerQuery(sector=sector, industry=industry, niche=niche)) + [col.is_not(None)]
+    conds = _filters(ScreenerQuery(sector=sector, industry=industry, niche=niche, asset_type=asset_type)) + [
+        col.is_not(None)
+    ]
     base = select(Company, MetricsSnapshot).join(MetricsSnapshot, MetricsSnapshot.ticker == Company.ticker).where(*conds)
     gainers = [row_dict(c, m) for c, m in session.execute(base.order_by(col.desc()).limit(limit))]
     losers = [row_dict(c, m) for c, m in session.execute(base.order_by(col.asc()).limit(limit))]

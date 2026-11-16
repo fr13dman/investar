@@ -29,8 +29,10 @@ export function applySkin(skin: SkinPreference): void {
 ```
 
 ```css
+:root { --app-font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif; }
+@theme inline { --font-sans: var(--app-font-sans); }
 html[data-skin="finviz"] {
-  --font-sans: Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif;
+  --app-font-sans: Tahoma, Arial, "Helvetica Neue", Helvetica, sans-serif;
   --radius: 0.15rem;
   --heat-up: #008000;
   --heat-down: #c80000;
