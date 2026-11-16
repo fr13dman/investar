@@ -41,3 +41,14 @@ test("a manual choice overrides the system and survives a reload without hydrati
   await expect(html(page)).not.toHaveClass(/\bdark\b/);
   expect(errors.filter((e) => /hydrat|script tag/i.test(e))).toEqual([]);
 });
+
+test("Finviz skin is opt-in and survives reload", async ({ page }) => {
+  await page.goto("/");
+  await expect(page.locator("html")).toHaveAttribute("data-skin", "investar");
+  await page.getByRole("button", { name: "Skin: Investar" }).click();
+  await page.getByRole("menuitemradio", { name: "Finviz" }).click();
+  await expect(page.locator("html")).toHaveAttribute("data-skin", "finviz");
+  await page.reload();
+  await expect(page.locator("html")).toHaveAttribute("data-skin", "finviz");
+  await expect(page.getByRole("button", { name: "Skin: Finviz" })).toBeVisible();
+});

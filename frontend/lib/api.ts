@@ -2,7 +2,8 @@ export type IndexFilter = "all" | "sp500" | "ndx100" | "both" | "other";
 export type AssetType = "stock" | "etf";
 export type AssetFilter = "all" | AssetType;
 export type CapBand = "mega" | "large" | "mid" | "small";
-export type SwingWindow = "chg_1d" | "chg_1w" | "chg_ytd";
+export type SwingWindow = "chg_1d" | "chg_1w" | "chg_1m" | "chg_1y" | "chg_ytd";
+export type HeatmapPeriod = "wow" | "mom" | "yoy";
 export type ChangeMode = "pct" | "abs";
 export type SortKey =
   | "ticker"
@@ -35,10 +36,57 @@ export interface StockRow {
   chg_1d_abs: number | null;
   chg_1w_pct: number | null;
   chg_1w_abs: number | null;
+  chg_1m_pct: number | null;
+  chg_1m_abs: number | null;
+  chg_1y_pct: number | null;
+  chg_1y_abs: number | null;
   chg_ytd_pct: number | null;
   chg_ytd_abs: number | null;
   sparkline: number[] | null;
   as_of: string | null;
+}
+
+export interface HeatmapNode {
+  id: string;
+  ticker: string | null;
+  name: string | null;
+  weight_pct: number;
+  return_pct: number | null;
+  kind: "equity" | "other";
+  navigable: boolean;
+}
+
+export interface FundHeatmap {
+  ticker: string;
+  period: HeatmapPeriod;
+  as_of: string | null;
+  source: string | null;
+  aum: number | null;
+  nodes: HeatmapNode[];
+  fetched_at: string | null;
+  issuer: "vistashares" | null;
+}
+
+export interface EtfTile extends StockRow {
+  aum: number | null;
+  size: number;
+  return_pct: number | null;
+  holdings_as_of?: string | null;
+  family?: string | null;
+  family_name?: string | null;
+}
+
+export interface EtfGroup {
+  slug: string;
+  name: string;
+  etfs: EtfTile[];
+}
+
+export interface EtfListResponse {
+  period: HeatmapPeriod;
+  groups: EtfGroup[];
+  etfs: EtfTile[];
+  families?: { id: string; name: string }[];
 }
 
 export interface StocksPage {
@@ -345,6 +393,7 @@ export const api = {
     sector?: string;
     industry?: string;
     niche?: string;
+    asset_type?: AssetFilter;
     window?: SwingWindow;
     mode?: ChangeMode;
     limit?: number;
@@ -401,4 +450,17 @@ export const api = {
       method: "PUT",
       body: JSON.stringify(body),
     }),
+  etfs: (q: { niche?: string; period?: HeatmapPeriod } = {}) =>
+    request<EtfListResponse>(`/api/etfs${toQueryString(q)}`),
+  vistasharesEtfs: (q: { family?: string; period?: HeatmapPeriod } = {}) =>
+    request<EtfListResponse>(`/api/etfs/vistashares${toQueryString(q)}`),
+  etfHeatmap: (ticker: string, period: HeatmapPeriod = "wow") =>
+    request<FundHeatmap>(`/api/etfs/${encodeURIComponent(ticker)}/heatmap${toQueryString({ period })}`),
+  refreshEtfs: (tickers: string[]) =>
+    request<{ refreshed: string[] }>("/api/etfs/refresh", {
+      method: "POST",
+      body: JSON.stringify({ tickers }),
+    }),
+  refreshEtf: (ticker: string) =>
+    request<{ refreshed: string[] }>(`/api/etfs/${encodeURIComponent(ticker)}/refresh`, { method: "POST" }),
 };

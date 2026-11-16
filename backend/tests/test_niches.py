@@ -26,7 +26,7 @@ def _counts(session):
 def test_load_catalog_is_idempotent(session):
     _seed(session)
     first = _counts(session)
-    assert first == (6, 9)
+    assert first == (11, 16)
     result = load_catalog(session, DEMO_CATALOG)
     assert _counts(session) == first
     assert result["new_tickers"] == []
@@ -35,11 +35,12 @@ def test_load_catalog_is_idempotent(session):
 def test_tree_parent_counts_are_union_of_children(session):
     _seed(session)
     tree = {n["slug"]: n for n in niche_tree(session)}
-    assert list(tree) == ["ai", "energy-transition"]
-    assert tree["ai"]["count"] == 7
+    assert list(tree)[:2] == ["ai", "energy-transition"]
+    assert {"robotics", "space", "defense", "income"} <= set(tree)
+    assert tree["ai"]["count"] == 8
     assert [c["slug"] for c in tree["ai"]["children"]] == ["ai-chips", "hyperscalers", "neoclouds"]
     assert {c["slug"]: c["count"] for c in tree["ai"]["children"]}["neoclouds"] == 1
-    assert tree["energy-transition"]["count"] == 2  # URA on the parent + OKLO in a child
+    assert tree["energy-transition"]["count"] == 3  # URA + OKLO + POW
 
 
 def test_catalog_marks_extras_and_etfs(session):
@@ -89,8 +90,9 @@ def test_real_catalog_shape():
     slugs = [n.slug for p in CATALOG for n in (p, *p.children)]
     assert len(slugs) == len(set(slugs))
     assert {"ai", "hyperscalers", "neoclouds", "energy-transition", "nuclear-operators", "small-modular-reactors",
-            "quantum-computing", "robotics", "cybersecurity"} <= set(slugs)
-    assert all(p.children for p in CATALOG)
+            "electrification", "quantum-computing", "robotics", "cybersecurity", "space", "defense", "income"} <= set(slugs)
+    # Theme niches with stocks keep children; ETF-only parents (space/defense/income) may be flat.
+    assert all(p.children or p.etfs for p in CATALOG)
     stocks = {t for p in CATALOG for n in (p, *p.children) for t in n.stocks}
     etfs = {t for p in CATALOG for n in (p, *p.children) for t in n.etfs}
     assert not stocks & etfs
@@ -98,10 +100,10 @@ def test_real_catalog_shape():
 
 def test_real_catalog_loads_into_empty_db(session):
     result = load_catalog(session)
-    assert {"CRWV", "NBIS", "OKLO", "CCJ", "URA"} <= set(result["new_tickers"])
+    assert {"CRWV", "NBIS", "OKLO", "CCJ", "URA", "AIS", "POW"} <= set(result["new_tickers"])
     assert session.get(Company, "URA").asset_type == "etf"
     tree = {n["slug"]: n for n in niche_tree(session)}
-    assert len(tree) == 5 and tree["ai"]["count"] > 20
+    assert len(tree) == 8 and tree["ai"]["count"] > 20
 
 
 def test_research_skips_etfs_and_non_sec(session):

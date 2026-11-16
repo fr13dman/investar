@@ -35,16 +35,29 @@ DEMO_EXTRAS = [
     ("CRWV", "CoreWeave, Inc.", "Technology", "Information Technology Services", "stock", 0.48, 40, 0.0025),
     ("OKLO", "Oklo Inc.", "Utilities", "Utilities - Regulated Electric", "stock", 0.15, 20, 0.003),
     ("URA", "Global X Uranium ETF", None, None, "etf", 0.1, 25, 0.001),
+    ("AIS", "VistaShares Artificial Intelligence Supercycle ETF", None, None, "etf", 0.02, 55, 0.0015),
+    ("POW", "VistaShares Electrification Supercycle ETF", None, None, "etf", 0.003, 22, 0.0012),
+    ("RTOO", "VistaShares Robotics Supercycle ETF", None, None, "etf", 0.0002, 21, 0.001),
+    ("GALX", "VistaShares Space Supercycle ETF", None, None, "etf", 0.00015, 20, 0.0008),
+    ("AMMO", "VistaShares Defense Supercycle ETF", None, None, "etf", 0.00012, 22, 0.0009),
+    ("OMAH", "VistaShares Target 15 Berkshire Select Income ETF", None, None, "etf", 0.06, 18, 0.0004),
+    ("VOOB", "VistaShares Shield S&P 500 Enhanced Protection ETF", None, None, "etf", 0.001, 25, 0.0005),
 ]
 DEMO_CATALOG = (
-    NicheSpec("ai", "AI", "Companies building, hosting and selling artificial intelligence.", children=(
+    NicheSpec("ai", "AI", "Companies building, hosting and selling artificial intelligence.",
+              etfs=("AIS",), children=(
         NicheSpec("ai-chips", "AI Chips", "Accelerators for AI.", stocks=("NVDA", "AMD", "ASML")),
         NicheSpec("hyperscalers", "Hyperscalers", "Public clouds at global scale.", stocks=("MSFT", "AMZN", "ORCL")),
         NicheSpec("neoclouds", "Neoclouds", "GPU-first clouds.", stocks=("CRWV",)),
     )),
     NicheSpec("energy-transition", "Energy Transition", "Low-carbon power.", etfs=("URA",), children=(
         NicheSpec("small-modular-reactors", "Small Modular Reactors", "SMR developers.", stocks=("OKLO",)),
+        NicheSpec("electrification", "Electrification", "Grid and power equipment.", etfs=("POW",)),
     )),
+    NicheSpec("robotics", "Robotics", "Industrial automation.", etfs=("RTOO",)),
+    NicheSpec("space", "Space", "Space launch and satellites.", etfs=("GALX",)),
+    NicheSpec("defense", "Defense", "Defense contractors.", etfs=("AMMO",)),
+    NicheSpec("income", "Income ETFs", "Covered-call and defined-outcome ETFs.", etfs=("OMAH", "VOOB")),
 )
 
 
@@ -111,6 +124,27 @@ def seed_niches(session: Session, end: date | None = None, years: int = 2) -> No
     session.commit()
     load_catalog(session, DEMO_CATALOG)
     recompute_metrics(session, [t for t, *_ in DEMO_EXTRAS], today=end)
+    from app.models import EtfHoldingsSnapshot
+    from app.providers.holdings_demo import DemoHoldings
+
+    # Seed never hits live issuer APIs; write demo snapshots directly.
+    demo = DemoHoldings()
+    now = datetime.now()
+    for t, _n, _s, _i, kind, *_ in DEMO_EXTRAS:
+        if kind != "etf":
+            continue
+        fund = demo.holdings(t)
+        if not fund:
+            continue
+        session.merge(EtfHoldingsSnapshot(
+            ticker=t,
+            as_of=fund.as_of,
+            source=fund.source,
+            holdings=[{"ticker": h.ticker, "name": h.name, "weight_pct": h.weight_pct, "kind": h.kind} for h in fund.holdings],
+            aum=fund.aum,
+            fetched_at=now,
+        ))
+    session.commit()
 
 
 def seed_all(session: Session, end: date | None = None) -> None:

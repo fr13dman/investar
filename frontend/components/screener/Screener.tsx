@@ -4,6 +4,8 @@ import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useMemo } from "react";
 
+import Link from "next/link";
+
 import { Button } from "@/components/ui/button";
 import { api, type SortKey } from "@/lib/api";
 import { cn } from "@/lib/utils";
@@ -66,20 +68,28 @@ export function Screener() {
       </div>
       <StatusBar />
       <div role="group" aria-label="Browse by" className="flex w-fit overflow-hidden rounded-lg border border-input">
-        {(["sectors", "niches"] as BrowseMode[]).map((b) => (
+        {(["sectors", "niches", "etfs"] as BrowseMode[]).map((b) => (
           <button
             key={b}
             type="button"
             aria-pressed={state.browse === b}
             onClick={() =>
-              update({ browse: b, sector: undefined, industry: undefined, niche: undefined, sub: undefined, page: 1 })
+              update({
+                browse: b,
+                sector: undefined,
+                industry: undefined,
+                niche: undefined,
+                sub: undefined,
+                type: b === "etfs" ? "etf" : state.type === "etf" ? "all" : state.type,
+                page: 1,
+              })
             }
             className={cn(
               "px-3 py-1 text-sm",
               state.browse === b ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground",
             )}
           >
-            {b === "sectors" ? "Sectors" : "Niches"}
+            {b === "sectors" ? "Sectors" : b === "niches" ? "Niches" : "ETFs"}
           </button>
         ))}
       </div>
@@ -98,17 +108,28 @@ export function Screener() {
           onChange={({ niche, sub }) => update({ niche, sub, page: 1 })}
         />
       )}
+      {state.browse === "etfs" && (
+        <p className="text-xs text-muted-foreground">
+          Showing in-universe ETFs. For maps and VistaShares, open the{" "}
+          <Link href="/etfs" className="underline">
+            ETFs hub
+          </Link>
+          .
+        </p>
+      )}
       <MoversPanel
         sector={state.browse === "sectors" ? state.sector : undefined}
         industry={state.browse === "sectors" ? state.industry : undefined}
         niche={activeNiche(state)}
         nicheName={nicheName(niches.data ?? [], activeNiche(state))}
+        assetType={state.browse === "etfs" ? "etf" : state.type}
         window={state.window}
         mode={state.mode}
         onWindowChange={(window) => update({ window })}
       />
       <FilterBar
-        type={state.type}
+        type={state.browse === "etfs" ? "etf" : state.type}
+        lockType={state.browse === "etfs"}
         index={state.index}
         cap={state.cap}
         q={state.q}

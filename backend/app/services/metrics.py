@@ -1,4 +1,4 @@
-"""Swing metrics: daily, weekly and YTD change measured from the current price."""
+"""Swing metrics: daily, weekly, monthly, yearly and YTD change measured from the current price."""
 
 from collections import defaultdict
 from dataclasses import dataclass
@@ -20,6 +20,10 @@ class Swings:
     chg_1d_abs: float | None
     chg_1w_pct: float | None
     chg_1w_abs: float | None
+    chg_1m_pct: float | None
+    chg_1m_abs: float | None
+    chg_1y_pct: float | None
+    chg_1y_abs: float | None
     chg_ytd_pct: float | None
     chg_ytd_abs: float | None
     week52_high: float | None
@@ -52,6 +56,8 @@ def compute_swings(
     session (possibly in progress). References:
       1D  -> close of the session before the latest one (or an explicit prev_close)
       1W  -> last close before the Monday of the latest session's week
+      1M  -> last close before ~21 trading days / 30 calendar days earlier
+      1Y  -> last close before ~252 trading days / 365 calendar days earlier
       YTD -> last close of the previous calendar year
     """
     if not closes:
@@ -63,11 +69,15 @@ def compute_swings(
 
     week_start = latest_date - timedelta(days=latest_date.weekday())
     week_ref = _last_before(closes, week_start)
+    month_ref = _last_before(closes, latest_date - timedelta(days=30))
+    year_ref = _last_before(closes, latest_date - timedelta(days=365))
     ytd_ref = _last_before(closes, date(latest_date.year, 1, 1))
 
     window = [c for d, c in closes if d > latest_date - timedelta(days=365)] + [price]
     d_pct, d_abs = _change(price, prev_close)
     w_pct, w_abs = _change(price, week_ref)
+    m_pct, m_abs = _change(price, month_ref)
+    y1_pct, y1_abs = _change(price, year_ref)
     y_pct, y_abs = _change(price, ytd_ref)
     spark = [c for _, c in closes[-SPARKLINE_POINTS:]]
     spark[-1] = price
@@ -77,6 +87,10 @@ def compute_swings(
         chg_1d_abs=d_abs,
         chg_1w_pct=w_pct,
         chg_1w_abs=w_abs,
+        chg_1m_pct=m_pct,
+        chg_1m_abs=m_abs,
+        chg_1y_pct=y1_pct,
+        chg_1y_abs=y1_abs,
         chg_ytd_pct=y_pct,
         chg_ytd_abs=y_abs,
         week52_high=max(window),
@@ -87,7 +101,7 @@ def compute_swings(
 
 def recompute_metrics(session: Session, tickers: list[str] | None = None, today: date | None = None) -> int:
     today = today or date.today()
-    cutoff = min(date(today.year - 1, 12, 1), today - timedelta(days=380))
+    cutoff = min(date(today.year - 1, 12, 1), today - timedelta(days=400))
 
     q = select(Company)
     if tickers:
@@ -134,6 +148,10 @@ def recompute_metrics(session: Session, tickers: list[str] | None = None, today:
                 chg_1d_abs=s.chg_1d_abs,
                 chg_1w_pct=s.chg_1w_pct,
                 chg_1w_abs=s.chg_1w_abs,
+                chg_1m_pct=s.chg_1m_pct,
+                chg_1m_abs=s.chg_1m_abs,
+                chg_1y_pct=s.chg_1y_pct,
+                chg_1y_abs=s.chg_1y_abs,
                 chg_ytd_pct=s.chg_ytd_pct,
                 chg_ytd_abs=s.chg_ytd_abs,
                 sparkline=s.sparkline,

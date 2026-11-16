@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 
+import { SkinToggle } from "@/components/theme/SkinToggle";
 import { ThemeToggle } from "@/components/theme/ThemeToggle";
+import { SKIN_INIT_SCRIPT } from "@/lib/skinScript";
 import { THEME_INIT_SCRIPT } from "@/lib/themeScript";
 
 import "./globals.css";
@@ -22,6 +24,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        <script dangerouslySetInnerHTML={{ __html: SKIN_INIT_SCRIPT }} />
       </head>
       <body className="flex min-h-full flex-col">
         <Providers>
@@ -33,13 +36,17 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               <Link href="/" className="text-sm text-muted-foreground hover:text-foreground">
                 Screener
               </Link>
+              <Link href="/etfs" className="text-sm text-muted-foreground hover:text-foreground">
+                ETFs
+              </Link>
               <Link href="/explore" className="text-sm text-muted-foreground hover:text-foreground">
                 Explore
               </Link>
               <Link href="/watchlists" className="text-sm text-muted-foreground hover:text-foreground">
                 Watchlists
               </Link>
-              <div className="ml-auto">
+              <div className="ml-auto flex items-center gap-1">
+                <SkinToggle />
                 <ThemeToggle />
               </div>
             </nav>

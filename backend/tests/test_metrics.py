@@ -34,6 +34,17 @@ def test_daily_weekly_ytd_references():
     assert s.week52_high == 110 and s.week52_low == 100
 
 
+def test_monthly_and_yearly_references():
+    # ~14 months of weekday closes ending 2026-03-13 so 1M and 1Y refs exist.
+    start = date(2025, 1, 2)
+    closes = [100 + i * 0.1 for i in range(280)]
+    series = bars(start, closes)
+    s = compute_swings(series)
+    assert s.chg_1m_pct is not None and s.chg_1y_pct is not None
+    assert s.chg_1m_abs is not None and s.chg_1y_abs is not None
+    assert s.chg_1y_pct > s.chg_1m_pct > 0
+
+
 def test_live_price_and_prev_close_override():
     series = bars(date(2026, 3, 2), [50, 51, 52])
     s = compute_swings(series, price=55, prev_close=51.5)

@@ -12,7 +12,7 @@ async function columnValues(page: import("@playwright/test").Page, header: strin
 test("filter by sector and industry, then sort by swings", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { name: "Stock screener" })).toBeVisible();
-  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(15);
+  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(22);
 
   await page.getByRole("button", { name: "Sector Technology" }).click();
   await expect(page).toHaveURL(/sector=Technology/);

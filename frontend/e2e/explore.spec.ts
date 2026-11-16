@@ -7,7 +7,7 @@ test("screener: browse by niche and sub-niche", async ({ page }) => {
   await page.getByRole("group", { name: "Browse by" }).getByRole("button", { name: "Niches" }).click();
   await expect(page).toHaveURL(/browse=niches/);
   await page.getByRole("button", { name: "Niche AI" }).click();
-  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(7);
+  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(8);
 
   await page.getByRole("button", { name: "Sub-niche Neoclouds" }).click();
   await expect(page).toHaveURL(/niche=ai&sub=neoclouds/);
@@ -18,13 +18,13 @@ test("screener: browse by niche and sub-niche", async ({ page }) => {
   await page.getByRole("button", { name: "Niche Energy Transition" }).click();
   await expect(page).toHaveURL(/niche=energy-transition/);
   await page.getByLabel("Asset type").selectOption("etf");
-  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(1);
-  await expect(stocksTable(page).getByText("ETF", { exact: true })).toBeVisible();
+  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(2); // URA, POW
+  await expect(stocksTable(page).getByText("ETF", { exact: true }).first()).toBeVisible();
 
   await page.getByLabel("Asset type").selectOption("all");
   await expect(page).not.toHaveURL(/type=etf/);
   await page.getByLabel("Index").selectOption("other");
-  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(2);
+  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(3); // URA, OKLO, POW
 });
 
 test("explore: filter by niche and gains", async ({ page }) => {
@@ -32,7 +32,7 @@ test("explore: filter by niche and gains", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "Explore niches" })).toBeVisible();
   await page.getByLabel("Niche", { exact: true }).selectOption("energy-transition");
   await expect(page).toHaveURL(/niche=energy-transition/);
-  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(2);
+  await expect(stocksTable(page).locator("tbody tr")).toHaveCount(3); // URA, OKLO, POW
   await page.getByLabel("Sub-niche").selectOption("small-modular-reactors");
   await expect(stocksTable(page).locator("tbody tr")).toHaveCount(1);
   await expect(stocksTable(page).getByRole("link", { name: "OKLO" })).toBeVisible();
@@ -82,6 +82,6 @@ test("explore: search the market, add a symbol with niches, then stop tracking i
 test("ETF pages skip filings-based research", async ({ page }) => {
   await page.goto("/company/URA");
   await expect(page.getByRole("heading", { name: "Global X Uranium ETF" })).toBeVisible();
-  await expect(page.getByRole("tab")).toHaveText(["Overview", "News"]);
+  await expect(page.getByRole("tab")).toHaveText(["Overview", "Holdings", "News"]);
   await expect(page.getByRole("list", { name: "Company niches" }).getByText("Energy Transition")).toBeVisible();
 });

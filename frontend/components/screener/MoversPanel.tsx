@@ -5,11 +5,17 @@ import Link from "next/link";
 
 import { ChangeValue } from "@/components/market/ChangeValue";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { api, type ChangeMode, type StockRow, type SwingWindow } from "@/lib/api";
+import { api, type AssetFilter, type ChangeMode, type StockRow, type SwingWindow } from "@/lib/api";
 import { formatPrice } from "@/lib/format";
 import { cn } from "@/lib/utils";
 
-const WINDOW_LABEL: Record<SwingWindow, string> = { chg_1d: "1D", chg_1w: "1W", chg_ytd: "YTD" };
+const WINDOW_LABEL: Record<SwingWindow, string> = {
+  chg_1d: "1D",
+  chg_1w: "1W",
+  chg_1m: "1M",
+  chg_1y: "1Y",
+  chg_ytd: "YTD",
+};
 
 function MoverList({ title, rows, window, mode }: { title: string; rows: StockRow[]; window: SwingWindow; mode: ChangeMode }) {
   return (
@@ -39,6 +45,7 @@ export function MoversPanel({
   industry,
   niche,
   nicheName,
+  assetType = "all",
   window,
   mode,
   onWindowChange,
@@ -47,20 +54,38 @@ export function MoversPanel({
   industry?: string;
   niche?: string;
   nicheName?: string;
+  assetType?: AssetFilter;
   window: SwingWindow;
   mode: ChangeMode;
   onWindowChange: (w: SwingWindow) => void;
 }) {
   const { data } = useQuery({
-    queryKey: ["movers", sector, industry, niche, window, mode],
-    queryFn: () => api.movers({ sector, industry, niche, window, mode, limit: 5 }),
+    queryKey: ["movers", sector, industry, niche, assetType, window, mode],
+    queryFn: () =>
+      api.movers({
+        sector,
+        industry,
+        niche,
+        asset_type: assetType === "all" ? undefined : assetType,
+        window,
+        mode,
+        limit: 5,
+      }),
   });
   return (
     <Card size="sm">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle>
           Top movers{" "}
-          {industry ? `in ${industry}` : sector ? `in ${sector}` : niche ? `in ${nicheName ?? niche}` : "across all sectors"}
+          {industry
+            ? `in ${industry}`
+            : sector
+              ? `in ${sector}`
+              : niche
+                ? `in ${nicheName ?? niche}`
+                : assetType === "etf"
+                  ? "among ETFs"
+                  : "across all sectors"}
         </CardTitle>
         <div role="group" aria-label="Mover window" className="flex gap-1">
           {(Object.keys(WINDOW_LABEL) as SwingWindow[]).map((w) => (

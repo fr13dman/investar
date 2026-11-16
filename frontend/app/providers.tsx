@@ -3,6 +3,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState } from "react";
 
+import { SkinProvider } from "@/components/theme/SkinProvider";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { ApiError } from "@/lib/api";
 
@@ -21,7 +22,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
   );
   return (
     <QueryClientProvider client={client}>
-      <ThemeProvider>{children}</ThemeProvider>
+      <ThemeProvider>
+        <SkinProvider>{children}</SkinProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

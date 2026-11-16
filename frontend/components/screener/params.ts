@@ -8,7 +8,7 @@ import type {
   SwingWindow,
 } from "@/lib/api";
 
-export type BrowseMode = "sectors" | "niches";
+export type BrowseMode = "sectors" | "niches" | "etfs";
 
 export interface ScreenerState {
   browse: BrowseMode;
@@ -41,6 +41,7 @@ export const DEFAULT_STATE: ScreenerState = {
   page: 1,
 };
 
+const BROWSE: BrowseMode[] = ["sectors", "niches", "etfs"];
 const SORTS: SortKey[] = [
   "ticker",
   "name",
@@ -52,12 +53,14 @@ const SORTS: SortKey[] = [
   "pe_ratio",
   "chg_1d",
   "chg_1w",
+  "chg_1m",
+  "chg_1y",
   "chg_ytd",
 ];
 export const INDEXES: IndexFilter[] = ["all", "sp500", "ndx100", "both", "other"];
 export const ASSET_FILTERS: AssetFilter[] = ["all", "stock", "etf"];
 export const CAPS: CapBand[] = ["mega", "large", "mid", "small"];
-export const WINDOWS: SwingWindow[] = ["chg_1d", "chg_1w", "chg_ytd"];
+export const WINDOWS: SwingWindow[] = ["chg_1d", "chg_1w", "chg_1m", "chg_1y", "chg_ytd"];
 
 export function pick<T extends string>(value: string | null, allowed: readonly T[], fallback: T): T {
   return value && (allowed as readonly string[]).includes(value) ? (value as T) : fallback;
@@ -68,7 +71,7 @@ export function parseParams(sp: URLSearchParams): ScreenerState {
   const wl = Number(sp.get("wl"));
   const cap = sp.get("cap");
   return {
-    browse: sp.get("browse") === "niches" ? "niches" : "sectors",
+    browse: pick(sp.get("browse"), BROWSE, DEFAULT_STATE.browse),
     sector: sp.get("sector") || undefined,
     industry: sp.get("industry") || undefined,
     niche: sp.get("niche") || undefined,
@@ -111,16 +114,16 @@ export function serializeParams(state: ScreenerState): string {
 
 /** The niche slug to filter by: the sub-niche when one is picked, otherwise its parent. */
 export function activeNiche(state: Pick<ScreenerState, "browse" | "niche" | "sub">): string | undefined {
-  return state.browse === "niches" ? (state.sub ?? state.niche) : undefined;
+  return state.browse === "niches" || state.browse === "etfs" ? (state.sub ?? state.niche) : undefined;
 }
 
 export function toStocksQuery(state: ScreenerState, pageSize: number): StocksQuery {
-  const niches = state.browse === "niches";
+  const niches = state.browse === "niches" || state.browse === "etfs";
   return {
     sector: niches ? undefined : state.sector,
     industry: niches ? undefined : state.industry,
     niche: activeNiche(state),
-    asset_type: state.type !== "all" ? state.type : undefined,
+    asset_type: state.browse === "etfs" ? "etf" : state.type !== "all" ? state.type : undefined,
     index: state.index,
     cap_band: state.cap,
     q: state.q,

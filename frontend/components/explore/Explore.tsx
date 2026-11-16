@@ -15,7 +15,13 @@ import { MarketSearch } from "./MarketSearch";
 import { parseExplore, serializeExplore, toExploreQuery, type ExploreState } from "./params";
 
 const PAGE_SIZE = 50;
-const WINDOW_LABEL: Record<SwingWindow, string> = { chg_1d: "1 day", chg_1w: "1 week", chg_ytd: "Year to date" };
+const WINDOW_LABEL: Record<SwingWindow, string> = {
+  chg_1d: "1 day",
+  chg_1w: "1 week",
+  chg_1m: "1 month",
+  chg_1y: "1 year",
+  chg_ytd: "Year to date",
+};
 
 /** Text/number input that commits to the URL after a pause instead of on every keystroke. */
 function useCommitted(value: string, commit: (v: string) => void) {

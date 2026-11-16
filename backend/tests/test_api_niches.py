@@ -31,24 +31,26 @@ def _tickers(client, **params):
 
 def test_niche_tree_endpoint(client, niched):
     tree = client.get("/api/niches").json()
-    ai = tree[0]
-    assert ai["slug"] == "ai" and ai["count"] == 7
+    ai = next(n for n in tree if n["slug"] == "ai")
+    assert ai["count"] == 8  # 7 stocks + AIS
     assert {"id", "slug", "name", "description", "count"} <= set(ai["children"][0])
+    assert {n["slug"] for n in tree} >= {"ai", "energy-transition", "robotics", "space", "defense", "income"}
 
 
 def test_screener_includes_extras_and_filters_by_niche(client, niched):
     body = client.get("/api/stocks").json()
-    assert body["total"] == 15
-    assert _tickers(client, niche="ai") == {"NVDA", "AMD", "ASML", "MSFT", "AMZN", "ORCL", "CRWV"}
+    assert body["total"] == 22  # 12 index + 10 demo extras
+    assert _tickers(client, niche="ai") == {"NVDA", "AMD", "ASML", "MSFT", "AMZN", "ORCL", "CRWV", "AIS"}
     assert _tickers(client, niche="neoclouds") == {"CRWV"}
-    assert _tickers(client, niche="energy-transition") == {"URA", "OKLO"}
+    assert _tickers(client, niche="energy-transition") == {"URA", "OKLO", "POW"}
     assert _tickers(client, niche="no-such-niche") == set()
 
 
 def test_asset_type_and_index_other(client, niched):
-    assert _tickers(client, asset_type="etf") == {"URA"}
+    etfs = _tickers(client, asset_type="etf")
+    assert etfs == {"URA", "AIS", "POW", "RTOO", "GALX", "AMMO", "OMAH", "VOOB"}
     assert "URA" not in _tickers(client, asset_type="stock")
-    assert _tickers(client, index="other") == {"CRWV", "OKLO", "URA"}
+    assert _tickers(client, index="other") == {"CRWV", "OKLO"} | etfs
     row = next(r for r in client.get("/api/stocks", params={"q": "URA"}).json()["items"] if r["ticker"] == "URA")
     assert row["asset_type"] == "etf" and row["extra_source"] == "curated"
 
@@ -65,11 +67,14 @@ def test_change_range_filters(client, niched):
 
 def test_movers_by_niche_and_sectors_exclude_etfs(client, niched):
     body = client.get("/api/movers", params={"niche": "ai", "limit": 3}).json()
-    ai = {"NVDA", "AMD", "ASML", "MSFT", "AMZN", "ORCL", "CRWV"}
+    ai = {"NVDA", "AMD", "ASML", "MSFT", "AMZN", "ORCL", "CRWV", "AIS"}
     assert {r["ticker"] for r in body["gainers"] + body["losers"]} <= ai
+    etf_only = client.get("/api/movers", params={"asset_type": "etf", "limit": 5}).json()
+    assert {r["ticker"] for r in etf_only["gainers"] + etf_only["losers"]}
+    assert all(r["asset_type"] == "etf" for r in etf_only["gainers"] + etf_only["losers"])
     sectors = client.get("/api/sectors").json()
     assert all(s["sector"] for s in sectors)
-    assert sum(s["count"] for s in sectors) == 14  # 12 index stocks + CRWV + OKLO; URA has no sector
+    assert sum(s["count"] for s in sectors) == 14  # 12 index stocks + CRWV + OKLO; ETFs have no sector
 
 
 def test_market_search_flags(client, niched):

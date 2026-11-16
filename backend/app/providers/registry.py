@@ -105,3 +105,22 @@ def patents():
     from app.providers.patents_patentsview import PatentsViewApi
 
     return PatentsViewApi()
+
+
+def holdings(ticker: str | None = None):
+    """Route VistaShares tickers to the issuer; everything else to TickerInside (or demo offline)."""
+    if "holdings" in _overrides:
+        return _overrides["holdings"]
+    if _offline():
+        from app.providers.holdings_demo import DemoHoldings
+
+        return DemoHoldings()
+    from app.vistashares_catalog import is_vistashares
+
+    if ticker and is_vistashares(ticker):
+        from app.providers.holdings_vistashares import VistaSharesHoldings
+
+        return VistaSharesHoldings()
+    from app.providers.holdings_tickerinside import TickerInsideHoldings
+
+    return TickerInsideHoldings()

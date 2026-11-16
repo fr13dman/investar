@@ -12,7 +12,7 @@ CAP_BANDS = {
     "mid": (2e9, 10e9),
     "small": (None, 2e9),
 }
-SWING_FIELDS = {"chg_1d", "chg_1w", "chg_ytd"}
+SWING_FIELDS = {"chg_1d", "chg_1w", "chg_1m", "chg_1y", "chg_ytd"}
 PLAIN_SORTS = {
     "ticker": Company.ticker,
     "name": Company.name,
@@ -113,6 +113,10 @@ def row_dict(c: Company, m: MetricsSnapshot | None) -> dict:
         "chg_1d_abs": m.chg_1d_abs if m else None,
         "chg_1w_pct": m.chg_1w_pct if m else None,
         "chg_1w_abs": m.chg_1w_abs if m else None,
+        "chg_1m_pct": m.chg_1m_pct if m else None,
+        "chg_1m_abs": m.chg_1m_abs if m else None,
+        "chg_1y_pct": m.chg_1y_pct if m else None,
+        "chg_1y_abs": m.chg_1y_abs if m else None,
         "chg_ytd_pct": m.chg_ytd_pct if m else None,
         "chg_ytd_abs": m.chg_ytd_abs if m else None,
         "sparkline": m.sparkline if m else None,
@@ -150,10 +154,20 @@ def sector_tree(session: Session) -> list[dict]:
     return list(tree.values())
 
 
-def movers(session: Session, sector: str | None = None, window: str = "chg_1d", mode: str = "pct",
-           limit: int = 5, industry: str | None = None, niche: str | None = None) -> dict:
+def movers(
+    session: Session,
+    sector: str | None = None,
+    window: str = "chg_1d",
+    mode: str = "pct",
+    limit: int = 5,
+    industry: str | None = None,
+    niche: str | None = None,
+    asset_type: str = "all",
+) -> dict:
     col = sort_column(window, mode)
-    conds = _filters(ScreenerQuery(sector=sector, industry=industry, niche=niche)) + [col.is_not(None)]
+    conds = _filters(ScreenerQuery(sector=sector, industry=industry, niche=niche, asset_type=asset_type)) + [
+        col.is_not(None)
+    ]
     base = select(Company, MetricsSnapshot).join(MetricsSnapshot, MetricsSnapshot.ticker == Company.ticker).where(*conds)
     gainers = [row_dict(c, m) for c, m in session.execute(base.order_by(col.desc()).limit(limit))]
     losers = [row_dict(c, m) for c, m in session.execute(base.order_by(col.asc()).limit(limit))]

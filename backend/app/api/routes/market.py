@@ -9,8 +9,8 @@ from app.services import screener
 router = APIRouter(prefix="/api", tags=["market"])
 
 SortKey = Literal["ticker", "name", "sector", "industry", "price", "market_cap", "volume", "pe_ratio",
-                  "chg_1d", "chg_1w", "chg_ytd"]
-Window = Literal["chg_1d", "chg_1w", "chg_ytd"]
+                  "chg_1d", "chg_1w", "chg_1m", "chg_1y", "chg_ytd"]
+Window = Literal["chg_1d", "chg_1w", "chg_1m", "chg_1y", "chg_ytd"]
 
 
 @router.get("/sectors")
@@ -53,13 +53,16 @@ def movers(
     sector: str | None = None,
     industry: str | None = None,
     niche: str | None = None,
+    asset_type: Literal["all", "stock", "etf"] = "all",
     window: Window = "chg_1d",
     mode: Literal["pct", "abs"] = "pct",
     limit: int = Query(5, ge=1, le=25),
     session: Session = Depends(get_session),
 ):
-    return screener.movers(session, sector=sector, industry=industry, niche=niche, window=window, mode=mode,
-                           limit=limit)
+    return screener.movers(
+        session, sector=sector, industry=industry, niche=niche, window=window, mode=mode, limit=limit,
+        asset_type=asset_type,
+    )
 
 
 @router.get("/benchmarks")
